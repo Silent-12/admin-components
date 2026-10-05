@@ -23,7 +23,7 @@
  * - 用户配置跨页面保持
  */
 import { defineStore } from 'pinia'
-// 引入持久化插件的类型扩充（persist 选项），运行时插件由宿主安装
+// 引入持久化插件的类型扩充（persist 选项），运行时插件由 Admin模板安装
 import type {} from 'pinia-plugin-persistedstate'
 import { ref } from 'vue'
 import { TableSizeEnum } from '../../enums'

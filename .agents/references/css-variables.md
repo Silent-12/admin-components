@@ -77,17 +77,17 @@
 
 ### Element Plus 桥接变量
 
-主题色与圆角基数的默认值由布局包 `theme.scss` 提供，宿主可在自己的全局样式中覆盖；其余仍由宿主 `src/assets/styles/el-ui.scss` 提供。
+主题色与圆角基数的默认值由布局包 `theme.scss` 提供，Admin模板可在自己的全局样式中覆盖；其余仍由 Admin模板 `src/assets/styles/el-ui.scss` 提供。
 
-| 变量名                         | 来源                | 说明                                          |
-| ------------------------------ | ------------------- | --------------------------------------------- |
-| `--main-color`                 | 布局包（可被覆盖）  | 指向 `var(--el-color-primary)`，主题色别名    |
-| `--theme-color`                | 布局包              | 指向 `var(--main-color)`                      |
-| `--custom-radius`              | 布局包（可被覆盖）  | 全局圆角基数（默认 `0.75rem`）                |
-| `--el-component-custom-height` | 宿主 `el-ui.scss`   | 组件统一高度（固定 `36px`）                   |
-| `--el-component-size`          | 宿主 `el-ui.scss`   | Element Plus 组件尺寸（跟随上面）             |
-| `--el-border-radius-base`      | 宿主 `el-ui.scss`   | Element 基础圆角（由 `--custom-radius` 计算） |
-| `--el-border-radius-small`     | 宿主 `el-ui.scss`   | Element 小圆角（由 `--custom-radius` 计算）   |
+| 变量名                         | 来源                   | 说明                                          |
+| ------------------------------ | ---------------------- | --------------------------------------------- |
+| `--main-color`                 | 布局包（可被覆盖）     | 指向 `var(--el-color-primary)`，主题色别名    |
+| `--theme-color`                | 布局包                 | 指向 `var(--main-color)`                      |
+| `--custom-radius`              | 布局包（可被覆盖）     | 全局圆角基数（默认 `0.75rem`）                |
+| `--el-component-custom-height` | Admin模板 `el-ui.scss` | 组件统一高度（固定 `36px`）                   |
+| `--el-component-size`          | Admin模板 `el-ui.scss` | Element Plus 组件尺寸（跟随上面）             |
+| `--el-border-radius-base`      | Admin模板 `el-ui.scss` | Element 基础圆角（由 `--custom-radius` 计算） |
+| `--el-border-radius-small`     | Admin模板 `el-ui.scss` | Element 小圆角（由 `--custom-radius` 计算）   |
 
 ### Element Plus 暗色覆盖（`src/assets/styles/dark.scss`，仅 `html.dark` 下生效）
 

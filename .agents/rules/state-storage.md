@@ -4,9 +4,9 @@
 
 - 包内 Pinia store 仅存放组件私有 UI 状态（当前仅 `src/store/modules/table.ts`，表格尺寸 / 斑马纹 / 边框等显示偏好），每个 store 一个文件，命名与组件域对应。
 
-- 禁止在包内定义或读取宿主业务 store（user、menu、setting 等）；需要宿主数据时通过 `install` 注入（见 [workflow](workflow.md) 包边界纪律）。
+- 禁止在包内定义或读取 Admin模板业务 store（user、menu、setting 等）；需要 Admin模板数据时通过 `install` 注入（见 [workflow](workflow.md) 包边界纪律）。
 
-- 持久化依赖宿主安装的 `pinia-plugin-persistedstate`（包的 peerDependencies），包内不注册插件；`persist` 类型扩充通过 store 文件内 `import type {} from 'pinia-plugin-persistedstate'` 引入。Setup Store 的持久化示例：
+- 持久化依赖 Admin模板安装的 `pinia-plugin-persistedstate`（包的 peerDependencies），包内不注册插件；`persist` 类型扩充通过 store 文件内 `import type {} from 'pinia-plugin-persistedstate'` 引入。Setup Store 的持久化示例：
 
   ```ts
   export const usePreferenceStore = defineStore(

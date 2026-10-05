@@ -10,8 +10,10 @@
       <h2>按钮组</h2>
       <p>
         表格行内按钮（AoButtonTable）、下拉更多按钮（AoButtonMore）与通用图标按钮（AoIconButton）。
-        AoButtonMore 的 <code>auth</code> 走包内 <code>useAuth</code>，权限列表由宿主在 install
-        时通过 <code>getAuthList</code> 注入（当前注入值：<code>['add', 'edit', 'delete']</code>）。
+        AoButtonMore 的 <code>auth</code> 走包内 <code>useAuth</code>，权限列表由 Admin模板在
+        install 时通过 <code>getAuthList</code> 注入（当前注入值：<code
+          >['add', 'edit', 'delete']</code
+        >）。
       </p>
     </header>
 

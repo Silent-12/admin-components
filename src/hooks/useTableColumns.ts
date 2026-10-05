@@ -26,7 +26,7 @@
  * <AoTable :data="rows" :columns="columns" v-model:column-checks="columnChecks" />
  * ```
  *
- * 特殊列的列名取自包内置语言包 `table.column.*`（随 install 合并进宿主实例），
+ * 特殊列的列名取自包内置语言包 `table.column.*`（随 install 合并进 Admin模板实例），
  * 因此本 Hook 必须在 setup 上下文中调用。
  */
 import { computed, ref, watch, type ComputedRef, type Ref } from 'vue'

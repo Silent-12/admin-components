@@ -474,7 +474,7 @@ const Zo = 500, Yo = 2, qo = (e, o) => {
       icon: o.icon
     }, p.value, { class: "ao-svg-icon" }), null, 16, ["icon"])) : _("", !0);
   }
-}), ge = /* @__PURE__ */ Q(la, [["__scopeId", "data-v-7d6b14ad"]]), na = /* @__PURE__ */ Y({
+}), ge = /* @__PURE__ */ Q(la, [["__scopeId", "data-v-e3e5bfd5"]]), na = /* @__PURE__ */ Y({
   name: "AoTableHeaderButton",
   __name: "AoTableHeaderButton",
   props: {
@@ -1794,7 +1794,7 @@ const sa = { class: "table-header-root" }, ua = { class: "left-wrap" }, ia = { c
       }, null, 12, Ta)) : _("", !0)
     ]));
   }
-}), Ga = /* @__PURE__ */ Q(Oa, [["__scopeId", "data-v-a45d0db4"]]), Za = {
+}), Ga = /* @__PURE__ */ Q(Oa, [["__scopeId", "data-v-79a50d9f"]]), Za = {
   install(e, o = {}) {
     console.info(`[ao-admin-components] v${$o}`), o.i18n && (o.i18n.global.mergeLocaleMessage("zh", Ro), o.i18n.global.mergeLocaleMessage("en", Lo)), e.provide(mt, o.getAuthList ?? (() => {
     })), e.provide(vt, o.resolveLocalSvg ?? (() => {

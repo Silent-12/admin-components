@@ -1,11 +1,11 @@
 /**
  * 本地 SVG 资源解析
  *
- * SVG 文件属于宿主项目资源（如 src/assets/svg），包内不做 import.meta.glob：
- * 宿主在自己的构建里收集本地 SVG，并通过 install 选项注入解析函数，
+ * SVG 文件属于 Admin模板项目资源（如 src/assets/svg），包内不做 import.meta.glob：
+ * Admin模板在自己的构建里收集本地 SVG，并通过 install 选项注入解析函数，
  * AoSvgIcon 对不含 ":" 的图标名优先走该解析，找不到再回退 iconify。
  *
- * ## 宿主注入示例
+ * ## Admin模板注入示例
  *
  * ```typescript
  * const globPattern = '@/assets/svg/' + '**' + '/' + '*.svg'
@@ -28,5 +28,5 @@ export type LocalSvgResolver = (icon: string) => string | undefined
 /** 本地 SVG 解析注入 key */
 export const LOCAL_SVG_KEY = Symbol('ao-admin-local-svg')
 
-/** 宿主 logo 图片地址注入 key */
+/** Admin模板 logo 图片地址注入 key */
 export const LOGO_URL_KEY = Symbol('ao-admin-logo-url')

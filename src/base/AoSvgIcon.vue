@@ -25,7 +25,7 @@
     size: '1em'
   })
 
-  // 本地 SVG 资源属于宿主项目，由宿主通过 install 注入解析函数；
+  // 本地 SVG 资源属于 Admin模板项目，由 Admin模板通过 install 注入解析函数；
   // 未注入时所有名称都走 iconify 图标。
   const resolveInjectedSvg = inject<LocalSvgResolver>(LOCAL_SVG_KEY, () => undefined)
 

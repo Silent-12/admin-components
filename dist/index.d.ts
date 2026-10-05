@@ -14,7 +14,7 @@ import { default as AoExcelImport } from './forms/AoExcelImport.vue';
 import { default as AoSvgIcon } from './base/AoSvgIcon.vue';
 import { default as AoIconButton } from './widget/AoIconButton.vue';
 import { default as AoLogo } from './base/AoLogo.vue';
-/** 宿主 i18n 实例的最小结构约束，兼容 legacy / composition 两种模式 */
+/** Admin模板 i18n 实例的最小结构约束，兼容 legacy / composition 两种模式 */
 interface MergeableI18n {
     global: {
         mergeLocaleMessage: (locale: string, messages: Record<string, unknown>) => void;
@@ -22,13 +22,13 @@ interface MergeableI18n {
 }
 /** 组件包安装选项 */
 export interface AdminComponentsOptions {
-    /** 宿主 vue-i18n 实例；传入后包内置语言包（common/table 段）会合并进去 */
+    /** Admin模板 vue-i18n 实例；传入后包内置语言包（common/table 段）会合并进去 */
     i18n?: MergeableI18n;
     /** 权限列表获取函数；未注入时按钮级权限判断视为无权限 */
     getAuthList?: AuthListGetter;
-    /** 宿主本地 SVG 解析函数；未注入时所有图标名走 iconify */
+    /** Admin模板本地 SVG 解析函数；未注入时所有图标名走 iconify */
     resolveLocalSvg?: LocalSvgResolver;
-    /** 宿主品牌资源 */
+    /** Admin模板品牌资源 */
     assets?: {
         /** 默认 logo 图片地址，供 AoLogo 使用 */
         logo?: string;
@@ -37,7 +37,7 @@ export interface AdminComponentsOptions {
 /**
  * 组件包插件
  * @description 安装时在控制台静默输出版本号，注册 loading 指令，
- * 合并内置语言包并保存宿主注入的权限获取函数与资源解析函数。
+ * 合并内置语言包并保存 Admin模板注入的权限获取函数与资源解析函数。
  */
 export declare const AdminComponents: Plugin;
 export { version };

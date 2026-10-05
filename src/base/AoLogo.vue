@@ -14,7 +14,7 @@
   interface Props {
     /** logo 大小 */
     size?: number | string
-    /** logo 图片地址；不传时使用宿主通过 install 注入的地址 */
+    /** logo 图片地址；不传时使用 Admin模板通过 install 注入的地址 */
     src?: string
   }
 
@@ -22,7 +22,7 @@
     size: 36
   })
 
-  // logo 属于宿主品牌资源，由宿主通过 install 注入默认地址
+  // logo 属于 Admin模板品牌资源，由 Admin模板通过 install 注入默认地址
   const injectedLogoUrl = inject<string | undefined>(LOGO_URL_KEY, undefined)
 
   const logoSrc = computed(() => props.src ?? injectedLogoUrl)

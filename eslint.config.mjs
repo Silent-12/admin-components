@@ -1,5 +1,5 @@
 // ESLint 扁平配置（flat config）
-// 规范对齐宿主模板 admin-template-vue，忽略项按本仓库目录结构调整。
+// 规范对齐 Admin模板 `admin-template-vue`，忽略项按本仓库目录结构调整。
 // 说明：Prettier 负责格式化，ESLint 只做代码质量与 Vue/TS 规则校验，两者通过
 // 下方 quotes / semi 等规则保持口径一致，因此不引入 eslint-config-prettier。
 import pluginJs from '@eslint/js'

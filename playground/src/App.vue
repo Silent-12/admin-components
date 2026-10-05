@@ -94,7 +94,7 @@
   /** 暗色模式开关：验证组件在 .dark 下的样式表现 */
   const isDark = ref(document.documentElement.classList.contains('dark'))
 
-  /** @description 切换根元素主题，使宿主变量与 Element Plus 暗色样式同步生效。 */
+  /** @description 切换根元素主题，使 Admin模板变量与 Element Plus 暗色样式同步生效。 */
   const toggleDark = () => {
     isDark.value = !isDark.value
     document.documentElement.classList.toggle('dark', isDark.value)

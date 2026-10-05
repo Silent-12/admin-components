@@ -6,13 +6,13 @@
 
 - 修改/新增代码前，先搜索包内已有实现与既有组件能力，优先复用；无则新增。
 
-- 组件能力调整前，先对照宿主模板 `admin-template-vue` 的同名组件使用方式，确认变更对全部下游系统的影响面；本包源码源自该模板，历史上的一致性约定优先保持。
+- 组件能力调整前，先对照 Admin模板 `admin-template-vue` 的同名组件使用方式，确认变更对全部下游系统的影响面；本包源码源自该模板，历史上的一致性约定优先保持。
 
 ## 包边界纪律（核心）
 
-- 组件内禁止 import 任何宿主业务资源：`store/modules` 的业务 store（user、menu 等）、`@/api`、`@/views`、`@/locales`、`@/router`、`@/utils`。宿主数据与能力一律通过 `install` 注入（`getAuthList`、`resolveLocalSvg`、`assets.logo`、`i18n`）。
+- 组件内禁止 import 任何 Admin模板业务资源：`store/modules` 的业务 store（user、menu 等）、`@/api`、`@/views`、`@/locales`、`@/router`、`@/utils`。Admin模板数据与能力一律通过 `install` 注入（`getAuthList`、`resolveLocalSvg`、`assets.logo`、`i18n`）。
 
-- 新增需要宿主数据的能力时，先扩展 `AdminComponentsOptions` 注入接口并在 README 契约章节说明，禁止在组件内直接读取宿主全局状态。
+- 新增需要 Admin模板数据的能力时，先扩展 `AdminComponentsOptions` 注入接口并在 README 契约章节说明，禁止在组件内直接读取 Admin模板全局状态。
 
 - 包内禁止使用 `import.meta.glob` 指向包外路径；本地资源类需求（如 SVG）一律走注入。
 

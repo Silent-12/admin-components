@@ -1,16 +1,16 @@
 <!--
   AoSvgIcon / AoLogo 示例
   场景一：AoSvgIcon 图标（iconify 名称、尺寸、颜色继承）
-  场景二：AoLogo（宿主注入的默认地址、src 覆盖、尺寸）
+  场景二：AoLogo（Admin模板注入的默认地址、src 覆盖、尺寸）
 -->
 <template>
   <div class="demo-page">
     <header class="demo-head">
       <h2>图标与 Logo</h2>
       <p>
-        <code>AoSvgIcon</code> 名称含 <code>:</code> 时走 iconify 在线图标，否则交给宿主通过
+        <code>AoSvgIcon</code> 名称含 <code>:</code> 时走 iconify 在线图标，否则交给 Admin模板通过
         <code>resolveLocalSvg</code> 注入的本地 SVG 解析函数；<code>AoLogo</code> 未显式传
-        <code>src</code> 时使用宿主通过 <code>assets.logo</code> 注入的地址。
+        <code>src</code> 时使用 Admin模板通过 <code>assets.logo</code> 注入的地址。
       </p>
     </header>
 
@@ -42,8 +42,8 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景二：AoLogo</h3>
       <p class="demo-block__desc">
-        左侧为宿主通过 install 的 <code>assets.logo</code> 注入的默认地址（playground 注入的是内联
-        SVG data URI）； 右侧显式传 <code>src</code> 覆盖默认值。<code>size</code>
+        左侧为 Admin模板通过 install 的 <code>assets.logo</code> 注入的默认地址（playground
+        注入的是内联 SVG data URI）； 右侧显式传 <code>src</code> 覆盖默认值。<code>size</code>
         控制宽度，高度自适应。
       </p>
 

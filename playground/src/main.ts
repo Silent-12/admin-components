@@ -12,7 +12,7 @@ import App from './App.vue'
 
 /**
  * 预览用的默认 logo（内联 SVG data URI）
- * @description 模拟宿主通过 install 的 assets.logo 注入品牌资源，
+ * @description 模拟 Admin模板通过 install 的 assets.logo 注入品牌资源，
  * AoLogo 未显式传 src 时即使用该地址。
  */
 const LOGO_URL =
@@ -26,7 +26,7 @@ const i18n = createI18n({
   messages: { zh: {}, en: {} }
 })
 
-// 包内 table store 声明了 persist，宿主需注册持久化插件才会写入 localStorage
+// 包内 table store 声明了 persist，Admin模板需注册持久化插件才会写入 localStorage
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
@@ -34,7 +34,7 @@ app.use(pinia)
 app.use(i18n)
 app.use(ElementPlus, { locale: zhCn })
 app.use(AdminComponents, {
-  // 模拟宿主注入：实际项目中从 user store 读取 info.auth
+  // 模拟 Admin模板注入：实际项目中从 user store 读取 info.auth
   i18n,
   getAuthList: () => ['add', 'edit', 'delete'],
   assets: { logo: LOGO_URL }

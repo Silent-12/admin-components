@@ -2,7 +2,7 @@
 
 [返回主索引](../../AGENTS.md)。本文中的源码路径均相对仓库根目录。
 
-规范口径对齐宿主模板 `admin-template-vue`，用于保证组件包与各宿主系统代码风格一致。三个工具职责分离：ESLint 管代码质量与 Vue/TS 规则，Prettier 管格式化，Stylelint 管样式；**不启用 git 钩子**，全部靠手动执行脚本，与参考项目现状一致。
+规范口径对齐 Admin模板 `admin-template-vue`，用于保证组件包与各下游系统代码风格一致。三个工具职责分离：ESLint 管代码质量与 Vue/TS 规则，Prettier 管格式化，Stylelint 管样式；**不启用 git 钩子**，全部靠手动执行脚本，与参考项目现状一致。
 
 ## 配置文件
 

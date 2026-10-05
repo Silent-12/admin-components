@@ -17,7 +17,7 @@ import '@ao/admin-components/styles.css'
 import '@ao/admin-layout/styles.css'
 
 app.use(AdminComponents, {
-  // 可选：宿主 vue-i18n 实例，包内置语言包（common/table 段）会合并进去
+  // 可选：Admin模板 vue-i18n 实例，包内置语言包（common/table 段）会合并进去
   i18n,
   // 可选：按钮级权限判断的权限列表来源
   getAuthList: () => userStore.info?.auth
@@ -26,7 +26,7 @@ app.use(AdminComponents, {
 
 安装成功后控制台会输出 `[ao-admin-components] v1`，用于确认升级是否生效。
 
-组件样式依赖主题变量。`@ao/admin-layout/styles.css` 提供公共亮暗色变量、主题色与圆角基数默认值（`--main-color` 默认跟随 `--el-color-primary`，`--custom-radius` 默认 `0.75rem`）以及 Element Plus 暗色样式，宿主可在自己的全局样式中覆盖。切换 `<html class="dark">` 后自动生效。独立宿主也可以提供同名主题变量，但不能只引入组件 CSS。playground 的接入示例见 `playground/src/main.ts` 和 `playground/src/style.scss`。
+组件样式依赖主题变量。`@ao/admin-layout/styles.css` 提供公共亮暗色变量、主题色与圆角基数默认值（`--main-color` 默认跟随 `--el-color-primary`，`--custom-radius` 默认 `0.75rem`）以及 Element Plus 暗色样式，Admin模板可在自己的全局样式中覆盖。切换 `<html class="dark">` 后自动生效。独立接入的系统也可以提供同名主题变量，但不能只引入组件 CSS。playground 的接入示例见 `playground/src/main.ts` 和 `playground/src/style.scss`。
 
 Iconify 图标按名称在线加载，组件包不携带图标数据。本地 SVG 仍通过 `resolveLocalSvg` 注入。
 
@@ -58,5 +58,5 @@ pnpm --dir playground typecheck
 
 - 表格列（含序号列）统一通过 `visible` 控制显隐，未声明时默认显示，`visible: false` 默认隐藏；列设置面板与 `toggleColumn` 均操作此字段。旧配置 `checked` 已移除，请迁移为 `visible`。`columnChecks` 是列设置数组，不是第二个显隐字段。
 - 下游只允许从包入口导入（组件、类型、hooks），禁止深引 `src` 内部路径。
-- `vue`、`element-plus`、`pinia`、`vue-i18n`、`@vueuse/core` 为 peerDependencies，版本以宿主为准。
+- `vue`、`element-plus`、`pinia`、`vue-i18n`、`@vueuse/core` 为 peerDependencies，版本以 Admin模板为准。
 - `scrollToTop` 等页面级滚动依赖布局包提供的 `#app-main` DOM 锚点。

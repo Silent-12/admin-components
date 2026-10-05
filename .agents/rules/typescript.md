@@ -10,6 +10,6 @@
 
 - TypeScript 类型定义文件（`.ts` / `.d.ts`）的注释规则：`type`、`interface`、`class` 等类型声明前仅保留一段 JSDoc，第一行写简短说明，使用 `@description` 补充用途；字段注释统一使用字段上方的单行 `//` 注释，不在类型 JSDoc 中使用 `@param` 描述字段。类型声明前禁止额外添加与 JSDoc 重复的 `//` 标题注释。
 
-- d.ts 生成约束：公开类型禁止依赖包外路径或宿主专属模块；`vite build` 的 dts 步骤对私有类型名（TS4082）与不可移植推断（TS2742）会失败或告警，出现时优先把类型显式化或移入 `src/types/`，而不是关闭检查。
+- d.ts 生成约束：公开类型禁止依赖包外路径或 Admin模板专属模块；`vite build` 的 dts 步骤对私有类型名（TS4082）与不可移植推断（TS2742）会失败或告警，出现时优先把类型显式化或移入 `src/types/`，而不是关闭检查。
 
 类型注释示例见 [typedoc-style](../skills/typedoc-style/SKILL.md)。
