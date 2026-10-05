@@ -1,3 +1,11 @@
+packages:
+  - playground
+
+# playground 只消费布局包 CSS；组件本身通过 workspace 与源码别名联调。
+peerDependencyRules:
+  allowedVersions:
+    '@ao/admin-layout>@ao/admin-components': '0.0.0'
+
 allowBuilds:
   '@parcel/watcher': true
   core-js: true

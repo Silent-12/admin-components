@@ -4,7 +4,7 @@
 
 - 组件样式统一使用 SCSS 写在 SFC 的 `<style scoped lang="scss">` 中（或组件私有 `style.scss` 由 SFC 引入）；包内**没有全局样式入口**，不提供 reset、主题变量定义与 Element Plus 主题样式，这些由宿主全局样式与 `dist/index.css`（组件 scoped 样式编译产物）共同承担。
 
-- 组件样式中的颜色、边框、阴影必须引用 CSS 变量（如 `var(--default-border)`、`var(--default-bg-color)`），变量定义在宿主的 `theme.scss` / `dark.scss`，包内不重复定义；变量清单见 [CSS 变量速查](../references/css-variables.md)。包内禁止新增变量定义，若现有变量无法满足需求，先在宿主模板中补变量再在包内引用。
+- 组件样式中的颜色、边框、阴影必须引用 CSS 变量（如 `var(--default-border)`、`var(--default-bg-color)`），公共变量由 `@ao/admin-layout/styles.css` 提供，宿主负责引入；包内不重复定义。playground 作为预览宿主，通过开发依赖复用布局包样式，并补齐宿主的 Element Plus 桥接变量。变量清单见 [CSS 变量速查](../references/css-variables.md)，实际值以布局包为准；若现有变量无法满足需求，先在布局包中补变量再在组件包内引用。
 
 - 包内禁止使用 `@use '@styles/mixin.scss'` 等宿主样式路径；确需混入时在包内 `src/styles/` 自带实现。
 

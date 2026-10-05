@@ -63,7 +63,7 @@ export interface FormItemBase {
   render?: (() => VNode) | Component
   // 是否隐藏该表单项
   hidden?: boolean
-  // 可选的列宽：AoForm 中为相对行基准（组件 span 属性）的格数，如行基准 12 时 4 格换算为 8；AoSearchBar 中为 24 格栅格宽度
+  // 可选的列宽：AoForm 中为相对行基准（组件 span 属性）的格数，如行基准 12 时 4 格换算为 8，未声明时按每行 2 项换算；AoSearchBar 中为 24 格栅格宽度
   span?: number
   // 可选的选项数据，也可通过 props.options 传入
   options?: FormOption[]
@@ -91,7 +91,7 @@ export interface FormItem extends FormItemBase {
 export interface FormProps {
   // 表单项配置列表
   items: FormItem[]
-  // 可选的行基准格数，表单项 span 相对它换算；如基准 12 时三个 span 为 4 的项占满一行
+  // 可选的行基准格数，表单项 span 相对它换算；如基准 12 时三个 span 为 4 的项占满一行。表单项未声明 span 时按每行 2 项换算
   span?: number
   // 可选的表单控件间隙
   gutter?: number
@@ -125,7 +125,7 @@ export interface FormWrapperProps extends FormProps {
   visible?: boolean
   // 可选的弹窗标题，仅弹窗模式生效
   title?: string
-  // 可选的弹窗宽度，仅弹窗模式生效
+  // 可选的弹窗宽度，仅弹窗模式生效；默认 600px，与「每行 2 项 + 默认 labelWidth」的默认密度匹配，继续收窄时需同步调小表单项 span
   width?: string | number
   // 可选的弹窗垂直居中开关，默认 true，仅弹窗模式生效
   alignCenter?: boolean

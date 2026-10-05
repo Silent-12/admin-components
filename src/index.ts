@@ -8,7 +8,7 @@
  *
  * ```typescript
  * import { AdminComponents } from '@ao/admin-components'
- * import '@ao/admin-components/dist/index.css'
+ * import '@ao/admin-components/styles.css'
  *
  * app.use(AdminComponents, {
  *   // 可选：合并包内置语言包（含 table 段文案）
@@ -109,4 +109,10 @@ export {
   type LocalSvgResolver
 } from './hooks/useLocalSvg'
 export { useTableHeight } from './hooks/useTableHeight'
+export {
+  useTableColumns,
+  getColumnKey,
+  getColumnVisibility,
+  type DynamicColumnConfig
+} from './hooks/useTableColumns'
 export { useTableStore } from './store/modules/table'

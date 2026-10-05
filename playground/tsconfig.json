@@ -3,6 +3,10 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@ao/admin-components": ["../src/index.ts"]
+    },
     "strict": true,
     "jsx": "preserve",
     "esModuleInterop": true,

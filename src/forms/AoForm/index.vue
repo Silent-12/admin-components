@@ -5,7 +5,7 @@
 <!-- 弹窗模式（默认）：v-model:visible 控制显隐；底部操作区固定为 取消 / 确定（确定 = 校验通过后触发 submit 并携带清洗后的全部表单值，校验失败只展示行内错误且不上报，是否关闭弹窗由业务决定），按钮文案可用 cancelText / confirmText 覆盖 -->
 <!-- 底部操作区默认右对齐；需要替换或增删按钮时用 #footer 插槽整体接管，仅需调整位置时穿透样式修改即可 -->
 <!-- 弹窗默认支持拖拽头部，在浏览器可视区域内移动，拖拽与边界限制由 ElDialog 原生能力处理 -->
-<!-- 弹窗整体高度上限为视口 80%（见 el-ui.scss 的 .ao-form-dialog），头部与底部有 1px 分隔线，超出部分由表单区域内部滚动 -->
+<!-- 弹窗整体高度上限、头部与底部的 1px 分隔线及内边距压缩由 @ao/admin-layout 的 app.scss 提供（.el-dialog.ao-form-dialog），超出部分由表单区域内部滚动 -->
 <template>
   <!-- 弹窗表单模式 -->
   <ElDialog
@@ -27,7 +27,7 @@
       @reset="handleReset"
       @submit="handleSubmit"
     >
-      <template v-for="(_, name) in $slots" :key="name" #[name]="slotProps">
+      <template v-for="(_, name) in slots" :key="name" #[name]="slotProps">
         <slot :name="name" v-bind="slotProps ?? {}" />
       </template>
     </AoFormBody>
@@ -59,14 +59,15 @@
     @reset="handleReset"
     @submit="handleSubmit"
   >
-    <template v-for="(_, name) in $slots" :key="name" #[name]="slotProps">
+    <template v-for="(_, name) in slots" :key="name" #[name]="slotProps">
       <slot :name="name" v-bind="slotProps ?? {}" />
     </template>
   </AoFormBody>
 </template>
 
 <script setup lang="ts">
-  import { computed, useTemplateRef } from 'vue'
+  import { computed, useSlots, useTemplateRef } from 'vue'
+  import type { Slots } from 'vue'
   import { ElButton, ElDialog } from 'element-plus'
   import { useI18n } from 'vue-i18n'
   import AoFormBody from './widget/FormBody.vue'
@@ -101,6 +102,8 @@
 
   const { t } = useI18n()
 
+  // 显式标注运行时插槽，避免声明生成器在动态透传时循环推断 $slots。
+  const slots: Slots = useSlots()
   const formBodyRef = useTemplateRef<InstanceType<typeof AoFormBody>>('formBodyRef')
 
   /** 是否为弹窗表单模式（dialog 默认 true） */

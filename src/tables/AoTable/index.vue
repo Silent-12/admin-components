@@ -78,11 +78,11 @@
               </ElTableColumn>
             </template>
 
-            <slot v-if="$slots.default" />
+            <slot v-if="slots.default" />
 
             <!-- 操作列由插槽自动启用，不参与业务列配置与列显隐设置 -->
             <ElTableColumn
-              v-if="$slots.operation"
+              v-if="slots.operation"
               label="操作"
               :width="170"
               fixed="right"
@@ -131,7 +131,7 @@
 <script setup lang="ts" generic="T extends Record<string, any> = Record<string, any>">
   import { ElCard, ElEmpty, ElPagination, ElTable, ElTableColumn } from 'element-plus'
   import { ref, computed, nextTick, watchEffect, getCurrentInstance, useAttrs, useSlots } from 'vue'
-  import type { ComponentPublicInstance } from 'vue'
+  import type { ComponentPublicInstance, Slots } from 'vue'
   import type { FormRules, TableColumnCtx, TableInstance, TableProps } from 'element-plus'
   import { storeToRefs } from 'pinia'
   import type {
@@ -204,14 +204,15 @@
     default: () => ({})
   })
 
-  /** 表格头部列显示控制，支持 v-model:columnChecks 双向绑定（通常直接传入 useTableColumns 的 columnChecks） */
+  /** 表格头部列显示控制，支持 v-model:columnChecks 双向绑定（传入包内 useTableColumns 返回的 columnChecks） */
   const headerColumns = defineModel<ColumnOption<T>[]>('columnChecks', {
     default: () => []
   })
 
   const instance = getCurrentInstance()
   const attrs = useAttrs()
-  const slots = useSlots()
+  // 运行时插槽可缺省；显式类型避免声明生成器沿模板条件循环推断。
+  const slots: Slots = useSlots()
 
   const { width } = useWindowSize()
   const elTableRef = ref<TableInstance | null>(null)
@@ -412,7 +413,7 @@
   }
 
   /** 列配置中 AoTable / 列设置自有的字段，不透传给 ElTableColumn，避免被错误解释或泄漏为 DOM 属性 */
-  const COLUMN_OWN_PROP_KEYS = ['slotName', 'checked', 'visible', 'disabled']
+  const COLUMN_OWN_PROP_KEYS = ['slotName', 'visible', 'disabled']
 
   /**
    * @description 清理列属性，移除 AoTable 与列设置自有的字段，确保它们不会被 ElTableColumn 错误解释

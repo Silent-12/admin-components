@@ -23,7 +23,8 @@
     "column": {
       "selection": "勾选",
       "expand": "展开",
-      "index": "序号"
+      "index": "序号",
+      "globalIndex": "全局序号"
     },
     "header": {
       "search": "搜索",

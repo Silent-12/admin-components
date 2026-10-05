@@ -1,18 +1,21 @@
 // 表格根容器
 .ao-table-root {
-  // 集成模式：整块区域与页面底色融为一体（无卡片外观），搜索栏、表格头部、表格与分页共用同一层容器，
+  // 集成模式：搜索栏、表格头部、表格与分页共用同一层外框，
   // 内部子块之间依靠细线（搜索栏下边框、表格框线）分区
   &.is-integrated {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     height: 100%;
     min-height: 0;
     // 裁切内部子元素，保证内容不越出边界
     overflow: hidden;
     background: var(--default-box-color);
+    border: 1px solid var(--ao-card-border);
 
     // 搜索栏并入外框：去掉自身卡片外观，仅保留下边框作为与表格区的分隔线
     :deep(.ao-search-bar) {
+      flex-shrink: 0;
       background: transparent;
       border: none;
       border-bottom: 1px solid var(--ao-card-border);
@@ -20,10 +23,21 @@
 
     // 表格卡片并入外框：去掉独立卡片的边框、阴影与外边距，退化为内部纵向布局层
     :deep(.ao-table-card) {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      min-height: 0;
       margin-top: 0;
       background: transparent;
       border: none;
       box-shadow: none;
+      .el-card__body {
+        box-sizing: border-box;
+        height: 100%;
+        min-height: 0;
+        padding: 10px;
+        overflow: hidden;
+      }
     }
   }
 

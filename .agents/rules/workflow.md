@@ -18,7 +18,7 @@
 
 ## 开发与预览
 
-- 修改组件后在 playground 验证：`pnpm --filter playground dev`（即 `cd playground && pnpm dev`）。playground 通过 vite 别名链接包源码，改包代码即时热更新；模拟数据在 `playground/src/mock/` 下按 `BaseResponse` 形状构造。
+- 修改组件后在 playground 验证：`pnpm --dir playground dev`（或 `pnpm --filter admin-components-playground dev`）。playground 通过 vite 别名链接包源码，改包代码即时热更新；模拟数据在 `playground/src/mock/` 下按 `PageResult` 分页形状构造。
 
 - 组件新增/修改文案时，同步更新 `src/locales/zh.json` 与 `src/locales/en.json`，playground 已通过 install 合并包语言包可直接验证。
 

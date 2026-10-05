@@ -47,10 +47,8 @@ export interface ColumnOption<T extends Record<string, any> = any> {
   filterPlacement?: string
   // 是否禁用
   disabled?: boolean
-  // 是否显示列
+  // 可选的列显隐配置，未声明时默认显示
   visible?: boolean
-  // 是否选中显示
-  checked?: boolean
   // 可选的原生单元格格式化函数
   formatter?: TableColumnCtx<T>['formatter']
   // 可选的 AoTable 命名插槽，填写即启用，不默认取 prop

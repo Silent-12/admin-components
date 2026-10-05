@@ -23,7 +23,8 @@
     "column": {
       "selection": "Select",
       "expand": "Expand",
-      "index": "Index"
+      "index": "Index",
+      "globalIndex": "Global Index"
     },
     "header": {
       "search": "Search",

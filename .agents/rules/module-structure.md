@@ -11,7 +11,7 @@ src/
 ├─ base/       # 两包共用基础组件：AoSvgIcon.vue、AoLogo.vue
 ├─ widget/     # 通用小部件：AoIconButton.vue
 ├─ store/      # 包内 Pinia store（modules/table.ts），仅组件私有 UI 状态
-├─ hooks/      # 包内 Composable（useAuth、useScroll、useTableHeight、useLocalSvg）
+├─ hooks/      # 包内 Composable（useAuth、useScroll、useTableHeight、useTableColumns、useLocalSvg）
 ├─ types/      # 对外类型：component/（index.ts、form.ts），公开类型必须从这里导出
 ├─ enums/      # 包内枚举（index.ts 统一导出）
 ├─ locales/    # 包内置语言包（zh.json、en.json，仅 common/table 段）

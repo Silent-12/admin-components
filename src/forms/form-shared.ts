@@ -423,12 +423,18 @@ export function calculateResponsiveSpan(span: number, breakpoint: ResponsiveBrea
 /** 移动端断点（px），两个组件的响应式布局与按钮对齐共用同一阈值 */
 export const FORM_MOBILE_BREAKPOINT = 500
 
-/** AoForm 表单项未声明 span 时的默认格数（相对行基准），对应 24 栅格基准下每行 4 个 */
-export const FORM_DEFAULT_ITEM_SPAN = 6
+/**
+ * AoForm 表单项未声明 span 时的默认每行项数
+ * @description 弹窗是 AoForm 的默认形态，宽度通常在 600px 上下；此时每行 4 项会把输入框压到不可用
+ * （labelWidth 与输入框内固定开销之和已接近列宽）。默认取每行 2 项，可在默认弹窗宽度下直接可用；
+ * 需要每行 3 项及以上时由表单项显式声明 span。
+ */
+export const FORM_DEFAULT_ITEMS_PER_ROW = 2
 
 /**
- * @description 将表单项格数（相对行基准）换算为 ElCol 的 24 栅格宽度，如行基准 12 时 4 格换算为 8
- * @param itemSpan 表单项声明的格数，未声明时使用 FORM_DEFAULT_ITEM_SPAN
+ * @description 将表单项格数（相对行基准）换算为 ElCol 的 24 栅格宽度，如行基准 12 时 4 格换算为 8；
+ * 未声明格数时按每行 FORM_DEFAULT_ITEMS_PER_ROW 项反推，保证默认密度不随行基准漂移
+ * @param itemSpan 表单项声明的格数，未声明时按每行 FORM_DEFAULT_ITEMS_PER_ROW 项换算
  * @param baseSpan 行基准格数，非法值（非正数或未定义）按 24 处理
  * @return 24 栅格下的列宽，收敛到 [1, 24]
  */
@@ -437,7 +443,7 @@ export const convertItemSpanToCol = (
   baseSpan: number | undefined
 ): number => {
   const base = baseSpan && baseSpan > 0 ? baseSpan : 24
-  const raw = ((itemSpan ?? FORM_DEFAULT_ITEM_SPAN) / base) * 24
+  const raw = ((itemSpan ?? base / FORM_DEFAULT_ITEMS_PER_ROW) / base) * 24
   return Math.min(24, Math.max(1, Math.round(raw)))
 }
 

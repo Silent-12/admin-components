@@ -2,6 +2,7 @@
   "name": "@ao/admin-components",
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.34.6",
   "description": "\u540e\u53f0\u7ba1\u7406\u7cfb\u7edf\u516c\u5171\u7ec4\u4ef6\u5e93\uff1aAoTable\u3001AoForm\u3001AoSearchBar \u7b49",
   "license": "MIT",
   "main": "./dist/index.js",

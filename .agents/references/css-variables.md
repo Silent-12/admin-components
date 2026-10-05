@@ -75,17 +75,19 @@
 
 `--ao-full-height` 在 `app.scss` 中由 `100vh` 减去运行时写入的头部高度组合而成；内容区上下留白由各容器自身内边距提供（如搜索栏 `10px`、表格卡片体 `10px`、`.page-content` `20px`），不设全局页面间距变量。脚本只负责把头部高度写入 `--ao-header-height` / `--ao-content-header-height`，不参与间距计算。
 
-### Element Plus 桥接变量（`src/assets/styles/el-ui.scss`）
+### Element Plus 桥接变量
 
-| 变量名                         | 说明                                          |
-| ------------------------------ | --------------------------------------------- |
-| `--main-color`                 | 指向 `var(--el-color-primary)`，主题色别名    |
-| `--theme-color`                | 指向 `var(--main-color)`                      |
-| `--el-component-custom-height` | 组件统一高度（固定 `36px`）                   |
-| `--el-component-size`          | Element Plus 组件尺寸（跟随上面）             |
-| `--custom-radius`              | 全局圆角基数（固定 `0.75rem`）                |
-| `--el-border-radius-base`      | Element 基础圆角（由 `--custom-radius` 计算） |
-| `--el-border-radius-small`     | Element 小圆角（由 `--custom-radius` 计算）   |
+主题色与圆角基数的默认值由布局包 `theme.scss` 提供，宿主可在自己的全局样式中覆盖；其余仍由宿主 `src/assets/styles/el-ui.scss` 提供。
+
+| 变量名                         | 来源                | 说明                                          |
+| ------------------------------ | ------------------- | --------------------------------------------- |
+| `--main-color`                 | 布局包（可被覆盖）  | 指向 `var(--el-color-primary)`，主题色别名    |
+| `--theme-color`                | 布局包              | 指向 `var(--main-color)`                      |
+| `--custom-radius`              | 布局包（可被覆盖）  | 全局圆角基数（默认 `0.75rem`）                |
+| `--el-component-custom-height` | 宿主 `el-ui.scss`   | 组件统一高度（固定 `36px`）                   |
+| `--el-component-size`          | 宿主 `el-ui.scss`   | Element Plus 组件尺寸（跟随上面）             |
+| `--el-border-radius-base`      | 宿主 `el-ui.scss`   | Element 基础圆角（由 `--custom-radius` 计算） |
+| `--el-border-radius-small`     | 宿主 `el-ui.scss`   | Element 小圆角（由 `--custom-radius` 计算）   |
 
 ### Element Plus 暗色覆盖（`src/assets/styles/dark.scss`，仅 `html.dark` 下生效）
 

@@ -1,0 +1,148 @@
+// 主题、暗色与 Element Plus 桥接变量（--main-color、--custom-radius）均由
+// @ao/admin-layout/styles.css 提供，预览宿主不再重复定义；以下仅为预览页自身的基础样式。
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--default-bg-color);
+  color: var(--ao-gray-800);
+  font-family: system-ui, sans-serif;
+}
+
+#app {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* ---------------------------------------------------------------
+ * demo 页面共用版式
+ * 各 demo 区块的结构一致，样式集中在宿主全局样式中维护，
+ * 颜色全部引用主题变量，随 .dark 自动适配。
+ * --------------------------------------------------------------- */
+
+.demo-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.demo-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ao-gray-900);
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ao-gray-600);
+  }
+}
+
+.demo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  background: var(--default-box-color);
+  border: 1px solid var(--ao-card-border);
+  border-radius: calc(var(--custom-radius) / 2 + 2px);
+}
+
+.demo-block__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ao-gray-900);
+}
+
+.demo-block__desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ao-gray-600);
+}
+
+.demo-block__desc code,
+.demo-head code {
+  padding: 1px 5px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  color: var(--ao-gray-800);
+  background: var(--ao-gray-200);
+  border-radius: 4px;
+}
+
+/* 表格示例容器：AoTable 集成模式以 100% 高度自适应，需要确定高度的父容器 */
+.demo-table-box {
+  height: 460px;
+  min-height: 0;
+}
+
+.demo-table-box--short {
+  height: 320px;
+}
+
+/* 操作区与输出面板 */
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.demo-output {
+  max-height: 168px;
+  padding: 10px;
+  margin: 0;
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ao-gray-700);
+  white-space: pre-wrap;
+  word-break: break-all;
+  background: var(--ao-gray-100);
+  border: 1px solid var(--ao-card-border);
+  border-radius: calc(var(--custom-radius) / 2);
+}
+
+.demo-log {
+  max-height: 168px;
+  padding-left: 18px;
+  margin: 0;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ao-gray-600);
+}
+
+/* 表单示例：内联表单底部的页面自备按钮 */
+.demo-form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.demo-footer-tip {
+  font-size: 12px;
+  color: var(--ao-gray-600);
+}
+
+.demo-render-tip {
+  font-size: 13px;
+  line-height: 32px;
+  color: var(--ao-gray-600);
+}

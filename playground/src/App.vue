@@ -1,168 +1,198 @@
+<!--
+  playground 外壳
+  左侧按组件分组导航，右侧只挂载当前 demo；每个 demo 内部按场景拆分为多个区块。
+  内容区带 ao-page-view 类，作为表格头部「全屏」按钮的定位锚点（AoTableHeader 默认 fullClass）。
+-->
 <template>
-  <div class="playground ao-full-height">
-    <div class="toolbar">
-      <span class="title">admin-components playground</span>
-      <ElButton size="small" @click="toggleDark">切换{{ isDark ? '亮色' : '暗色' }}</ElButton>
-      <ElButton size="small" @click="emptyData = !emptyData">切换{{ emptyData ? '有数据' : '空数据' }}</ElButton>
-    </div>
+  <div class="playground">
+    <aside class="sidebar">
+      <div class="brand">
+        <AoLogo :size="30" />
+        <div class="brand-text">
+          <strong>admin-components</strong>
+          <span>v{{ version }} playground</span>
+        </div>
+      </div>
 
-    <AoTable
-      v-model:search-form="searchForm"
-      v-model:column-checks="columnChecks"
-      :search-items="searchItems"
-      :loading="loading"
-      :data="tableData"
-      :columns="columns"
-      :pagination="pagination"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      @search="handleSearch"
-      @reset="handleReset"
-      @refresh="fetchList"
-      @selection-change="handleSelectionChange"
-    >
-      <template #header-left>
-        <ElSpace wrap>
-          <ElButton type="primary">新增用户</ElButton>
-          <AoButtonMore
-            :list="[
-              { key: 'export', label: '导出', icon: 'ri:download-2-line', auth: 'export' },
-              { key: 'import', label: '导入', icon: 'ri:upload-2-line', auth: 'import' },
-              { key: 'delete', label: '批量删除', icon: 'ri:delete-bin-line', color: '#f56c6c', auth: 'delete' }
-            ]"
-            @click="handleMoreClick"
-          />
-        </ElSpace>
-      </template>
+      <nav class="nav">
+        <button
+          v-for="item in NAV_ITEMS"
+          :key="item.key"
+          type="button"
+          class="nav-item"
+          :class="{ 'is-active': item.key === activeKey }"
+          @click="activeKey = item.key"
+        >
+          <AoSvgIcon :icon="item.icon" class="nav-icon" />
+          <span>{{ item.label }}</span>
+        </button>
+      </nav>
 
-      <template #department="{ row }">
-        <ElTag>{{ row.department }}</ElTag>
-      </template>
+      <div class="sidebar-footer">
+        <ElButton size="small" @click="toggleDark">切换{{ isDark ? '亮色' : '暗色' }}</ElButton>
+      </div>
+    </aside>
 
-      <template #status="{ row }">
-        <ElTag :type="row.status === 1 ? 'success' : 'info'">
-          {{ row.status === 1 ? '在职' : '离职' }}
-        </ElTag>
-      </template>
-
-      <template #operation>
-        <AoButtonTable type="edit" @click="() => {}" />
-        <AoButtonTable type="delete" @click="() => {}" />
-      </template>
-    </AoTable>
+    <main class="content ao-page-view">
+      <component :is="activeDemo" />
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, reactive, ref } from 'vue'
-  import { ElButton, ElMessage, ElSpace, ElTag } from 'element-plus'
-  import { AoButtonMore, AoButtonTable, AoTable } from '@ao/admin-components'
-  import type { ColumnOption, SearchFormItem, TablePaginationState } from '@ao/admin-components'
-  import { fetchUserList, type UserRecord, type UserSearchParams } from './mock/user'
+  import { computed, ref, type Component } from 'vue'
+  import { ElButton } from 'element-plus'
+  import { AoLogo, AoSvgIcon, version } from '@ao/admin-components'
+  import TableDemo from './demos/TableDemo.vue'
+  import FormDemo from './demos/FormDemo.vue'
+  import SearchBarDemo from './demos/SearchBarDemo.vue'
+  import TableHeaderDemo from './demos/TableHeaderDemo.vue'
+  import ButtonDemo from './demos/ButtonDemo.vue'
+  import ExcelDemo from './demos/ExcelDemo.vue'
+  import BaseDemo from './demos/BaseDemo.vue'
 
   defineOptions({ name: 'Playground' })
 
-  // 暗色模式切换：验证组件在 .dark 下的样式表现
+  /** demo 标识 */
+  type DemoKey = 'table' | 'form' | 'searchBar' | 'tableHeader' | 'button' | 'excel' | 'base'
+
+  /** 导航项配置 */
+  interface NavItem {
+    key: DemoKey
+    label: string
+    icon: string
+  }
+
+  /** 各 demo 组件映射 */
+  const DEMOS: Record<DemoKey, Component> = {
+    table: TableDemo,
+    form: FormDemo,
+    searchBar: SearchBarDemo,
+    tableHeader: TableHeaderDemo,
+    button: ButtonDemo,
+    excel: ExcelDemo,
+    base: BaseDemo
+  }
+
+  /** 导航项列表 */
+  const NAV_ITEMS: NavItem[] = [
+    { key: 'table', label: '表格 AoTable', icon: 'ri:table-line' },
+    { key: 'form', label: '表单 AoForm', icon: 'ri:file-list-3-line' },
+    { key: 'searchBar', label: '搜索栏 AoSearchBar', icon: 'ri:search-line' },
+    { key: 'tableHeader', label: '表头 AoTableHeader', icon: 'ri:layout-top-line' },
+    { key: 'button', label: '按钮组', icon: 'ri:apps-2-line' },
+    { key: 'excel', label: 'Excel 导入导出', icon: 'ri:file-excel-2-line' },
+    { key: 'base', label: '图标与 Logo', icon: 'ri:image-line' }
+  ]
+
+  /** 当前激活的 demo */
+  const activeKey = ref<DemoKey>('table')
+
+  /** 当前激活的 demo 组件 */
+  const activeDemo = computed<Component>(() => DEMOS[activeKey.value])
+
+  /** 暗色模式开关：验证组件在 .dark 下的样式表现 */
   const isDark = ref(document.documentElement.classList.contains('dark'))
+
+  /** @description 切换根元素主题，使宿主变量与 Element Plus 暗色样式同步生效。 */
   const toggleDark = () => {
     isDark.value = !isDark.value
     document.documentElement.classList.toggle('dark', isDark.value)
   }
+</script>
 
-  // 空数据切换：验证 ElEmpty 与分页器表现
-  const emptyData = ref(false)
+<style scoped lang="scss">
+  .playground {
+    display: flex;
+    height: 100%;
+    min-height: 0;
+    background: var(--default-bg-color);
+  }
 
-  const searchForm = ref<UserSearchParams>({})
-  const columnChecks = ref([])
+  .sidebar {
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    gap: 12px;
+    width: 216px;
+    padding: 14px 12px;
+    background: var(--default-box-color);
+    border-right: 1px solid var(--ao-card-border);
+  }
 
-  const searchItems = computed<SearchFormItem[]>(() => [
-    { label: '用户名', key: 'userName', type: 'input', props: { placeholder: '请输入用户名', clearable: true } },
-    { label: '邮箱', key: 'userEmail', type: 'input', props: { placeholder: '请输入邮箱' } }
-  ])
+  .brand {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0 4px 12px;
+    border-bottom: 1px solid var(--ao-card-border);
 
-  const columns: ColumnOption<UserRecord>[] = [
-    { type: 'selection', columnKey: 'selection' },
-    { prop: 'userName', label: '用户名' },
-    { prop: 'userPhone', label: '手机号' },
-    { prop: 'userEmail', label: '邮箱' },
-    { prop: 'department', label: '部门', slotName: 'department' },
-    { prop: 'status', label: '状态', slotName: 'status' },
-    { prop: 'remark', label: '备注', showOverflowTooltip: true }
-  ]
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      line-height: 1.4;
 
-  const tableData = ref<UserRecord[]>([])
-  const loading = ref(false)
-  const appliedFilters = ref<UserSearchParams>({})
-  const pagination = reactive<TablePaginationState>({ currentPage: 1, pageSize: 10, total: 0 })
+      strong {
+        font-size: 14px;
+        color: var(--ao-gray-900);
+      }
 
-  /** @description 拉取列表数据（mock）。 */
-  const fetchList = async () => {
-    loading.value = true
-    try {
-      const result = await fetchUserList({
-        ...appliedFilters.value,
-        current: pagination.currentPage,
-        size: pagination.pageSize
-      })
-      tableData.value = emptyData.value ? [] : result.records
-      pagination.total = emptyData.value ? 0 : result.total
-    } finally {
-      loading.value = false
+      span {
+        font-size: 12px;
+        color: var(--ao-gray-600);
+      }
     }
   }
 
-  /** @description 提交搜索：重置页码并应用表单条件。 */
-  const handleSearch = () => {
-    appliedFilters.value = { ...searchForm.value }
-    pagination.currentPage = 1
-    fetchList()
-  }
-
-  /** @description 重置搜索条件并刷新。 */
-  const handleReset = () => {
-    searchForm.value = {}
-    appliedFilters.value = {}
-    pagination.currentPage = 1
-    fetchList()
-  }
-
-  /** @description 每页条数变化：回到第一页并重新请求。 */
-  const handleSizeChange = (size: number) => {
-    pagination.pageSize = size
-    pagination.currentPage = 1
-    fetchList()
-  }
-
-  /** @description 页码变化：重新请求。 */
-  const handleCurrentChange = (page: number) => {
-    pagination.currentPage = page
-    fetchList()
-  }
-
-  /** @description 多选变化（仅打印验证）。 */
-  const handleSelectionChange = (rows: UserRecord[]) => {
-    console.info('selection-change:', rows.length)
-  }
-
-  /** @description 更多按钮点击。 */
-  const handleMoreClick = (item: { key: string | number; label: string }) => {
-    ElMessage.info(`点击了 ${item.label}`)
-  }
-
-  onMounted(fetchList)
-</script>
-
-<style scoped>
-  .playground {
-    padding: 16px;
-  }
-  .toolbar {
+  .nav {
     display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 12px;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+    min-height: 0;
+    overflow: auto;
   }
-  .title {
-    font-weight: 600;
+
+  .nav-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 10px;
+    font-size: 13px;
+    color: var(--ao-gray-700);
+    text-align: left;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: calc(var(--custom-radius) / 2);
+    transition: background-color 0.2s;
+
+    .nav-icon {
+      font-size: 15px;
+    }
+
+    &:hover {
+      background: var(--ao-hover-color);
+    }
+
+    &.is-active {
+      color: var(--theme-color);
+      background: color-mix(in srgb, var(--theme-color) 12%, transparent);
+    }
+  }
+
+  .sidebar-footer {
+    flex: none;
+    padding-top: 12px;
+    border-top: 1px solid var(--ao-card-border);
+  }
+
+  .content {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+    overflow: auto;
+    background: var(--default-bg-color);
   }
 </style>

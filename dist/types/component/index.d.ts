@@ -18,7 +18,6 @@ export interface ColumnOption<T extends Record<string, any> = any> {
     filterPlacement?: string;
     disabled?: boolean;
     visible?: boolean;
-    checked?: boolean;
     formatter?: TableColumnCtx<T>['formatter'];
     slotName?: string;
     [key: string]: any;
