@@ -44,6 +44,7 @@ export { version };
 export { AoTable, AoTableHeader, AoTableHeaderButton, AoForm, AoSearchBar, AoButtonTable, AoButtonMore, AoExcelExport, AoExcelImport, AoSvgIcon, AoIconButton, AoLogo };
 export * from './types/component';
 export { TableSizeEnum } from './enums/formEnum';
+export type { ButtonMoreItem } from './forms/AoButtonMore.vue';
 export { useAuth, AUTH_LIST_KEY, type AuthListGetter } from './hooks/useAuth';
 export { LOCAL_SVG_KEY, LOGO_URL_KEY, type LocalSvgResolver } from './hooks/useLocalSvg';
 export { useTableHeight } from './hooks/useTableHeight';

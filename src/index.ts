@@ -101,6 +101,7 @@ export {
 // 类型与工具
 export * from './types/component'
 export { TableSizeEnum } from './enums/formEnum'
+export type { ButtonMoreItem } from './forms/AoButtonMore.vue'
 export { useAuth, AUTH_LIST_KEY, type AuthListGetter } from './hooks/useAuth'
 export {
   LOCAL_SVG_KEY,
