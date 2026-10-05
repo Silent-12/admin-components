@@ -1,4 +1,4 @@
-import { TableInstance } from 'element-plus';
+import { TableColumnCtx, TableInstance } from 'element-plus';
 import { AoTableProps, ColumnOption } from '../../types/component';
 declare const _default: <T extends Record<string, any> = Record<string, any>>(__VLS_props: NonNullable<Awaited<typeof __VLS_setup>>["props"], __VLS_ctx?: __VLS_PrettifyLocal<Pick<NonNullable<Awaited<typeof __VLS_setup>>, "attrs" | "emit" | "slots">>, __VLS_expose?: NonNullable<Awaited<typeof __VLS_setup>>["expose"], __VLS_setup?: Promise<{
     props: __VLS_PrettifyLocal<Pick<Partial<{}> & Omit<{
@@ -13,13 +13,59 @@ declare const _default: <T extends Record<string, any> = Record<string, any>>(__
     } & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, never>, "onReset" | "onSearch" | "onRefresh" | "onUpdate:showSearchBar" | "onUpdate:searchForm" | "onUpdate:columnChecks" | "onSize-change" | "onCurrent-change"> & ({
         searchForm?: Record<string, any>;
         columnChecks?: ColumnOption<T>[];
-    } & AoTableProps<T>) & any> & import('vue').PublicProps;
+    } & AoTableProps<T>) & Partial<{}>> & import('vue').PublicProps;
     expose(exposed: import('vue').ShallowUnwrapRef<{
         scrollToTop: () => void;
         elTableRef: import('vue').Ref<TableInstance | null, TableInstance | null>;
     }>): void;
     attrs: any;
-    slots: any;
+    slots: Readonly<{
+        [name: string]: (props: {
+            /** 当前行数据 */
+            row: T;
+            /** 列上下文 */
+            column: TableColumnCtx<T>;
+            /** 行索引 */
+            $index: number;
+        }) => any;
+        /** 表格头部左侧操作区 */
+        'header-left': (props: any) => any;
+        /** 表格头部右侧操作区 */
+        'header-right': (props: any) => any;
+        /** 表格默认插槽，用于在列配置之外追加自定义列 */
+        default: (props: any) => any;
+        /** 表格底部左侧内容区（分页器位于同一行的右侧） */
+        footer: (props: any) => any;
+        /** 声明即启用末尾操作列，透传原生单元格作用域 */
+        operation: (props: {
+            row: T;
+            column: TableColumnCtx<T>;
+            $index: number;
+        }) => any;
+    }> & {
+        [name: string]: (props: {
+            /** 当前行数据 */
+            row: T;
+            /** 列上下文 */
+            column: TableColumnCtx<T>;
+            /** 行索引 */
+            $index: number;
+        }) => any;
+        /** 表格头部左侧操作区 */
+        'header-left': (props: any) => any;
+        /** 表格头部右侧操作区 */
+        'header-right': (props: any) => any;
+        /** 表格默认插槽，用于在列配置之外追加自定义列 */
+        default: (props: any) => any;
+        /** 表格底部左侧内容区（分页器位于同一行的右侧） */
+        footer: (props: any) => any;
+        /** 声明即启用末尾操作列，透传原生单元格作用域 */
+        operation: (props: {
+            row: T;
+            column: TableColumnCtx<T>;
+            $index: number;
+        }) => any;
+    };
     emit: {
         (e: "size-change", value: number): void;
         (e: "current-change", value: number): void;

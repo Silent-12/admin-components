@@ -224,10 +224,10 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
             modelValue: Record<string, any>;
         }) => any>>;
     }) | null;
-}, any>, Partial<Record<number, (_: {
+}, any>, Partial<Record<NonNullable<string | number>, (_: {
     item: import('../../types/component').FormItem;
     modelValue: Record<string, any>;
-}) => any>> & Partial<Record<number, (_: {
+}) => any>> & Partial<Record<NonNullable<string | number>, (_: {
     item: import('../../types/component').FormItem;
     modelValue: Record<string, any>;
 }) => any>> & {
