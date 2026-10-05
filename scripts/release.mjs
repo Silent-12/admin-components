@@ -25,11 +25,21 @@ const versions = tagOutput
   : []
 const next = (versions.length ? Math.max(...versions) : 0) + 1
 
-// 2. 写入 package.json version 与 CHANGELOG
-const pkgPath = 'package.json'
-const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'))
-pkg.version = String(next)
-writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
+// 2. 重写 src/version.ts 并追加 CHANGELOG
+writeFileSync(
+  'src/version.ts',
+  `/**
+ * 组件包版本常量
+ *
+ * 真实版本为纯整数（v1、v2…），由 \`pnpm run release\` 重写本文件并打同名 tag；
+ * package.json 的 version 字段仅满足工具链的 semver 校验，固定为 0.0.0，
+ * 供 install 时在控制台静默输出，便于下游确认升级是否生效。
+ */
+
+/** 当前组件包版本号 */
+export const version: string = '${next}'
+`
+)
 
 const changelogPath = 'CHANGELOG.md'
 const today = new Date().toISOString().slice(0, 10)
