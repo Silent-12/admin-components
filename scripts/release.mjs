@@ -3,7 +3,7 @@
  *
  * 版本号为纯整数自增（v1、v2、v3…），不使用 semver 小数点版本：
  * 1. 读取已有 v* tag 的最大整数版本，无 tag 从 1 开始，next = max + 1
- * 2. 同步写入 package.json 的 version 字段并追加 CHANGELOG
+ * 2. 重写 src/version.ts 的版本号并追加 CHANGELOG
  * 3. 执行构建，将 dist 提交进仓库（下游 git 依赖安装时无需构建环境）
  * 4. 提交、打 tag、推送
  */
@@ -42,7 +42,7 @@ writeFileSync(changelogPath, changelog)
 run('pnpm run build')
 
 // 4. 提交、打 tag、推送
-run('git add package.json CHANGELOG.md dist')
+run('git add src/version.ts CHANGELOG.md dist')
 run(`git commit -m "release: v${next}"`)
 run(`git tag v${next}`)
 run('git push origin HEAD --tags')

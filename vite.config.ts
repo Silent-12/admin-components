@@ -1,10 +1,7 @@
 import { fileURLToPath } from 'node:url'
-import { readFileSync } from 'node:fs'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vite'
-
-const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'))
 
 export default defineConfig({
   plugins: [
@@ -15,9 +12,6 @@ export default defineConfig({
       tsconfigPath: './tsconfig.json'
     })
   ],
-  define: {
-    __VERSION__: JSON.stringify(pkg.version)
-  },
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
