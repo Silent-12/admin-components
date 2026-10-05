@@ -53,7 +53,10 @@ const ACCOUNT_DATA: UserRecord[] = Array.from({ length: 58 }, (_, i) => ({
   userEmail: `user${i + 1}@example.com`,
   department: DEPARTMENTS[i % DEPARTMENTS.length],
   status: STATUSES[i % STATUSES.length],
-  remark: i % 7 === 0 ? '这是一条超长备注：用于验证表格列在内容溢出时的省略与提示表现，内容越长越容易暴露样式问题。' : '',
+  remark:
+    i % 7 === 0
+      ? '这是一条超长备注：用于验证表格列在内容溢出时的省略与提示表现，内容越长越容易暴露样式问题。'
+      : '',
   createdAt: createTime(i)
 }))
 

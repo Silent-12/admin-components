@@ -10,8 +10,8 @@
       <h2>按钮组</h2>
       <p>
         表格行内按钮（AoButtonTable）、下拉更多按钮（AoButtonMore）与通用图标按钮（AoIconButton）。
-        AoButtonMore 的 <code>auth</code> 走包内 <code>useAuth</code>，权限列表由宿主在 install 时通过
-        <code>getAuthList</code> 注入（当前注入值：<code>['add', 'edit', 'delete']</code>）。
+        AoButtonMore 的 <code>auth</code> 走包内 <code>useAuth</code>，权限列表由宿主在 install
+        时通过 <code>getAuthList</code> 注入（当前注入值：<code>['add', 'edit', 'delete']</code>）。
       </p>
     </header>
 
@@ -19,8 +19,9 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景一：AoButtonTable</h3>
       <p class="demo-block__desc">
-        <code>type</code> 提供 add / edit / delete / view / more 五种内置图标与配色；
-        传 <code>icon</code> 覆盖图标，传 <code>icon-color</code> / <code>button-bg-color</code> 覆盖前景与背景色。
+        <code>type</code> 提供 add / edit / delete / view / more 五种内置图标与配色； 传
+        <code>icon</code> 覆盖图标，传 <code>icon-color</code> /
+        <code>button-bg-color</code> 覆盖前景与背景色。
       </p>
 
       <div class="demo-actions">
@@ -87,7 +88,13 @@
   const moreList: ButtonMoreItem[] = [
     { key: 'add', label: '新增', icon: 'ri:add-line', auth: 'add' },
     { key: 'export', label: '导出', icon: 'ri:download-2-line', auth: 'export' },
-    { key: 'delete', label: '批量删除', icon: 'ri:delete-bin-line', color: '#f56c6c', auth: 'delete' },
+    {
+      key: 'delete',
+      label: '批量删除',
+      icon: 'ri:delete-bin-line',
+      color: '#f56c6c',
+      auth: 'delete'
+    },
     { key: 'help', label: '帮助文档', icon: 'ri:question-line' },
     { key: 'archive', label: '归档（禁用）', icon: 'ri:archive-line', disabled: true }
   ]

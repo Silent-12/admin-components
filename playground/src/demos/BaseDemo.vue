@@ -42,8 +42,9 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景二：AoLogo</h3>
       <p class="demo-block__desc">
-        左侧为宿主通过 install 的 <code>assets.logo</code> 注入的默认地址（playground 注入的是内联 SVG data URI）；
-        右侧显式传 <code>src</code> 覆盖默认值。<code>size</code> 控制宽度，高度自适应。
+        左侧为宿主通过 install 的 <code>assets.logo</code> 注入的默认地址（playground 注入的是内联
+        SVG data URI）； 右侧显式传 <code>src</code> 覆盖默认值。<code>size</code>
+        控制宽度，高度自适应。
       </p>
 
       <div class="demo-actions logo-row">

@@ -85,8 +85,10 @@ export * from './form'
  * AoTable 组件 Props 接口
  * @description 继承 ElTable 除 data 外的全部属性，并扩展列配置、搜索栏与分页集成能力。
  */
-export interface AoTableProps<T extends Record<string, any> = Record<string, any>>
-  extends Omit<TableProps<T>, 'data'> {
+export interface AoTableProps<T extends Record<string, any> = Record<string, any>> extends Omit<
+  TableProps<T>,
+  'data'
+> {
   /** 表格数据，由页面请求后传入，组件不做任何二次处理 */
   data?: T[]
   /** 列渲染配置，单元格内容通过同名插槽渲染 */

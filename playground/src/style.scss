@@ -8,9 +8,9 @@
 html,
 body {
   margin: 0;
-  background: var(--default-bg-color);
-  color: var(--ao-gray-800);
   font-family: system-ui, sans-serif;
+  color: var(--ao-gray-800);
+  background: var(--default-bg-color);
 }
 
 #app {
@@ -111,8 +111,8 @@ body {
   font-size: 12px;
   line-height: 1.7;
   color: var(--ao-gray-700);
-  white-space: pre-wrap;
   word-break: break-all;
+  white-space: pre-wrap;
   background: var(--ao-gray-100);
   border: 1px solid var(--ao-card-border);
   border-radius: calc(var(--custom-radius) / 2);

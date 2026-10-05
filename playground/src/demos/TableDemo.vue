@@ -9,8 +9,9 @@
     <header class="demo-head">
       <h2>AoTable 表格</h2>
       <p>
-        纯展示组件：数据由页面请求后通过 <code>data</code> 传入，组件不感知接口响应格式；分页状态由页面持有，
-        交互通过原生 <code>size-change</code> / <code>current-change</code> 事件上报。列内容由
+        纯展示组件：数据由页面请求后通过
+        <code>data</code> 传入，组件不感知接口响应格式；分页状态由页面持有， 交互通过原生
+        <code>size-change</code> / <code>current-change</code> 事件上报。列内容由
         <code>columns[].slotName</code> 指向同名插槽渲染。
       </p>
     </header>
@@ -19,10 +20,12 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景一：集成模式</h3>
       <p class="demo-block__desc">
-        传入 <code>search-items</code> 自动渲染搜索栏并启用头部搜索开关；编写 <code>#header-left</code> /
+        传入 <code>search-items</code> 自动渲染搜索栏并启用头部搜索开关；编写
+        <code>#header-left</code> /
         <code>#header-right</code> 自动渲染表格头部。搜索栏、头部、表格与分页共用同一层卡片外框。
         列显隐与排序用包内 <code>useTableColumns</code> 驱动：<code>columnChecks</code> 交给
-        <code>v-model:column-checks</code>，当前显示列 <code>columns</code> 交给 <code>columns</code> 属性。
+        <code>v-model:column-checks</code>，当前显示列 <code>columns</code> 交给
+        <code>columns</code> 属性。
       </p>
 
       <div class="demo-table-box">
@@ -86,7 +89,9 @@
 
       <div class="demo-actions">
         <ElButton size="small" @click="handleScrollToTop">ref.scrollToTop()</ElButton>
-        <ElButton size="small" @click="handleClearSelection">ref.elTableRef.clearSelection()</ElButton>
+        <ElButton size="small" @click="handleClearSelection"
+          >ref.elTableRef.clearSelection()</ElButton
+        >
       </div>
 
       <ul class="demo-log">
@@ -99,11 +104,12 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景二：基础模式（无搜索栏 / 无分页）</h3>
       <p class="demo-block__desc">
-        只传 <code>data</code> 与 <code>columns</code>：不传 <code>search-items</code> 与头部插槽时不会渲染搜索栏，
-        不传 <code>pagination</code> 时不渲染分页器。显式传 <code>:integrated="true"</code> +
+        只传 <code>data</code> 与 <code>columns</code>：不传
+        <code>search-items</code> 与头部插槽时不会渲染搜索栏， 不传
+        <code>pagination</code> 时不渲染分页器。显式传 <code>:integrated="true"</code> +
         <code>:show-table-header="false"</code> 可保留卡片外框但不渲染表格头部。
-        <code>type: 'index'</code> 为当前页序号，<code>type: 'expand'</code> 配合同名插槽渲染展开行，
-        <code>sortable: true</code> 使用 ElTable 内置前端排序。
+        <code>type: 'index'</code> 为当前页序号，<code>type: 'expand'</code>
+        配合同名插槽渲染展开行， <code>sortable: true</code> 使用 ElTable 内置前端排序。
       </p>
 
       <div class="demo-table-box demo-table-box--short">
@@ -127,8 +133,9 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景三：空数据、底部插槽与加载态</h3>
       <p class="demo-block__desc">
-        <code>data</code> 为空数组时渲染 <code>empty-text</code>，并通过 <code>empty-height</code> 控制空态高度；
-        <code>#footer</code> 插槽位于分页器左侧。分页器在 <code>pagination.total</code> 为 0 或当前页无数据时自动隐藏。
+        <code>data</code> 为空数组时渲染 <code>empty-text</code>，并通过
+        <code>empty-height</code> 控制空态高度； <code>#footer</code> 插槽位于分页器左侧。分页器在
+        <code>pagination.total</code> 为 0 或当前页无数据时自动隐藏。
       </p>
 
       <div class="demo-actions">
@@ -215,8 +222,18 @@
 
   /** 搜索项配置：type 对应内置组件，选项类表单项的 options 放在顶层由组件渲染子节点 */
   const searchItems: SearchFormItem[] = [
-    { label: '用户名', key: 'userName', type: 'input', props: { placeholder: '请输入用户名', clearable: true } },
-    { label: '邮箱', key: 'userEmail', type: 'input', props: { placeholder: '请输入邮箱', clearable: true } },
+    {
+      label: '用户名',
+      key: 'userName',
+      type: 'input',
+      props: { placeholder: '请输入用户名', clearable: true }
+    },
+    {
+      label: '邮箱',
+      key: 'userEmail',
+      type: 'input',
+      props: { placeholder: '请输入邮箱', clearable: true }
+    },
     {
       label: '部门',
       key: 'department',
@@ -248,7 +265,13 @@
   const moreActions: ButtonMoreItem[] = [
     { key: 'add', label: '新增', icon: 'ri:add-line', auth: 'add' },
     { key: 'export', label: '导出', icon: 'ri:download-2-line', auth: 'export' },
-    { key: 'delete', label: '批量删除', icon: 'ri:delete-bin-line', color: '#f56c6c', auth: 'delete' },
+    {
+      key: 'delete',
+      label: '批量删除',
+      icon: 'ri:delete-bin-line',
+      color: '#f56c6c',
+      auth: 'delete'
+    },
     { key: 'help', label: '帮助文档', icon: 'ri:question-line' }
   ]
 

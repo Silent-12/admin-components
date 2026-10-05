@@ -444,7 +444,7 @@ const Zo = 500, Yo = 2, qo = (e, o) => {
   for (const [t, n] of o)
     l[t] = n;
   return l;
-}, oa = /* @__PURE__ */ Q(ta, [["__scopeId", "data-v-7d216e4e"]]), aa = ["src"], la = /* @__PURE__ */ Y({
+}, oa = /* @__PURE__ */ Q(ta, [["__scopeId", "data-v-60568442"]]), aa = ["src"], la = /* @__PURE__ */ Y({
   name: "AoSvgIcon",
   inheritAttrs: !1,
   __name: "AoSvgIcon",
@@ -584,9 +584,7 @@ function Fa(e) {
      */
     removeColumn: (u) => {
       const i = Array.isArray(u) ? u : [u];
-      i.length !== 0 && (p(
-        (r) => r.filter((f) => !i.includes(Z(f)))
-      ), n.value = n.value.filter(
+      i.length !== 0 && (p((r) => r.filter((f) => !i.includes(Z(f)))), n.value = n.value.filter(
         (r) => !i.includes(Z(r))
       ));
     },
@@ -1236,7 +1234,7 @@ const sa = { class: "table-header-root" }, ua = { class: "left-wrap" }, ia = { c
       ], 2);
     };
   }
-}), Da = /* @__PURE__ */ Q(ma, [["__scopeId", "data-v-fea38e61"]]), va = { class: "form-section" }, ga = {
+}), Da = /* @__PURE__ */ Q(ma, [["__scopeId", "data-v-559c1dcf"]]), va = { class: "form-section" }, ga = {
   key: 0,
   class: "form-title"
 }, ba = { key: 1 }, ya = { key: 1 }, wa = /* @__PURE__ */ Y({

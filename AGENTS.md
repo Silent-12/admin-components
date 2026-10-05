@@ -19,6 +19,7 @@
 - 组件文案集中在 `src/locales/zh.json` 与 `en.json`（common/table 段），新增文案两种语言同步维护；组件内通过 `useI18n` 消费，语言包由 `install` 合并进宿主实例。
 - 样式使用 SCSS 与宿主 CSS 变量，兼容暗色模式（`.dark`）；包内不定义主题变量、不引入全局样式。
 - 源码使用 UTF-8 无 BOM 编码，业务函数同步维护 JSDoc。
+- 代码规范：ESLint + Prettier + Stylelint 三件套，配置对齐宿主模板 `admin-template-vue`；源码改动后必须执行 `pnpm run fix`、`pnpm run lint:prettier`、`pnpm run lint:stylelint` 并保证零报错，详见 [代码规范工具链](.agents/rules/lint.md)。
 - 版本与发版：整数版本自增（v1、v2…），发版统一 `pnpm run release`；`dist/` 构建产物提交进仓库；包安装后在控制台输出 `[ao-admin-components] v<版本号>` 供下游确认升级。
 
 # 按需加载索引
@@ -27,6 +28,7 @@
 | --- | --- |
 | 通用：所有任务 | [开发流程与验证](.agents/rules/workflow.md) |
 | 专项：编写、修改、重构或审查代码 | [编码与注释](.agents/rules/coding.md)、[Ponytail](.agents/rules/ponytail.md)、[Karpathy Guidelines](.agents/skills/karpathy-guidelines/SKILL.md) |
+| 专项：新增或修改任何源码文件，或调整格式化 / lint 规则 | [代码规范工具链](.agents/rules/lint.md) |
 | 专项：新增或修改类型声明、类型注释 | [类型定义](.agents/rules/typescript.md)、[TypeDoc 技能](.agents/skills/typedoc-style/SKILL.md) |
 | 专项：目录、组件、依赖或出口调整 | [目录与组件结构](.agents/rules/module-structure.md) |
 | 专项：Store、持久化或本地存储 | [状态管理与持久化](.agents/rules/state-storage.md) |

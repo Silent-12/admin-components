@@ -23,7 +23,7 @@ import { ElLoadingDirective } from 'element-plus'
 import zhMessages from './locales/zh.json'
 import enMessages from './locales/en.json'
 import { version } from './version'
-import { AUTH_LIST_KEY, useAuth, type AuthListGetter } from './hooks/useAuth'
+import { AUTH_LIST_KEY, type AuthListGetter } from './hooks/useAuth'
 import { LOCAL_SVG_KEY, LOGO_URL_KEY, type LocalSvgResolver } from './hooks/useLocalSvg'
 import AoTable from './tables/AoTable/index.vue'
 import AoTableHeader from './tables/AoTableHeader.vue'
@@ -103,11 +103,7 @@ export * from './types/component'
 export { TableSizeEnum } from './enums/formEnum'
 export type { ButtonMoreItem } from './forms/AoButtonMore.vue'
 export { useAuth, AUTH_LIST_KEY, type AuthListGetter } from './hooks/useAuth'
-export {
-  LOCAL_SVG_KEY,
-  LOGO_URL_KEY,
-  type LocalSvgResolver
-} from './hooks/useLocalSvg'
+export { LOCAL_SVG_KEY, LOGO_URL_KEY, type LocalSvgResolver } from './hooks/useLocalSvg'
 export { useTableHeight } from './hooks/useTableHeight'
 export {
   useTableColumns,

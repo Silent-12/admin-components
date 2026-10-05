@@ -11,7 +11,8 @@
       <h2>Excel 导入导出</h2>
       <p>
         导出与导入均基于 xlsx + file-saver 在前端完成，不经过后端。<code>data</code> 是纯对象数组，
-        键名对应列，列标题通过 <code>headers</code>（简写）或 <code>columns</code>（可配列宽与格式化）声明。
+        键名对应列，列标题通过 <code>headers</code>（简写）或
+        <code>columns</code>（可配列宽与格式化）声明。
       </p>
     </header>
 
@@ -20,7 +21,8 @@
       <h3 class="demo-block__title">场景一：基础导出</h3>
       <p class="demo-block__desc">
         <code>headers</code> 把数据键映射为中文列标题，<code>auto-index</code> 自动追加序号列，
-        <code>filename</code> / <code>sheet-name</code> 控制文件名与工作表名（文件名会追加时间戳保证唯一）。
+        <code>filename</code> /
+        <code>sheet-name</code> 控制文件名与工作表名（文件名会追加时间戳保证唯一）。
       </p>
 
       <div class="demo-actions">
@@ -39,10 +41,10 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景二：列配置 + 事件 + ref</h3>
       <p class="demo-block__desc">
-        <code>columns</code> 支持按列声明 <code>title</code>、<code>width</code> 与 <code>formatter</code>；
-        导出过程会依次触发 <code>before-export</code> / <code>export-progress</code> /
-        <code>export-success</code> 或 <code>export-error</code>。也可通过 ref 的
-        <code>exportData()</code> 由页面按钮触发导出。
+        <code>columns</code> 支持按列声明 <code>title</code>、<code>width</code> 与
+        <code>formatter</code>； 导出过程会依次触发 <code>before-export</code> /
+        <code>export-progress</code> / <code>export-success</code> 或
+        <code>export-error</code>。也可通过 ref 的 <code>exportData()</code> 由页面按钮触发导出。
       </p>
 
       <div class="demo-actions">
@@ -81,8 +83,9 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景四：导入解析</h3>
       <p class="demo-block__desc">
-        选择 .xlsx / .xls 文件后在本地解析为对象数组并通过 <code>import-success</code> 上报（读取第一个工作表），
-        解析异常时触发 <code>import-error</code>。按钮文案可用默认插槽覆盖。
+        选择 .xlsx / .xls 文件后在本地解析为对象数组并通过
+        <code>import-success</code> 上报（读取第一个工作表）， 解析异常时触发
+        <code>import-error</code>。按钮文案可用默认插槽覆盖。
       </p>
 
       <div class="demo-actions">

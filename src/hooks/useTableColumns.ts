@@ -66,9 +66,8 @@ export const getColumnKey = <T extends Record<string, any>>(col: ColumnOption<T>
  * @param col 列配置
  * @return 是否显示该列
  */
-export const getColumnVisibility = <T extends Record<string, any>>(
-  col: ColumnOption<T>
-): boolean => col.visible ?? true
+export const getColumnVisibility = <T extends Record<string, any>>(col: ColumnOption<T>): boolean =>
+  col.visible ?? true
 
 /**
  * @description 格式化单列配置为列设置面板使用的格式，处理特殊列占位标识、兜底列名并补齐 visible
@@ -242,9 +241,7 @@ export function useTableColumns<T extends Record<string, any> = any>(
       const propsToRemove = Array.isArray(prop) ? prop : [prop]
       if (propsToRemove.length === 0) return
 
-      setDynamicColumns((cols) =>
-        cols.filter((col) => !propsToRemove.includes(getColumnKey(col)))
-      )
+      setDynamicColumns((cols) => cols.filter((col) => !propsToRemove.includes(getColumnKey(col))))
       columnChecks.value = columnChecks.value.filter(
         (col) => !propsToRemove.includes(getColumnKey(col))
       )
@@ -256,11 +253,7 @@ export function useTableColumns<T extends Record<string, any> = any>(
      * @param updates 列配置更新，prop 为字符串时使用
      */
     updateColumn: (prop, updates) => {
-      const updateList = Array.isArray(prop)
-        ? prop
-        : updates
-          ? [{ prop, updates }]
-          : []
+      const updateList = Array.isArray(prop) ? prop : updates ? [{ prop, updates }] : []
       if (updateList.length === 0) return
 
       const updateMap = new Map(updateList.map((item) => [item.prop, item.updates]))

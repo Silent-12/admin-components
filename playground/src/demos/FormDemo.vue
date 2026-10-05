@@ -9,9 +9,10 @@
     <header class="demo-head">
       <h2>AoForm 表单</h2>
       <p>
-        表单项通过 <code>items</code> 配置，属性写在 <code>props</code> 里，写法与 Element Plus 官方文档一致；
-        默认由 ElDialog 承载为弹窗表单，传 <code>:dialog="false"</code> 时为内联表单。
-        组件只上报清洗后的输出，<code>submit</code> 后是否关闭弹窗由业务决定。
+        表单项通过 <code>items</code> 配置，属性写在 <code>props</code> 里，写法与 Element Plus
+        官方文档一致； 默认由 ElDialog 承载为弹窗表单，传
+        <code>:dialog="false"</code> 时为内联表单。 组件只上报清洗后的输出，<code>submit</code>
+        后是否关闭弹窗由业务决定。
       </p>
     </header>
 
@@ -19,10 +20,11 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景一：弹窗表单（默认底部操作区）</h3>
       <p class="demo-block__desc">
-        <code>v-model</code> 绑定表单数据，<code>v-model:visible</code> 控制显隐；<code>rules</code> 通过属性透传给
-        ElForm。底部固定为「取消 / 确定」，确定 = 校验通过后触发 <code>submit</code> 并携带清洗后的全部表单值，
-        校验失败只展示行内错误。按钮文案可用 <code>cancel-text</code> / <code>confirm-text</code> 覆盖。
-        表单项未声明 <code>span</code> 时默认每行 2 项，弹窗宽度未传时取默认 600px；需要更稀疏或更紧凑时由
+        <code>v-model</code> 绑定表单数据，<code>v-model:visible</code> 控制显隐；<code>rules</code>
+        通过属性透传给 ElForm。底部固定为「取消 / 确定」，确定 = 校验通过后触发
+        <code>submit</code> 并携带清洗后的全部表单值， 校验失败只展示行内错误。按钮文案可用
+        <code>cancel-text</code> / <code>confirm-text</code> 覆盖。 表单项未声明
+        <code>span</code> 时默认每行 2 项，弹窗宽度未传时取默认 600px；需要更稀疏或更紧凑时由
         表单项声明 <code>span</code>（相对行基准，基准默认 24，此处 <code>span: 12</code> 即半行）。
       </p>
 
@@ -81,12 +83,13 @@
       <h3 class="demo-block__title">场景三：内联表单（全部内置表单项类型）</h3>
       <p class="demo-block__desc">
         <code>:dialog="false"</code> 渲染为内联表单，底部按钮由页面自备。表单项
-        <code>span</code> 是相对行基准（组件 <code>span</code> 属性，默认 24）的格数，此处每项 8 格即一行三项，
-        与未声明 <code>span</code> 时的默认密度一致。
-        <code>type: 'title'</code> 渲染为独占一行的分组标题项，不参与表单数据；<code>hidden</code> 的表单项不渲染；
-        <code>slots</code> 用于向内层组件注入具名插槽，<code>render</code> 用于完全自定义渲染。
-        选项类表单项（select / checkboxgroup / radiogroup）的 <code>options</code> 写在表单项顶层，
-        由组件渲染为子节点；其余组件（cascader 的 options、treeselect 的 data）按官方属性写在 <code>props</code> 内。
+        <code>span</code> 是相对行基准（组件 <code>span</code> 属性，默认 24）的格数，此处每项 8
+        格即一行三项， 与未声明 <code>span</code> 时的默认密度一致。
+        <code>type: 'title'</code> 渲染为独占一行的分组标题项，不参与表单数据；<code>hidden</code>
+        的表单项不渲染； <code>slots</code> 用于向内层组件注入具名插槽，<code>render</code>
+        用于完全自定义渲染。 选项类表单项（select / checkboxgroup / radiogroup）的
+        <code>options</code> 写在表单项顶层， 由组件渲染为子节点；其余组件（cascader 的
+        options、treeselect 的 data）按官方属性写在 <code>props</code> 内。
       </p>
 
       <AoForm
@@ -114,8 +117,9 @@
     <section class="demo-block">
       <h3 class="demo-block__title">表单输出（清洗后）</h3>
       <p class="demo-block__desc">
-        空字符串、空数组、空对象、空富文本默认会被移除，但保留 <code>0</code> 与 <code>false</code>；
-        清洗范围可通过 <code>sanitize-output</code> 覆盖（内联表单已关闭空数组移除）。
+        空字符串、空数组、空对象、空富文本默认会被移除，但保留 <code>0</code> 与
+        <code>false</code>； 清洗范围可通过
+        <code>sanitize-output</code> 覆盖（内联表单已关闭空数组移除）。
       </p>
       <pre class="demo-output">{{ outputText }}</pre>
     </section>
@@ -127,7 +131,13 @@
   import { ElButton, ElMessage } from 'element-plus'
   import type { FormRules } from 'element-plus'
   import { AoForm, AoSvgIcon, type FormItem } from '@ao/admin-components'
-  import { CITY_OPTIONS, DEPARTMENT_OPTIONS, GENDER_OPTIONS, MENU_TREE_OPTIONS, SKILL_OPTIONS } from '../mock/options'
+  import {
+    CITY_OPTIONS,
+    DEPARTMENT_OPTIONS,
+    GENDER_OPTIONS,
+    MENU_TREE_OPTIONS,
+    SKILL_OPTIONS
+  } from '../mock/options'
 
   defineOptions({ name: 'FormDemo' })
 

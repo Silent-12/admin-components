@@ -103,7 +103,6 @@
 
 <script setup lang="ts">
   import { computed, ref, toRefs, useTemplateRef, watch } from 'vue'
-  import type { Component, VNode } from 'vue'
   import {
     ElButton,
     ElCheckbox,
@@ -119,7 +118,7 @@
   import { ArrowUpBold, ArrowDownBold } from '@element-plus/icons-vue'
   import { useWindowSize } from '@vueuse/core'
   import { useI18n } from 'vue-i18n'
-  import type { FormItemBase, ResponsiveBreakpoint, SanitizeOutputOptions } from '../types/component'
+  import type { ResponsiveBreakpoint, SanitizeOutputOptions } from '../types/component'
   import {
     DEFAULT_SANITIZE_OPTIONS,
     FORM_MOBILE_BREAKPOINT,

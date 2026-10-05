@@ -14,7 +14,7 @@ const { outputText } = ts.transpileModule(source, {
 const hookModule = { exports: {} }
 // 仅替代无关的翻译文案；ref、computed、watch 使用真实 Vue 实现。
 new Function('require', 'exports', outputText)(
-  (name) => name === 'vue-i18n' ? { useI18n: () => ({ t: (key) => key }) } : require(name),
+  (name) => (name === 'vue-i18n' ? { useI18n: () => ({ t: (key) => key }) } : require(name)),
   hookModule.exports
 )
 const { useTableColumns, getColumnVisibility, getColumnKey } = hookModule.exports
@@ -24,11 +24,16 @@ async function check() {
   for (const type of [undefined, 'selection', 'expand', 'index', 'globalIndex']) {
     const scope = effectScope()
     try {
-      const state = scope.run(() => useTableColumns(() => [
-        { type, prop: 'value', columnKey: 'main', label: '列', visible: false },
-        { prop: 'name', columnKey: 'default' }
-      ]))
-      assert.deepEqual(state.columns.value.map((col) => col.columnKey), ['default'])
+      const state = scope.run(() =>
+        useTableColumns(() => [
+          { type, prop: 'value', columnKey: 'main', label: '列', visible: false },
+          { prop: 'name', columnKey: 'default' }
+        ])
+      )
+      assert.deepEqual(
+        state.columns.value.map((col) => col.columnKey),
+        ['default']
+      )
       assert.ok(state.columnChecks.value.every((col) => !('checked' in col)))
 
       state.columnChecks.value[0].visible = true
@@ -46,9 +51,15 @@ async function check() {
 
       // 验证 updateColumn 动态修改显隐
       state.updateColumn('default', { visible: false })
-      assert.equal(state.columns.value.some((col) => col.columnKey === 'default'), false)
+      assert.equal(
+        state.columns.value.some((col) => col.columnKey === 'default'),
+        false
+      )
       state.updateColumn('default', { visible: true })
-      assert.equal(state.columns.value.some((col) => col.columnKey === 'default'), true)
+      assert.equal(
+        state.columns.value.some((col) => col.columnKey === 'default'),
+        true
+      )
 
       // 验证重排序后新增列，原有排序不会丢失
       state.reorderColumns(0, 1)
@@ -58,9 +69,15 @@ async function check() {
 
       // 验证 resetColumns 彻底恢复初始显隐和顺序
       state.resetColumns()
-      assert.deepEqual(state.columns.value.map((col) => col.columnKey), ['default'])
+      assert.deepEqual(
+        state.columns.value.map((col) => col.columnKey),
+        ['default']
+      )
       assert.equal(state.columnChecks.value.find((col) => col.columnKey === 'main').visible, false)
-      assert.equal(state.columnChecks.value.find((col) => col.columnKey === 'default').visible, true)
+      assert.equal(
+        state.columnChecks.value.find((col) => col.columnKey === 'default').visible,
+        true
+      )
     } finally {
       scope.stop()
     }
@@ -74,7 +91,9 @@ async function check() {
   assert.equal(getColumnKey({ slotName: 'operation' }), 'operation')
   assert.equal(getColumnKey({ columnKey: 'custom', slotName: 'operation' }), 'custom')
 
-  console.log('列显隐回归检查通过：默认显示、初始隐藏、面板回写、批量切换、新增列、updateColumn 显隐、顺序保留与 resetColumns 重置。')
+  console.log(
+    '列显隐回归检查通过：默认显示、初始隐藏、面板回写、批量切换、新增列、updateColumn 显隐、顺序保留与 resetColumns 重置。'
+  )
 }
 
 check().catch((error) => {

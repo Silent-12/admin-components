@@ -21,7 +21,10 @@ function sh(cmd) {
 // 1. 计算下一个整数版本
 const tagOutput = sh('git tag --list "v*"')
 const versions = tagOutput
-  ? tagOutput.split('\n').map((t) => parseInt(t.replace(/^v/, ''), 10)).filter(Number.isFinite)
+  ? tagOutput
+      .split('\n')
+      .map((t) => parseInt(t.replace(/^v/, ''), 10))
+      .filter(Number.isFinite)
   : []
 const next = (versions.length ? Math.max(...versions) : 0) + 1
 

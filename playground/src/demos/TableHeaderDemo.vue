@@ -9,9 +9,10 @@
     <header class="demo-head">
       <h2>AoTableHeader 表格头部</h2>
       <p>
-        表格头部是独立组件，AoTable 在集成模式下内部使用它。<code>layout</code> 按顺序声明要显示的按钮，
-        支持 search、refresh、size、fullscreen、columns、settings。斑马纹 / 边框 / 表头背景与表格尺寸写入
-        包内 <code>useTableStore</code>（已持久化到 localStorage），所有表格共享同一份外观偏好。
+        表格头部是独立组件，AoTable 在集成模式下内部使用它。<code>layout</code>
+        按顺序声明要显示的按钮， 支持 search、refresh、size、fullscreen、columns、settings。斑马纹 /
+        边框 / 表头背景与表格尺寸写入 包内 <code>useTableStore</code>（已持久化到
+        localStorage），所有表格共享同一份外观偏好。
       </p>
     </header>
 
@@ -19,8 +20,10 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景一：完整表头 + 外观联动</h3>
       <p class="demo-block__desc">
-        下表为原生 ElTable，直接读取 <code>useTableStore</code> 的状态渲染，用来验证表头「其他设置」与
-        「表格大小」的作用；列设置面板通过 <code>v-model:columns</code> 回写列配置，拖拽排序与勾选显隐会即时反映到表格。
+        下表为原生 ElTable，直接读取
+        <code>useTableStore</code> 的状态渲染，用来验证表头「其他设置」与
+        「表格大小」的作用；列设置面板通过
+        <code>v-model:columns</code> 回写列配置，拖拽排序与勾选显隐会即时反映到表格。
       </p>
 
       <AoTableHeader
@@ -67,8 +70,9 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景二：layout 裁剪</h3>
       <p class="demo-block__desc">
-        <code>layout="refresh,columns"</code> 只保留刷新与列设置；不传 <code>show-search-bar</code> 时搜索按钮不渲染。
-        全屏按钮依赖页面锚点，默认 <code>full-class="ao-page-view"</code>。
+        <code>layout="refresh,columns"</code> 只保留刷新与列设置；不传
+        <code>show-search-bar</code> 时搜索按钮不渲染。 全屏按钮依赖页面锚点，默认
+        <code>full-class="ao-page-view"</code>。
       </p>
 
       <AoTableHeader
@@ -83,8 +87,8 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景三：AoTableHeaderButton 状态</h3>
       <p class="demo-block__desc">
-        纯图标按钮，供表头内置按钮与头部插槽自定义按钮统一复用；<code>content</code> 为空时不渲染 Tooltip。
-        插槽内请使用该组件，才能获得与内置按钮一致的样式与提示。
+        纯图标按钮，供表头内置按钮与头部插槽自定义按钮统一复用；<code>content</code> 为空时不渲染
+        Tooltip。 插槽内请使用该组件，才能获得与内置按钮一致的样式与提示。
       </p>
 
       <div class="demo-actions">

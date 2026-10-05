@@ -24,7 +24,7 @@
 
 ## 完成检查
 
-- 涉及源码改动的任务完成后，必须依次执行 `pnpm run typecheck`（vue-tsc）与 `pnpm run build`（库模式构建 + d.ts 生成）；两者都通过才算完成。
+- 涉及源码改动的任务完成后，必须依次执行 `pnpm run fix`（ESLint 修复）、`pnpm run lint:prettier`（格式化）、`pnpm run lint:stylelint`（样式修复），再执行 `pnpm run typecheck`（vue-tsc）与 `pnpm run build`（库模式构建 + d.ts 生成）；全部通过才算完成。规范与命令说明见 [代码规范工具链](lint.md)。
 
 - 构建产物 `dist/` 提交进仓库（下游 git 依赖安装不执行构建），build 后确认 `dist/tables/AoTable/index.vue.d.ts` 等声明文件完整生成，构建日志中的 d.ts 类型告警需要评估是否阻塞下游类型检查。
 

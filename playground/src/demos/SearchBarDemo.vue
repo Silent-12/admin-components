@@ -8,8 +8,9 @@
     <header class="demo-head">
       <h2>AoSearchBar 搜索栏</h2>
       <p>
-        与 AoTable 内置搜索栏是同一组件：内部持有表单状态，通过 <code>update:modelValue</code> 整体上报，
-        查询时上报 <code>search</code> 事件并携带清洗后的参数。单独使用时，校验需由页面通过 ref 的
+        与 AoTable 内置搜索栏是同一组件：内部持有表单状态，通过
+        <code>update:modelValue</code> 整体上报， 查询时上报
+        <code>search</code> 事件并携带清洗后的参数。单独使用时，校验需由页面通过 ref 的
         <code>validate()</code> 主动触发。
       </p>
     </header>
@@ -43,12 +44,15 @@
     <section class="demo-block">
       <h3 class="demo-block__title">场景二：配置项</h3>
       <p class="demo-block__desc">
-        <code>span</code> 控制单项占宽（24 栅格）；<code>button-left-limit</code> 指定表单项数量不超过该值时按钮靠左对齐；
+        <code>span</code> 控制单项占宽（24 栅格）；<code>button-left-limit</code>
+        指定表单项数量不超过该值时按钮靠左对齐；
         <code>show-expand="false"</code> 关闭展开收起；<code>default-expanded</code> 指定默认展开；
         <code>show-reset</code> / <code>disabled-search</code> 控制按钮的显示与禁用。
       </p>
 
-      <div class="demo-block__desc">配置 A：span=8（一行两项）+ buttonLeftLimit=2（按钮靠左）+ 关闭展开收起</div>
+      <div class="demo-block__desc"
+        >配置 A：span=8（一行两项）+ buttonLeftLimit=2（按钮靠左）+ 关闭展开收起</div
+      >
       <AoSearchBar
         v-model="compactModel"
         :items="compactItems"
@@ -58,7 +62,9 @@
         @search="handleCompactSearch"
       />
 
-      <div class="demo-block__desc">配置 B：defaultExpanded（默认展开全部）+ 隐藏重置按钮 + 禁用查询按钮</div>
+      <div class="demo-block__desc"
+        >配置 B：defaultExpanded（默认展开全部）+ 隐藏重置按钮 + 禁用查询按钮</div
+      >
       <AoSearchBar
         v-model="expandedModel"
         :items="searchItems"
@@ -98,8 +104,18 @@
 
   /** 场景一搜索项：6 项超过 span=6 的一行容量（3 项），自动出现展开 / 收起 */
   const searchItems: SearchFormItem[] = [
-    { label: '用户名', key: 'userName', type: 'input', props: { placeholder: '请输入用户名', clearable: true } },
-    { label: '邮箱', key: 'userEmail', type: 'input', props: { placeholder: '请输入邮箱', clearable: true } },
+    {
+      label: '用户名',
+      key: 'userName',
+      type: 'input',
+      props: { placeholder: '请输入用户名', clearable: true }
+    },
+    {
+      label: '邮箱',
+      key: 'userEmail',
+      type: 'input',
+      props: { placeholder: '请输入邮箱', clearable: true }
+    },
     {
       label: '部门',
       key: 'department',
@@ -180,7 +196,12 @@
 
   /** 配置 A 搜索项：span=8 时一行两项，按钮靠左 */
   const compactItems: SearchFormItem[] = [
-    { label: '用户名', key: 'userName', type: 'input', props: { placeholder: '请输入用户名', clearable: true } },
+    {
+      label: '用户名',
+      key: 'userName',
+      type: 'input',
+      props: { placeholder: '请输入用户名', clearable: true }
+    },
     {
       label: '部门',
       key: 'department',

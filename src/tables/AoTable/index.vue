@@ -132,19 +132,14 @@
   import { ElCard, ElEmpty, ElPagination, ElTable, ElTableColumn } from 'element-plus'
   import { ref, computed, nextTick, watchEffect, getCurrentInstance, useAttrs, useSlots } from 'vue'
   import type { ComponentPublicInstance, Slots } from 'vue'
-  import type { FormRules, TableColumnCtx, TableInstance, TableProps } from 'element-plus'
+  import type { TableColumnCtx, TableInstance } from 'element-plus'
   import { storeToRefs } from 'pinia'
-  import type {
-    AoTableProps,
-    ColumnOption,
-    TablePaginationOptions,
-    TablePaginationState
-  } from '../../types/component'
+  import type { AoTableProps, ColumnOption } from '../../types/component'
   import { useTableStore } from '../../store/modules/table'
   import { scrollToTop as useCommonScrollToTop } from '../../hooks/useScroll'
   import { useTableHeight } from '../../hooks/useTableHeight'
   import { useResizeObserver, useWindowSize } from '@vueuse/core'
-  import AoSearchBar, { type SearchFormItem } from '../../forms/AoSearchBar.vue'
+  import AoSearchBar from '../../forms/AoSearchBar.vue'
   import AoTableHeader from '../AoTableHeader.vue'
 
   defineOptions({ name: 'AoTable' })
@@ -178,7 +173,6 @@
       $index: number
     }) => any
   }>()
-
 
   const props = withDefaults(defineProps<AoTableProps<T>>(), {
     columns: () => [],
