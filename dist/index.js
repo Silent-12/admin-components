@@ -14,7 +14,7 @@ const Oo = { cancel: "取消", confirm: "确定" }, Io = { form: { reset: "重�
 }, zo = { cancel: "Cancel", confirm: "Confirm" }, Mo = { form: { reset: "Reset", submit: "Submit" }, searchBar: { reset: "Reset", search: "Search", expand: "Expand", collapse: "Collapse" }, selection: "Select", sizeOptions: { small: "Compact", default: "Default", large: "Loose" }, column: { selection: "Select", expand: "Expand", index: "Index", globalIndex: "Global Index" }, header: { search: "Search", refresh: "Refresh", size: "Table Size", fullscreen: "Fullscreen", columns: "Column Settings", settings: "Settings" }, zebra: "Zebra", border: "Border", headerBackground: "Header BG" }, Lo = {
   common: zo,
   table: Mo
-}, $o = "3", mt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Vo = () => {
+}, $o = "4", mt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Vo = () => {
   const e = $e(mt, () => {
   });
   return { hasAuth: (l) => l ? e()?.includes(l) ?? !1 : !1 };
