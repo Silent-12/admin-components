@@ -1,6 +1,6 @@
 # Changelog
 
-## 未发布
+## v3 (2026-10-06)
 
 - 破坏性变更：移除表格列配置的 `checked` 显隐兼容字段，所有列（含序号列）统一使用 `visible`，默认显示。下游需将列配置中的 `checked: false` 改为 `visible: false`；`columnChecks` 数组及其绑定方式不变。
 - 表格：导出 `useTableColumns` Composable（支持列显隐控制、拖拽排序、特殊列识别与增删改查）。
