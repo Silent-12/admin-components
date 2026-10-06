@@ -1,7 +1,7 @@
 // 表格根容器
 .ao-table-root {
-  // 集成模式：搜索栏、表格头部、表格与分页共用同一层外框，
-  // 内部子块之间依靠细线（搜索栏下边框、表格框线）分区
+  // 集成模式：搜索栏、表格头部、表格与分页共用同一层外框。
+  // 搜索栏以浅色底与外框内的白色区域形成明度差，其余子块之间依靠细线（搜索栏下边框、表格框线）分区
   &.is-integrated {
     box-sizing: border-box;
     display: flex;
@@ -13,10 +13,11 @@
     background: var(--default-box-color);
     border: 1px solid var(--ao-card-border);
 
-    // 搜索栏并入外框：去掉自身卡片外观，仅保留下边框作为与表格区的分隔线
+    // 搜索栏并入外框：去掉自身卡片外观，改用浅色底与外框内区域拉开明度差，
+    // 仅保留下边框作为与表格区的分隔线；色值随 .dark 切换，无需额外适配
     :deep(.ao-search-bar) {
       flex-shrink: 0;
-      background: transparent;
+      background: var(--el-fill-color-light);
       border: none;
       border-bottom: 1px solid var(--ao-card-border);
     }
