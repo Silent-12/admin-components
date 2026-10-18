@@ -116,6 +116,11 @@ declare function __VLS_template(): {
 type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
 declare const __VLS_component: import('vue').DefineComponent<__VLS_PublicProps, {
     validate: (callback?: import('element-plus').FormValidateCallback | undefined) => ReturnType<FormInstance["validate"]>;
+    /**
+     * @description 清除指定字段或全部字段的校验状态，不修改表单值
+     * @param args Element Plus clearValidate 的字段参数，省略时清除全部字段
+     */
+    clearValidate: (props?: import('element-plus/es/utils/typescript').Arrayable<import('element-plus').FormItemProp> | undefined) => void;
     reset: () => void;
     submit: () => Promise<void>;
     getOutput: () => Record<string, any>;

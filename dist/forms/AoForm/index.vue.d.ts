@@ -6,6 +6,11 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
 } & FormWrapperProps, {
     /** 校验表单，透传表单主体的 validate */
     validate: (callback?: import('element-plus').FormValidateCallback | undefined) => ReturnType<InstanceType<typeof AoFormBody>["validate"]>;
+    /**
+     * @description 清除指定字段或全部字段的校验状态，透传表单主体的 clearValidate
+     * @param args 待清除校验的字段参数，省略时清除全部字段
+     */
+    clearValidate: (props?: import('element-plus/es/utils/typescript').Arrayable<import('element-plus').FormItemProp> | undefined) => void;
     /** 重置表单，透传表单主体的 reset */
     reset: () => void | undefined;
     /** 触发提交（含校验），透传表单主体的 submit */
@@ -180,6 +185,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
             onSubmit?: ((args_0: Record<string, any>) => any) | undefined;
         }>, {
             validate: (callback?: import('element-plus').FormValidateCallback | undefined) => ReturnType<import('element-plus').FormInstance["validate"]>;
+            clearValidate: (props?: import('element-plus/es/utils/typescript').Arrayable<import('element-plus').FormItemProp> | undefined) => void;
             reset: () => void;
             submit: () => Promise<void>;
             getOutput: () => Record<string, any>;
@@ -213,8 +219,9 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         "onUpdate:modelValue"?: ((value: Record<string, any>) => any) | undefined;
         onReset?: (() => any) | undefined;
         onSubmit?: ((args_0: Record<string, any>) => any) | undefined;
-    }>, "reset" | "validate" | "getOutput" | "submit"> & {
+    }>, "reset" | "validate" | "clearValidate" | "getOutput" | "submit"> & {
         validate: (callback?: import('element-plus').FormValidateCallback | undefined) => ReturnType<import('element-plus').FormInstance["validate"]>;
+        clearValidate: (props?: import('element-plus/es/utils/typescript').Arrayable<import('element-plus').FormItemProp> | undefined) => void;
         reset: () => void;
         submit: () => Promise<void>;
         getOutput: () => Record<string, any>;
