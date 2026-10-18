@@ -108,6 +108,8 @@
 
       <div class="demo-form-actions">
         <ElButton @click="handleInlineValidate">校验</ElButton>
+        <ElButton @click="inlineFormRef?.clearValidate('userName')">清除用户名校验</ElButton>
+        <ElButton @click="inlineFormRef?.clearValidate()">清除全部校验</ElButton>
         <ElButton @click="handleInlineReset">重置</ElButton>
         <ElButton type="primary" @click="handleInlineSubmit">提交</ElButton>
       </div>
@@ -145,6 +147,8 @@
   interface AoFormExpose {
     /** 校验表单，未通过时 reject */
     validate: () => Promise<unknown>
+    /** 清除全部或指定字段的校验状态，不修改表单值 */
+    clearValidate: InstanceType<typeof AoForm>['clearValidate']
     /** 重置表单并恢复初始值 */
     reset: () => void
     /** 触发校验并在通过后上报 submit */

@@ -165,6 +165,12 @@
       ...args: Parameters<InstanceType<typeof AoFormBody>['validate']>
     ): ReturnType<InstanceType<typeof AoFormBody>['validate']> =>
       formBodyRef.value!.validate(...args),
+    /**
+     * @description 清除指定字段或全部字段的校验状态，透传表单主体的 clearValidate
+     * @param args 待清除校验的字段参数，省略时清除全部字段
+     */
+    clearValidate: (...args: Parameters<InstanceType<typeof AoFormBody>['clearValidate']>): void =>
+      formBodyRef.value?.clearValidate(...args),
     /** 重置表单，透传表单主体的 reset */
     reset: () => formBodyRef.value?.reset(),
     /** 触发提交（含校验），透传表单主体的 submit */

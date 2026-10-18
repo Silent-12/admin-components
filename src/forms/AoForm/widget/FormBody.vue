@@ -219,6 +219,12 @@
     validate: (
       ...args: Parameters<FormInstance['validate']>
     ): ReturnType<FormInstance['validate']> => formInstance.value!.validate(...args),
+    /**
+     * @description 清除指定字段或全部字段的校验状态，不修改表单值
+     * @param args Element Plus clearValidate 的字段参数，省略时清除全部字段
+     */
+    clearValidate: (...args: Parameters<FormInstance['clearValidate']>): void =>
+      formInstance.value?.clearValidate(...args),
     reset: handleReset,
     submit: handleSubmit,
     // 允许外部在不触发提交事件时主动获取清洗后的输出。
