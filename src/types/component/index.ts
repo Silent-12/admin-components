@@ -19,8 +19,19 @@ import type { FormRules, PaginationProps, TableProps, TableColumnCtx } from 'ele
 import type { SearchFormItem } from './form'
 
 /**
+ * 表格时间戳列配置
+ * @description 由 AoTable 使用 dayjs 把 10 位秒级时间戳格式化为展示文本，列无需再编写 formatter。
+ */
+export interface ColumnTimestampOption {
+  // 时间戳字段名，缺省时取列自身的 prop
+  field?: string
+  // dayjs 格式模板，缺省为 YYYY/MM/DD HH:mm:ss（如 2026/10/24 16:12:29）
+  format?: string
+}
+
+/**
  * 表格列配置接口
- * @description 沿用原生列属性和 formatter，slotName 指定 AoTable 上的自定义插槽。
+ * @description 沿用原生列属性和 formatter，slotName 指定 AoTable 上的自定义插槽，timestamp 格式化时间戳列。
  */
 export interface ColumnOption<T extends Record<string, any> = any> {
   // 列类型
@@ -51,6 +62,8 @@ export interface ColumnOption<T extends Record<string, any> = any> {
   visible?: boolean
   // 可选的原生单元格格式化函数
   formatter?: TableColumnCtx<T>['formatter']
+  // 可选的时间戳列配置，声明后由 AoTable 使用 dayjs 格式化，优先于 formatter
+  timestamp?: ColumnTimestampOption
   // 可选的 AoTable 命名插槽，填写即启用，不默认取 prop
   slotName?: string
   // 其他属性

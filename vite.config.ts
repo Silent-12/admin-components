@@ -28,6 +28,7 @@ export default defineConfig({
         '@vueuse/core',
         '@element-plus/icons-vue',
         '@iconify/vue',
+        'dayjs',
         'xlsx',
         'file-saver',
         'vue-draggable-plus',

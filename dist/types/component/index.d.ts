@@ -1,8 +1,16 @@
 import { FormRules, PaginationProps, TableProps, TableColumnCtx } from 'element-plus';
 import { SearchFormItem } from './form';
 /**
+ * 表格时间戳列配置
+ * @description 由 AoTable 使用 dayjs 把 10 位秒级时间戳格式化为展示文本，列无需再编写 formatter。
+ */
+export interface ColumnTimestampOption {
+    field?: string;
+    format?: string;
+}
+/**
  * 表格列配置接口
- * @description 沿用原生列属性和 formatter，slotName 指定 AoTable 上的自定义插槽。
+ * @description 沿用原生列属性和 formatter，slotName 指定 AoTable 上的自定义插槽，timestamp 格式化时间戳列。
  */
 export interface ColumnOption<T extends Record<string, any> = any> {
     type?: 'selection' | 'expand' | 'index' | 'globalIndex';
@@ -19,6 +27,7 @@ export interface ColumnOption<T extends Record<string, any> = any> {
     disabled?: boolean;
     visible?: boolean;
     formatter?: TableColumnCtx<T>['formatter'];
+    timestamp?: ColumnTimestampOption;
     slotName?: string;
     [key: string]: any;
 }

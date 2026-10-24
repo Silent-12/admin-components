@@ -1,5 +1,9 @@
 # Changelog
 
+## 未发布
+
+- 表格：列配置新增 `timestamp` 属性，由 `AoTable` 使用 dayjs 把后端返回的 10 位秒级时间戳格式化为展示文本，接收 `field`（时间戳字段，缺省取列 `prop`）与 `format`（dayjs 格式，缺省 `YYYY/MM/DD HH:mm:ss`，即 `2026/10/24 16:12:29`）两个参数；声明后优先于 `formatter`，下游无需再手写 `new Date` 格式化。
+
 ## v10 (2026-10-24)
 
 - 表单：`AoForm` 新增 `loading` 属性，弹窗与内联模式支持整个表单主体的 Element Plus 加载遮罩，加载时禁用弹窗默认确定按钮。

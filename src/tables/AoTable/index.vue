@@ -4,7 +4,7 @@
 <!-- 扩展功能：分页组件（分页状态由页面持有并通过 pagination 传入，组件只渲染与上报交互）、命名插槽渲染列内容、loading、表格全局边框、斑马纹、表格尺寸、表头背景配置 -->
 <!-- 集成能力：传入 searchItems 自动渲染搜索栏（v-model:searchForm 双向绑定，内置查询 / 重置按钮）；搜索栏默认显示，头部搜索开关可切换显隐，v-model:show-search-bar 可接管状态；编写 #header-left / #header-right 插槽自动渲染表格头部 -->
 <!-- 布局：集成模式下根容器为唯一卡片外框，搜索栏、表格头部、表格与分页共用同一层边框，搜索栏下边框作为分隔线 -->
-<!-- 列内容渲染：沿用原生 formatter；填写 slotName 即使用 AoTable 上的同名插槽 -->
+<!-- 列内容渲染：沿用原生 formatter；填写 slotName 即使用 AoTable 上的同名插槽；声明 timestamp 由组件使用 dayjs 格式化 10 位秒级时间戳 -->
 <!-- 事件：size-change / current-change / search / reset / refresh 均为交互上报，分页重置与数据加载由页面决定 -->
 <!-- 插槽：#header-left / #header-right 渲染表格头部；#footer 渲染表格底部左侧内容区；#operation 自动启用末尾操作列；其他列内容插槽由 slotName 指定 -->
 <!-- 获取 ref：默认暴露了 elTableRef 外部通过 ref.value.elTableRef 可以调用 el-table 方法 -->
@@ -134,7 +134,8 @@
   import type { ComponentPublicInstance, Slots } from 'vue'
   import type { TableColumnCtx, TableInstance } from 'element-plus'
   import { storeToRefs } from 'pinia'
-  import type { AoTableProps, ColumnOption } from '../../types/component'
+  import dayjs from 'dayjs'
+  import type { AoTableProps, ColumnOption, ColumnTimestampOption } from '../../types/component'
   import { useTableStore } from '../../store/modules/table'
   import { scrollToTop as useCommonScrollToTop } from '../../hooks/useScroll'
   import { useTableHeight } from '../../hooks/useTableHeight'
@@ -407,10 +408,37 @@
   }
 
   /** 列配置中 AoTable / 列设置自有的字段，不透传给 ElTableColumn，避免被错误解释或泄漏为 DOM 属性 */
-  const COLUMN_OWN_PROP_KEYS = ['slotName', 'visible', 'disabled']
+  const COLUMN_OWN_PROP_KEYS = ['slotName', 'visible', 'disabled', 'timestamp']
+
+  /** 时间戳列的默认展示格式 */
+  const DEFAULT_TIMESTAMP_FORMAT = 'YYYY/MM/DD HH:mm:ss'
 
   /**
-   * @description 清理列属性，移除 AoTable 与列设置自有的字段，确保它们不会被 ElTableColumn 错误解释
+   * @description 使用 dayjs 把 10 位秒级时间戳格式化为展示文本，空值与非法值返回占位符
+   * @param seconds 10 位秒级时间戳
+   * @param format dayjs 格式模板
+   * @return 格式化后的时间文本
+   */
+  const formatTimestamp = (seconds: unknown, format: string): string => {
+    if (seconds === null || seconds === undefined || seconds === '') return '-'
+    const date = dayjs(Number(seconds) * 1000)
+    return date.isValid() ? date.format(format) : '-'
+  }
+
+  /**
+   * @description 生成时间戳列的 formatter，字段缺省取列 prop 由 ElTable 原生解析出的单元格值
+   * @param timestamp 时间戳列配置
+   * @return 可交给 ElTableColumn 的原生格式化函数
+   */
+  const createTimestampFormatter = (timestamp: ColumnTimestampOption) => {
+    const format = timestamp.format ?? DEFAULT_TIMESTAMP_FORMAT
+    return (row: T, _column: TableColumnCtx<T>, cellValue: unknown): string =>
+      formatTimestamp(timestamp.field ? row?.[timestamp.field] : cellValue, format)
+  }
+
+  /**
+   * @description 清理列属性，移除 AoTable 与列设置自有的字段，确保它们不会被 ElTableColumn 错误解释；
+   * 声明 timestamp 的列在此统一生成 formatter，下游无需再手写日期格式化
    * @param col 列配置
    * @return 可透传给 ElTableColumn 的列属性
    */
@@ -419,6 +447,9 @@
     COLUMN_OWN_PROP_KEYS.forEach((key) => {
       delete columnProps[key]
     })
+    if (col.timestamp) {
+      columnProps.formatter = createTimestampFormatter(col.timestamp)
+    }
     return columnProps
   }
 

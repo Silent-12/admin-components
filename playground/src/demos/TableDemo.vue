@@ -27,6 +27,12 @@
         <code>v-model:column-checks</code>，当前显示列 <code>columns</code> 交给
         <code>columns</code> 属性。
       </p>
+      <p class="demo-block__desc">
+        10 位秒级时间戳列声明 <code>columns[].timestamp</code> 即由组件使用 dayjs 格式化，无需在
+        <code>formatter</code> 中手写 <code>new Date</code>：<code>field</code>
+        指定时间戳字段（缺省取列 <code>prop</code>），<code>format</code> 指定 dayjs 格式（缺省
+        <code>YYYY/MM/DD HH:mm:ss</code>）。
+      </p>
 
       <div class="demo-table-box">
         <AoTable
@@ -219,10 +225,10 @@
     { prop: 'status', label: '状态', width: 80, slotName: 'status' },
     { prop: 'remark', label: '备注', minWidth: 130, showOverflowTooltip: true },
     {
-      prop: 'createdAt',
+      prop: 'createdAtSeconds',
       label: '创建时间',
-      width: 150,
-      formatter: (row) => row.createdAt
+      width: 180,
+      timestamp: { field: 'createdAtSeconds', format: 'YYYY-MM-DD HH:mm:ss' }
     }
   ])
 

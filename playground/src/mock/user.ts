@@ -14,6 +14,7 @@ export interface UserRecord {
   status: number
   remark: string
   createdAt: string
+  createdAtSeconds: number
 }
 
 export interface UserSearchParams {
@@ -46,6 +47,14 @@ const createTime = (index: number): string => {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${hour}:00`
 }
 
+/**
+ * @description 生成创建时间的 10 位秒级时间戳，用于验证 AoTable 列配置的 timestamp 格式化。
+ * @param index 记录序号，从 0 开始。
+ * @return 与 createTime 同源的秒级时间戳。
+ */
+const createTimeSeconds = (index: number): number =>
+  Math.floor(new Date(2026, 0, 1 + index, 9 + (index % 8)).getTime() / 1000)
+
 const ACCOUNT_DATA: UserRecord[] = Array.from({ length: 58 }, (_, i) => ({
   id: `${i + 1}`,
   userName: `用户${String(i + 1).padStart(3, '0')}`,
@@ -57,7 +66,8 @@ const ACCOUNT_DATA: UserRecord[] = Array.from({ length: 58 }, (_, i) => ({
     i % 7 === 0
       ? '这是一条超长备注：用于验证表格列在内容溢出时的省略与提示表现，内容越长越容易暴露样式问题。'
       : '',
-  createdAt: createTime(i)
+  createdAt: createTime(i),
+  createdAtSeconds: createTimeSeconds(i)
 }))
 
 /**
