@@ -36,6 +36,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
 }>, {
     width: string | number;
     visible: boolean;
+    loading: boolean;
     labelWidth: string | number;
     span: number;
     title: string;

@@ -66,6 +66,7 @@ export interface FormEmits {
  * @description 复用表单主体配置，并提供弹窗呈现、显隐和底部操作按钮配置。
  */
 export interface FormWrapperProps extends FormProps {
+    loading?: boolean;
     dialog?: boolean;
     visible?: boolean;
     title?: string;
