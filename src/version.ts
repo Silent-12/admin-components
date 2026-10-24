@@ -7,4 +7,4 @@
  */
 
 /** 当前组件包版本号 */
-export const version: string = '7'
+export const version: string = '8'
