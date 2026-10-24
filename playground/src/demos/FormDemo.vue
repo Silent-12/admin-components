@@ -30,12 +30,14 @@
 
       <div class="demo-actions">
         <ElButton type="primary" @click="openUserForm">新增用户</ElButton>
+        <ElButton @click="formLoading = !formLoading">切换表单加载状态</ElButton>
       </div>
 
       <AoForm
         ref="userFormRef"
         v-model="userForm"
         v-model:visible="userFormVisible"
+        :loading="formLoading"
         title="新增用户"
         cancel-text="关闭"
         confirm-text="保存"
@@ -96,6 +98,7 @@
         ref="inlineFormRef"
         v-model="inlineForm"
         :dialog="false"
+        :loading="formLoading"
         :items="inlineFormItems"
         :rules="inlineFormRules"
         :span="24"
@@ -170,6 +173,9 @@
 
   /** 弹窗显隐 */
   const userFormVisible = ref(false)
+
+  /** 表单加载状态：同时验证弹窗和内联表单的遮罩及恢复 */
+  const formLoading = ref(false)
 
   /** 表单数据 */
   const userForm = ref<Record<string, any>>({})

@@ -119,6 +119,8 @@ export interface FormEmits {
  * @description 复用表单主体配置，并提供弹窗呈现、显隐和底部操作按钮配置。
  */
 export interface FormWrapperProps extends FormProps {
+  // 可选的表单加载状态，默认 false；弹窗与内联模式均在整个表单主体显示加载遮罩
+  loading?: boolean
   // 可选的弹窗模式开关，默认 true；false 时呈现内联表单
   dialog?: boolean
   // 可选的弹窗显隐状态，支持 v-model:visible，仅弹窗模式生效

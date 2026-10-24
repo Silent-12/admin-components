@@ -22,6 +22,7 @@
   >
     <AoFormBody
       ref="formBodyRef"
+      v-loading="loading"
       v-bind="{ ...bodyProps, ...$attrs }"
       v-model="modelValue"
       @reset="handleReset"
@@ -41,7 +42,7 @@
         <ElButton
           v-if="showSubmit"
           type="primary"
-          :disabled="disabledSubmit"
+          :disabled="disabledSubmit || loading"
           @click="handleConfirm"
         >
           {{ confirmText || t('common.confirm') }}
@@ -54,6 +55,7 @@
   <AoFormBody
     v-else
     ref="formBodyRef"
+    v-loading="loading"
     v-bind="{ ...bodyProps, ...$attrs }"
     v-model="modelValue"
     @reset="handleReset"
@@ -85,6 +87,7 @@
     sanitizeOutput: () => ({}),
     dialog: true,
     visible: false,
+    loading: false,
     title: '',
     width: '600px',
     alignCenter: true,

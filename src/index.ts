@@ -75,7 +75,7 @@ export const AdminComponents: Plugin = {
     app.provide<AuthListGetter>(AUTH_LIST_KEY, options.getAuthList ?? (() => undefined))
     app.provide<LocalSvgResolver>(LOCAL_SVG_KEY, options.resolveLocalSvg ?? (() => undefined))
     app.provide<string | undefined>(LOGO_URL_KEY, options.assets?.logo)
-    // AoTable 模板使用 v-loading，包内统一注册，不依赖 Admin模板自动导入
+    // AoTable、AoForm 模板使用 v-loading，包内统一注册，不依赖 Admin模板自动导入
     app.directive('loading', ElLoadingDirective)
   }
 }

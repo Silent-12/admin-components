@@ -34,6 +34,6 @@
 
 - 版本号为纯整数自增（v1、v2、v3…），不使用 semver 小数点版本；tag 即版本。
 
-- 发版统一执行 `pnpm run release`：自动取最大 `v*` tag 加 1、同步 `package.json` 的 `version` 与 `CHANGELOG.md`、构建并提交 `dist/`、打 tag 并推送。禁止手工改版本号或手工打 tag。
+- 发版统一执行 `pnpm run release`：自动取最大 `v*` tag 加 1、同步 `src/version.ts` 与 `CHANGELOG.md`（`package.json` 的 `version` 固定为 `0.0.0`）、构建并提交 `dist/`、打 tag 并推送。禁止手工改版本号或手工打 tag。
 
 - 发版前必须在 playground 完成回归预览；版本号在下游 install 时控制台输出，用于确认升级生效。
