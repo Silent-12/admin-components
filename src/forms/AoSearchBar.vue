@@ -72,17 +72,18 @@
         <ElCol :xs="24" :sm="24" :md="span" :lg="span" :xl="span" class="action-column">
           <div class="action-buttons-wrapper" :style="actionButtonsStyle">
             <div class="form-buttons">
-              <ElButton v-if="showReset" class="reset-button" @click="handleReset">
-                {{ t('table.searchBar.reset') }}
-              </ElButton>
               <ElButton
                 v-if="showSearch"
                 type="primary"
+                plain
                 class="search-button"
                 @click="handleSearch"
                 :disabled="disabledSearch"
               >
                 {{ t('table.searchBar.search') }}
+              </ElButton>
+              <ElButton v-if="showReset" plain class="reset-button" @click="handleReset">
+                {{ t('table.searchBar.reset') }}
               </ElButton>
             </div>
             <div v-if="shouldShowExpandToggle" class="filter-toggle" @click="toggleExpand">
@@ -381,6 +382,16 @@
       .form-buttons {
         display: flex;
         gap: 8px;
+        .el-button {
+          // ghost 效果：沿用 plain 的文字与边框颜色，交互时保持透明背景
+          background-color: transparent;
+        }
+        .search-button {
+          --el-button-border-color: var(--el-color-primary);
+          --el-button-hover-text-color: var(--el-color-primary-light-3);
+          --el-button-hover-border-color: var(--el-color-primary-light-3);
+          --el-button-active-text-color: var(--el-color-primary-dark-2);
+        }
       }
       .filter-toggle {
         display: flex;

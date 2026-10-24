@@ -21,6 +21,7 @@
       <p class="demo-block__desc">
         搜索项超过一行容量时自动出现「展开 / 收起」。选项类表单项的 <code>options</code> 写在顶层，
         由组件渲染为 ElOption 子节点；其余属性写在 <code>props</code> 内。
+        操作按钮按「查询、重置」排列，使用透明背景的描边样式。
       </p>
 
       <AoSearchBar

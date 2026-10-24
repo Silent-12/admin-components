@@ -389,19 +389,10 @@ const Zo = 500, Yo = 2, qo = (e, o) => {
                     style: ve(w.value)
                   }, [
                     K("div", Qo, [
-                      e.showReset ? (s(), v(a(fe), {
-                        key: 0,
-                        class: "reset-button",
-                        onClick: y
-                      }, {
-                        default: m(() => [
-                          X(U(a(p)("table.searchBar.reset")), 1)
-                        ]),
-                        _: 1
-                      })) : _("", !0),
                       e.showSearch ? (s(), v(a(fe), {
-                        key: 1,
+                        key: 0,
                         type: "primary",
+                        plain: "",
                         class: "search-button",
                         onClick: $,
                         disabled: e.disabledSearch
@@ -410,7 +401,18 @@ const Zo = 500, Yo = 2, qo = (e, o) => {
                           X(U(a(p)("table.searchBar.search")), 1)
                         ]),
                         _: 1
-                      }, 8, ["disabled"])) : _("", !0)
+                      }, 8, ["disabled"])) : _("", !0),
+                      e.showReset ? (s(), v(a(fe), {
+                        key: 1,
+                        plain: "",
+                        class: "reset-button",
+                        onClick: y
+                      }, {
+                        default: m(() => [
+                          X(U(a(p)("table.searchBar.reset")), 1)
+                        ]),
+                        _: 1
+                      })) : _("", !0)
                     ]),
                     O.value ? (s(), B("div", {
                       key: 0,
@@ -444,7 +446,7 @@ const Zo = 500, Yo = 2, qo = (e, o) => {
   for (const [t, n] of o)
     l[t] = n;
   return l;
-}, oa = /* @__PURE__ */ Q(ta, [["__scopeId", "data-v-60568442"]]), aa = ["src"], la = /* @__PURE__ */ Y({
+}, oa = /* @__PURE__ */ Q(ta, [["__scopeId", "data-v-e1d30e62"]]), aa = ["src"], la = /* @__PURE__ */ Y({
   name: "AoSvgIcon",
   inheritAttrs: !1,
   __name: "AoSvgIcon",
