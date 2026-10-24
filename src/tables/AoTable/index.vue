@@ -84,9 +84,9 @@
             <ElTableColumn
               v-if="slots.operation"
               label="操作"
-              :width="170"
+              :width="210"
               fixed="right"
-              align="right"
+              align="left"
             >
               <template #default="slotScope">
                 <slot v-if="shouldRenderSlotScope(slotScope)" name="operation" v-bind="slotScope" />

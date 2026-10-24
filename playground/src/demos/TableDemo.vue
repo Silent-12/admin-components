@@ -110,6 +110,7 @@
         <code>:show-table-header="false"</code> 可保留卡片外框但不渲染表格头部。
         <code>type: 'index'</code> 为当前页序号，<code>type: 'expand'</code>
         配合同名插槽渲染展开行， <code>sortable: true</code> 使用 ElTable 内置前端排序。
+        操作列默认左对齐，三个文字按钮在开启和关闭边框时均应保持单行。
       </p>
 
       <div class="demo-table-box demo-table-box--short">
@@ -124,6 +125,11 @@
               <p>邮箱：{{ row.userEmail }}</p>
               <p>备注：{{ row.remark || '（无）' }}</p>
             </div>
+          </template>
+          <template #operation="{ row }">
+            <ElButton link @click="logEvent(`重置密码：${row.userName}`)">重置密码</ElButton>
+            <ElButton link @click="logEvent(`编辑：${row.userName}`)">编辑</ElButton>
+            <ElButton link type="danger" @click="logEvent(`删除：${row.userName}`)">删除</ElButton>
           </template>
         </AoTable>
       </div>

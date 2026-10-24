@@ -1187,9 +1187,9 @@ const sa = { class: "table-header-root" }, ua = { class: "left-wrap" }, ia = { c
                   a(i).operation ? (s(), v(a(we), {
                     key: 1,
                     label: "操作",
-                    width: 170,
+                    width: 210,
                     fixed: "right",
-                    align: "right"
+                    align: "left"
                   }, {
                     default: m((P) => [
                       Ke(P) ? N(E.$slots, "operation", Ie(Re(P)), void 0, !0, 0) : _("", !0)
@@ -1234,7 +1234,7 @@ const sa = { class: "table-header-root" }, ua = { class: "left-wrap" }, ia = { c
       ], 2);
     };
   }
-}), Da = /* @__PURE__ */ Q(ma, [["__scopeId", "data-v-559c1dcf"]]), va = { class: "form-section" }, ga = {
+}), Da = /* @__PURE__ */ Q(ma, [["__scopeId", "data-v-a547588b"]]), va = { class: "form-section" }, ga = {
   key: 0,
   class: "form-title"
 }, ba = { key: 1 }, ya = { key: 1 }, wa = /* @__PURE__ */ Y({
