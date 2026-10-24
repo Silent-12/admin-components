@@ -446,7 +446,7 @@ const Zo = 500, Yo = 2, qo = (e, o) => {
   for (const [t, n] of o)
     l[t] = n;
   return l;
-}, oa = /* @__PURE__ */ Q(ta, [["__scopeId", "data-v-e1d30e62"]]), aa = ["src"], la = /* @__PURE__ */ Y({
+}, oa = /* @__PURE__ */ Q(ta, [["__scopeId", "data-v-6125fcb8"]]), aa = ["src"], la = /* @__PURE__ */ Y({
   name: "AoSvgIcon",
   inheritAttrs: !1,
   __name: "AoSvgIcon",

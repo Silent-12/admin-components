@@ -383,14 +383,17 @@
         display: flex;
         gap: 8px;
         .el-button {
-          // ghost 效果：沿用 plain 的文字与边框颜色，交互时保持透明背景
-          background-color: transparent;
+          // 描边按钮保留独立底色，亮色为白色，暗色跟随 Element Plus 主题
+          background-color: var(--el-fill-color-blank);
         }
         .search-button {
           --el-button-border-color: var(--el-color-primary);
           --el-button-hover-text-color: var(--el-color-primary-light-3);
           --el-button-hover-border-color: var(--el-color-primary-light-3);
           --el-button-active-text-color: var(--el-color-primary-dark-2);
+        }
+        .reset-button {
+          --el-button-text-color: var(--el-text-color-regular);
         }
       }
       .filter-toggle {
