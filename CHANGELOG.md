@@ -1,6 +1,6 @@
 # Changelog
 
-## 未发布
+## v7 (2026-10-24)
 
 - 表格：开启表头背景时使用布局包的 `--ao-table-header-bg-color`，亮色调整为 `#f5f7f9`，暗色保持主题适配；需配套 `@ao/admin-layout` v6 或以上版本。
 
