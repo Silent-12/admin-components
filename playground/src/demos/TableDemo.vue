@@ -115,14 +115,16 @@
         <code>pagination</code> 时不渲染分页器。显式传 <code>:integrated="true"</code> +
         <code>:show-table-header="false"</code> 可保留卡片外框但不渲染表格头部。
         <code>type: 'index'</code> 为当前页序号，<code>type: 'expand'</code>
-        配合同名插槽渲染展开行， <code>sortable: true</code> 使用 ElTable 内置前端排序。
-        操作列默认左对齐，三个文字按钮在开启和关闭边框时均应保持单行。
+        配合同名插槽渲染展开行， <code>sortable: true</code> 使用 ElTable 内置前端排序。 操作列由
+        <code>#operation</code> 插槽启用，宽度默认不设置、交由 ElTable 自适应；此处显式传
+        <code>:operation-width="220"</code> 固定宽度，三个文字按钮在开启和关闭边框时均保持单行。
       </p>
 
       <div class="demo-table-box demo-table-box--short">
         <AoTable
           :integrated="true"
           :show-table-header="false"
+          :operation-width="220"
           :data="basicRows"
           :columns="basicColumns"
         >

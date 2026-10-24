@@ -6,7 +6,7 @@
 <!-- 布局：集成模式下根容器为唯一卡片外框，搜索栏、表格头部、表格与分页共用同一层边框，搜索栏下边框作为分隔线 -->
 <!-- 列内容渲染：沿用原生 formatter；填写 slotName 即使用 AoTable 上的同名插槽；声明 timestamp 由组件使用 dayjs 格式化 10 位秒级时间戳 -->
 <!-- 事件：size-change / current-change / search / reset / refresh 均为交互上报，分页重置与数据加载由页面决定 -->
-<!-- 插槽：#header-left / #header-right 渲染表格头部；#footer 渲染表格底部左侧内容区；#operation 自动启用末尾操作列；其他列内容插槽由 slotName 指定 -->
+<!-- 插槽：#header-left / #header-right 渲染表格头部；#footer 渲染表格底部左侧内容区；#operation 自动启用末尾操作列（宽度缺省自适应，operationWidth 可显式固定）；其他列内容插槽由 slotName 指定 -->
 <!-- 获取 ref：默认暴露了 elTableRef 外部通过 ref.value.elTableRef 可以调用 el-table 方法 -->
 <template>
   <div class="ao-table-root" :class="rootClass">
@@ -80,11 +80,11 @@
 
             <slot v-if="slots.default" />
 
-            <!-- 操作列由插槽自动启用，不参与业务列配置与列显隐设置 -->
+            <!-- 操作列由插槽自动启用，不参与业务列配置与列显隐设置；宽度缺省时交给 ElTable 自适应 -->
             <ElTableColumn
               v-if="slots.operation"
               label="操作"
-              :width="210"
+              :width="operationWidth"
               fixed="right"
               align="left"
             >

@@ -1,5 +1,9 @@
 # Changelog
 
+## 未发布
+
+- 表格：操作列宽度不再写死 210px，默认不设置宽度、交由 ElTable 按内容与剩余空间自适应；需要固定宽度时通过 `AoTable` 的 `operation-width` 属性显式声明。
+
 ## v11 (2026-10-24)
 
 - 表格：列配置新增 `timestamp` 属性，由 `AoTable` 使用 dayjs 把后端返回的 10 位秒级时间戳格式化为展示文本，接收 `field`（时间戳字段，缺省取列 `prop`）与 `format`（dayjs 格式，缺省 `YYYY/MM/DD HH:mm:ss`，即 `2026/10/24 16:12:29`）两个参数；声明后优先于 `formatter`，下游无需再手写 `new Date` 格式化。

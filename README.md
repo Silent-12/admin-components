@@ -58,6 +58,7 @@ pnpm --dir playground typecheck
 
 - 表单 `AoForm` 支持 `:loading="detailLoading"`（默认 `false`），弹窗与内联模式均通过 Element Plus `v-loading` 为整个表单主体显示加载遮罩；加载时禁用弹窗默认确定按钮。编辑时可在详情请求开始前开启，在 `finally` 中关闭。
 - 表格列（含序号列）统一通过 `visible` 控制显隐，未声明时默认显示，`visible: false` 默认隐藏；列设置面板与 `toggleColumn` 均操作此字段。旧配置 `checked` 已移除，请迁移为 `visible`。`columnChecks` 是列设置数组，不是第二个显隐字段。
+- 操作列由 `#operation` 插槽自动启用，不参与 `columns` 与列显隐配置；宽度默认不设置，交由 ElTable 按内容与剩余空间自适应，需要固定宽度时传 `operation-width`。
 - 下游只允许从包入口导入（组件、类型、hooks），禁止深引 `src` 内部路径。
 - `vue`、`element-plus`、`pinia`、`vue-i18n`、`@vueuse/core` 为 peerDependencies，版本以 Admin模板为准。
 - `scrollToTop` 等页面级滚动依赖布局包提供的 `#app-main` DOM 锚点。

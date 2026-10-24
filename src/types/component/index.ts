@@ -106,6 +106,8 @@ export interface AoTableProps<T extends Record<string, any> = Record<string, any
   data?: T[]
   /** 列渲染配置，单元格内容通过同名插槽渲染 */
   columns?: ColumnOption<T>[]
+  /** 操作列宽度；缺省不设置宽度，交由 ElTable 按内容与剩余空间自适应，显式传入时固定为该宽度 */
+  operationWidth?: string | number
   /** 分页状态，由页面持有；交互通过原生 size-change/current-change 事件回传 */
   pagination?: TablePaginationState
   /** 加载状态 */
