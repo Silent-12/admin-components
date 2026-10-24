@@ -48,6 +48,7 @@
 | `--ao-color`          | `#ffffff` | `#000000` | 基础色（组件内底色） |
 | `--default-bg-color`  | `#ffffff` | `#161618` | 页面全局背景         |
 | `--default-box-color` | `#ffffff` | `#161618` | 卡片/弹窗/容器背景   |
+| `--ao-table-header-bg-color` | `#f5f7f9` | `var(--el-fill-color-lighter)` | 表头背景开关启用时的填充色 |
 
 ### 边框变量
 

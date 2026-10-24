@@ -128,8 +128,8 @@ importers:
         version: 9.14.5(vue@3.5.43(typescript@5.6.3))
     devDependencies:
       '@ao/admin-layout':
-        specifier: git+https://github.com/Silent-12/admin-layout.git#v3
-        version: https://codeload.github.com/Silent-12/admin-layout/tar.gz/6fa1e6d7ac419b3457fb51c472d2a818ca7cfa81(@ao/admin-components@)(@vueuse/core@13.9.0(vue@3.5.43(typescript@5.6.3)))(element-plus@2.14.7(vue@3.5.43(typescript@5.6.3)))(pinia-plugin-persistedstate@4.7.1(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3))))(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3)))(vue-i18n@9.14.5(vue@3.5.43(typescript@5.6.3)))(vue-router@4.6.4(vue@3.5.43(typescript@5.6.3)))(vue@3.5.43(typescript@5.6.3))
+        specifier: git+https://github.com/Silent-12/admin-layout.git#v6
+        version: https://codeload.github.com/Silent-12/admin-layout/tar.gz/41a25dc988078ddec63ffe13921adaecf341b44a(@ao/admin-components@)(@vueuse/core@13.9.0(vue@3.5.43(typescript@5.6.3)))(element-plus@2.14.7(vue@3.5.43(typescript@5.6.3)))(pinia-plugin-persistedstate@4.7.1(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3))))(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3)))(vue-i18n@9.14.5(vue@3.5.43(typescript@5.6.3)))(vue-router@4.6.4(vue@3.5.43(typescript@5.6.3)))(vue@3.5.43(typescript@5.6.3))
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
         version: 6.0.9(vite@7.3.6(@types/node@24.19.1)(sass@1.105.1))(vue@3.5.43(typescript@5.6.3))
@@ -142,12 +142,12 @@ importers:
 
 packages:
 
-  '@ao/admin-layout@https://codeload.github.com/Silent-12/admin-layout/tar.gz/6fa1e6d7ac419b3457fb51c472d2a818ca7cfa81':
-    resolution: {gitHosted: true, integrity: sha512-uNObDbqa+8Lvj6DBjTgng/giYjj4RMxuoURdeTqmYHzhCruPCfbuvQ5VWeKua1yiHhDhwHLVz0AwN/IXRz75mA==, tarball: https://codeload.github.com/Silent-12/admin-layout/tar.gz/6fa1e6d7ac419b3457fb51c472d2a818ca7cfa81}
+  '@ao/admin-layout@https://codeload.github.com/Silent-12/admin-layout/tar.gz/41a25dc988078ddec63ffe13921adaecf341b44a':
+    resolution: {gitHosted: true, integrity: sha512-DgWBhT+ZStax0TA52f9bstS/Lr64R/7Fay9iN2kMHxY666upak/mL2AbASx5kfWPT6GZlwnHc/7/7lyDygLeTA==, tarball: https://codeload.github.com/Silent-12/admin-layout/tar.gz/41a25dc988078ddec63ffe13921adaecf341b44a}
     version: 0.0.0
     engines: {node: '>=20.19.0', pnpm: '>=8.8.0'}
     peerDependencies:
-      '@ao/admin-components': https://github.com/Silent-12/admin-components.git#v1
+      '@ao/admin-components': https://github.com/Silent-12/admin-components.git#v3
       '@vueuse/core': ^13.9.0
       element-plus: ^2.14.3
       pinia: ^3.0.3
@@ -2209,7 +2209,7 @@ packages:
 
 snapshots:
 
-  '@ao/admin-layout@https://codeload.github.com/Silent-12/admin-layout/tar.gz/6fa1e6d7ac419b3457fb51c472d2a818ca7cfa81(@ao/admin-components@)(@vueuse/core@13.9.0(vue@3.5.43(typescript@5.6.3)))(element-plus@2.14.7(vue@3.5.43(typescript@5.6.3)))(pinia-plugin-persistedstate@4.7.1(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3))))(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3)))(vue-i18n@9.14.5(vue@3.5.43(typescript@5.6.3)))(vue-router@4.6.4(vue@3.5.43(typescript@5.6.3)))(vue@3.5.43(typescript@5.6.3))':
+  '@ao/admin-layout@https://codeload.github.com/Silent-12/admin-layout/tar.gz/41a25dc988078ddec63ffe13921adaecf341b44a(@ao/admin-components@)(@vueuse/core@13.9.0(vue@3.5.43(typescript@5.6.3)))(element-plus@2.14.7(vue@3.5.43(typescript@5.6.3)))(pinia-plugin-persistedstate@4.7.1(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3))))(pinia@3.0.3(typescript@5.6.3)(vue@3.5.43(typescript@5.6.3)))(vue-i18n@9.14.5(vue@3.5.43(typescript@5.6.3)))(vue-router@4.6.4(vue@3.5.43(typescript@5.6.3)))(vue@3.5.43(typescript@5.6.3))':
     dependencies:
       '@ao/admin-components': 'link:'
       '@vueuse/core': 13.9.0(vue@3.5.43(typescript@5.6.3))

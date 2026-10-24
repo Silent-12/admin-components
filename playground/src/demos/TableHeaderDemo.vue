@@ -155,7 +155,7 @@
   /** 表头背景样式：与 AoTable 内部逻辑一致，跟随 store 切换 */
   const headerCellStyle = computed(() => ({
     background: isHeaderBackground.value
-      ? 'var(--el-fill-color-lighter)'
+      ? 'var(--ao-table-header-bg-color)'
       : 'var(--default-box-color)'
   }))
 

@@ -1017,7 +1017,7 @@ const sa = { class: "table-header-root" }, ua = { class: "left-wrap" }, ia = { c
       tableHeaderHeight: Ue,
       bottomBarSpacing: Tt
     }), It = b(() => C.value ? "100%" : re.value && !t.loading ? t.emptyHeight : t.height ? t.height : "100%"), Rt = b(() => ({
-      background: O.value ? "var(--el-fill-color-lighter)" : "var(--default-box-color)",
+      background: O.value ? "var(--ao-table-header-bg-color)" : "var(--default-box-color)",
       ...t.headerCellStyle || {}
       // 合并用户传入的样式
     })), zt = (E) => {
@@ -1234,7 +1234,7 @@ const sa = { class: "table-header-root" }, ua = { class: "left-wrap" }, ia = { c
       ], 2);
     };
   }
-}), Da = /* @__PURE__ */ Q(ma, [["__scopeId", "data-v-a547588b"]]), va = { class: "form-section" }, ga = {
+}), Da = /* @__PURE__ */ Q(ma, [["__scopeId", "data-v-7e2f709a"]]), va = { class: "form-section" }, ga = {
   key: 0,
   class: "form-title"
 }, ba = { key: 1 }, ya = { key: 1 }, wa = /* @__PURE__ */ Y({
