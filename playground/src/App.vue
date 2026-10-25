@@ -50,11 +50,13 @@
   import ButtonDemo from './demos/ButtonDemo.vue'
   import ExcelDemo from './demos/ExcelDemo.vue'
   import BaseDemo from './demos/BaseDemo.vue'
+  import DialogDemo from './demos/DialogDemo.vue'
 
   defineOptions({ name: 'Playground' })
 
   /** demo 标识 */
-  type DemoKey = 'table' | 'form' | 'searchBar' | 'tableHeader' | 'button' | 'excel' | 'base'
+  type DemoKey =
+    'table' | 'form' | 'searchBar' | 'tableHeader' | 'button' | 'excel' | 'base' | 'dialog'
 
   /** 导航项配置 */
   interface NavItem {
@@ -71,7 +73,8 @@
     tableHeader: TableHeaderDemo,
     button: ButtonDemo,
     excel: ExcelDemo,
-    base: BaseDemo
+    base: BaseDemo,
+    dialog: DialogDemo
   }
 
   /** 导航项列表 */
@@ -82,7 +85,8 @@
     { key: 'tableHeader', label: '表头 AoTableHeader', icon: 'ri:layout-top-line' },
     { key: 'button', label: '按钮组', icon: 'ri:apps-2-line' },
     { key: 'excel', label: 'Excel 导入导出', icon: 'ri:file-excel-2-line' },
-    { key: 'base', label: '图标与 Logo', icon: 'ri:image-line' }
+    { key: 'base', label: '图标与 Logo', icon: 'ri:image-line' },
+    { key: 'dialog', label: '弹窗 AoDialog', icon: 'ri:window-line' }
   ]
 
   /** 当前激活的 demo */

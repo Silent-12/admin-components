@@ -1,23 +1,26 @@
 <!-- AoForm 表单组件入口 -->
-<!-- 支持常用表单组件、自定义组件、插槽、校验、隐藏表单项；默认由 ElDialog 承载为弹窗表单，传 :dialog="false" 时为内联表单 -->
+<!-- 支持常用表单组件、自定义组件、插槽、校验、隐藏表单项；默认由 AoDialog 承载为弹窗表单，传 :dialog="false" 时为内联表单 -->
 <!-- 写法同 ElementPlus 官方文档组件，把属性写在 props 里面就可以了 -->
 <!-- 对外 API：ref 可调用 validate / reset / submit / getOutput；getOutput 允许外部在不触发提交事件时读取清洗后的表单输出 -->
 <!-- 弹窗模式（默认）：v-model:visible 控制显隐；底部操作区固定为 取消 / 确定（确定 = 校验通过后触发 submit 并携带清洗后的全部表单值，校验失败只展示行内错误且不上报，是否关闭弹窗由业务决定），按钮文案可用 cancelText / confirmText 覆盖 -->
 <!-- 底部操作区默认右对齐；需要替换或增删按钮时用 #footer 插槽整体接管，仅需调整位置时穿透样式修改即可 -->
 <!-- 弹窗默认支持拖拽头部，在浏览器可视区域内移动，拖拽与边界限制由 ElDialog 原生能力处理 -->
-<!-- 弹窗整体高度上限、头部与底部的 1px 分隔线及内边距压缩由 @ao/admin-layout 的 app.scss 提供（.el-dialog.ao-form-dialog），超出部分由表单区域内部滚动 -->
+<!-- 弹窗整体高度上限、头部与底部的 1px 分隔线及内边距压缩由 @ao/admin-layout 的 app.scss 提供（.el-dialog.ao-form-dialog），与 AoDialog 共用同一套外观 -->
 <template>
-  <!-- 弹窗表单模式 -->
-  <ElDialog
+  <!-- 弹窗表单模式：弹窗外壳复用 AoDialog，与独立弹窗保持一致的头部、底部与分隔线 -->
+  <AoDialog
     v-if="isDialog"
-    class="ao-form-dialog"
-    :model-value="visible"
+    :visible="visible"
     :title="title"
     :width="width"
     :align-center="alignCenter"
-    draggable
-    :overflow="false"
-    @update:model-value="handleVisibleChange"
+    :cancel-text="cancelText"
+    :confirm-text="confirmText"
+    :show-confirm="showSubmit"
+    :confirm-disabled="disabledSubmit || loading"
+    @update:visible="handleVisibleChange"
+    @cancel="emit('cancel')"
+    @confirm="handleConfirm"
     @closed="emit('closed')"
   >
     <AoFormBody
@@ -33,23 +36,11 @@
       </template>
     </AoFormBody>
 
-    <!-- 底部操作区：默认右对齐 取消 / 确定；确定 = 校验通过后上报清洗输出 -->
-    <template #footer>
-      <slot name="footer">
-        <ElButton @click="handleCancel">
-          {{ cancelText || t('common.cancel') }}
-        </ElButton>
-        <ElButton
-          v-if="showSubmit"
-          type="primary"
-          :disabled="disabledSubmit || loading"
-          @click="handleConfirm"
-        >
-          {{ confirmText || t('common.confirm') }}
-        </ElButton>
-      </slot>
+    <!-- 底部操作区由 AoDialog 提供默认 取消 / 确定；业务传入 #footer 时整体接管 -->
+    <template v-if="slots.footer" #footer>
+      <slot name="footer" />
     </template>
-  </ElDialog>
+  </AoDialog>
 
   <!-- 内联表单模式 -->
   <AoFormBody
@@ -70,8 +61,7 @@
 <script setup lang="ts">
   import { computed, useSlots, useTemplateRef } from 'vue'
   import type { Slots } from 'vue'
-  import { ElButton, ElDialog } from 'element-plus'
-  import { useI18n } from 'vue-i18n'
+  import AoDialog from '../../base/AoDialog.vue'
   import AoFormBody from './widget/FormBody.vue'
   import type { FormWrapperProps, FormWrapperEmits } from '../../types/component'
 
@@ -102,8 +92,6 @@
   const modelValue = defineModel<Record<string, any>>({
     default: () => ({}) as Record<string, any>
   })
-
-  const { t } = useI18n()
 
   // 显式标注运行时插槽，避免声明生成器在动态透传时循环推断 $slots。
   const slots: Slots = useSlots()
@@ -145,14 +133,6 @@
    */
   const handleVisibleChange = (value: boolean): void => {
     emit('update:visible', value)
-  }
-
-  /**
-   * @description 点击取消：上报 cancel 事件并关闭弹窗
-   */
-  const handleCancel = (): void => {
-    emit('cancel')
-    handleVisibleChange(false)
   }
 
   /**

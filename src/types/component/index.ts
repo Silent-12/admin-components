@@ -93,6 +93,7 @@ export type TablePaginationOptions = Pick<
 >
 
 export * from './form'
+export * from './dialog'
 
 /**
  * AoTable 组件 Props 接口

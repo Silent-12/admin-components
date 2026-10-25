@@ -29,6 +29,7 @@ import AoTable from './tables/AoTable/index.vue'
 import AoTableHeader from './tables/AoTableHeader.vue'
 import AoTableHeaderButton from './tables/AoTableHeaderButton.vue'
 import AoForm from './forms/AoForm/index.vue'
+import AoDialog from './base/AoDialog.vue'
 import AoSearchBar from './forms/AoSearchBar.vue'
 import AoButtonTable from './forms/AoButtonTable.vue'
 import AoButtonMore from './forms/AoButtonMore.vue'
@@ -88,6 +89,7 @@ export {
   AoTableHeader,
   AoTableHeaderButton,
   AoForm,
+  AoDialog,
   AoSearchBar,
   AoButtonTable,
   AoButtonMore,
