@@ -1,41 +1,41 @@
-import { ElTreeSelect as Yt, ElTimeSelect as qt, ElTimePicker as Xt, ElCascader as Jt, ElSlider as Qt, ElRate as eo, ElDatePicker as ye, ElRadioGroup as to, ElCheckboxGroup as oo, ElCheckbox as ue, ElSwitch as ao, ElSelect as lo, ElInputNumber as no, ElInputTag as ro, ElInput as so, ElForm as et, ElRow as tt, ElCol as Oe, ElFormItem as ot, ElOption as at, ElRadio as lt, ElButton as pe, ElIcon as nt, ElTooltip as io, ElDropdown as rt, ElDropdownMenu as st, ElDropdownItem as it, ElPopover as Ze, ElScrollbar as uo, ElCard as co, ElTable as fo, ElEmpty as po, ElTableColumn as we, ElPagination as mo, ElDialog as ho, ElMessage as Ye, ElUpload as vo, ElLoadingDirective as go } from "element-plus";
-import { inject as $e, ref as V, computed as b, toRaw as Ie, defineComponent as Y, useTemplateRef as Pe, watch as He, toRefs as ut, openBlock as s, createElementBlock as B, normalizeClass as J, createVNode as z, unref as a, mergeProps as F, withCtx as h, Fragment as G, renderList as K, createBlock as v, createSlots as re, renderSlot as N, resolveDynamicComponent as ne, createCommentVNode as _, toDisplayString as U, createElementVNode as W, normalizeStyle as ve, createTextVNode as X, useAttrs as ct, useModel as he, onMounted as bo, onUnmounted as yo, isRef as Ae, mergeModels as se, getCurrentInstance as wo, useSlots as dt, watchEffect as So, resolveDirective as ft, withDirectives as Se, vShow as ko, normalizeProps as Re, guardReactiveProps as Me, nextTick as pt, readonly as xo } from "vue";
-import { defineStore as Eo, storeToRefs as mt } from "pinia";
-import Bo from "dayjs";
-import { useWindowSize as ht, useResizeObserver as qe, useThrottleFn as _o } from "@vueuse/core";
-import { ArrowUpBold as Co, ArrowDownBold as Ao, Loading as To } from "@element-plus/icons-vue";
-import { useI18n as Ee } from "vue-i18n";
+import { ElTreeSelect as Yt, ElTimeSelect as qt, ElTimePicker as Xt, ElCascader as Jt, ElSlider as Qt, ElRate as eo, ElDatePicker as we, ElRadioGroup as to, ElCheckboxGroup as oo, ElCheckbox as ue, ElSwitch as ao, ElSelect as lo, ElInputNumber as no, ElInputTag as ro, ElInput as so, ElForm as tt, ElRow as ot, ElCol as Oe, ElFormItem as at, ElOption as lt, ElRadio as nt, ElButton as me, ElIcon as rt, ElTooltip as io, ElDropdown as st, ElDropdownMenu as it, ElDropdownItem as ut, ElPopover as Ye, ElScrollbar as uo, ElCard as co, ElTable as fo, ElEmpty as mo, ElTableColumn as xe, ElPagination as po, ElDialog as ho, ElMessage as qe, ElUpload as vo, ElLoadingDirective as go } from "element-plus";
+import { inject as Le, ref as M, computed as g, toRaw as Ie, defineComponent as Z, useTemplateRef as Pe, watch as De, toRefs as ct, openBlock as i, createElementBlock as B, normalizeClass as Q, createVNode as z, unref as l, mergeProps as H, withCtx as p, Fragment as G, renderList as K, createBlock as v, createSlots as ae, renderSlot as F, resolveDynamicComponent as re, createCommentVNode as C, toDisplayString as U, createElementVNode as W, normalizeStyle as ge, createTextVNode as J, useAttrs as dt, useModel as he, onMounted as bo, onUnmounted as yo, isRef as Te, mergeModels as se, getCurrentInstance as wo, useSlots as ft, watchEffect as xo, resolveDirective as He, withDirectives as ve, vShow as ko, normalizeProps as Re, guardReactiveProps as Me, nextTick as mt, readonly as So } from "vue";
+import { defineStore as Bo, storeToRefs as pt } from "pinia";
+import Eo from "dayjs";
+import { useWindowSize as ht, useResizeObserver as Xe, useThrottleFn as Co } from "@vueuse/core";
+import { ArrowUpBold as Ao, ArrowDownBold as To, Loading as _o } from "@element-plus/icons-vue";
+import { useI18n as Be } from "vue-i18n";
 import { VueDraggable as Oo } from "vue-draggable-plus";
 import { Icon as Io } from "@iconify/vue";
 import * as fe from "xlsx";
 import Ro from "file-saver";
-const Mo = { cancel: "取消", confirm: "确定" }, zo = { form: { reset: "重置", submit: "提交" }, searchBar: { reset: "重置", search: "查询", expand: "展开", collapse: "收起" }, selection: "选择", sizeOptions: { small: "紧凑", default: "默认", large: "宽松" }, column: { selection: "勾选", expand: "展开", index: "序号", globalIndex: "全局序号" }, header: { search: "搜索", refresh: "刷新", size: "表格大小", fullscreen: "全屏", columns: "列设置", settings: "其他设置" }, zebra: "斑马纹", border: "边框", headerBackground: "表头背景" }, Vo = {
+const Mo = { cancel: "取消", confirm: "确定" }, zo = { form: { reset: "重置", submit: "提交" }, searchBar: { reset: "重置", search: "查询", expand: "展开", collapse: "收起" }, selection: "选择", sizeOptions: { small: "紧凑", default: "默认", large: "宽松" }, column: { selection: "勾选", expand: "展开", index: "序号", globalIndex: "全局序号" }, header: { search: "搜索", refresh: "刷新", size: "表格大小", fullscreen: "全屏", columns: "列设置", settings: "其他设置" }, zebra: "斑马纹", border: "边框", headerBackground: "表头背景" }, $o = {
   common: Mo,
   table: zo
-}, Lo = { cancel: "Cancel", confirm: "Confirm" }, $o = { form: { reset: "Reset", submit: "Submit" }, searchBar: { reset: "Reset", search: "Search", expand: "Expand", collapse: "Collapse" }, selection: "Select", sizeOptions: { small: "Compact", default: "Default", large: "Loose" }, column: { selection: "Select", expand: "Expand", index: "Index", globalIndex: "Global Index" }, header: { search: "Search", refresh: "Refresh", size: "Table Size", fullscreen: "Fullscreen", columns: "Column Settings", settings: "Settings" }, zebra: "Zebra", border: "Border", headerBackground: "Header BG" }, Po = {
-  common: Lo,
-  table: $o
-}, Ho = "12", vt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Fo = () => {
-  const e = $e(vt, () => {
+}, Vo = { cancel: "Cancel", confirm: "Confirm" }, Lo = { form: { reset: "Reset", submit: "Submit" }, searchBar: { reset: "Reset", search: "Search", expand: "Expand", collapse: "Collapse" }, selection: "Select", sizeOptions: { small: "Compact", default: "Default", large: "Loose" }, column: { selection: "Select", expand: "Expand", index: "Index", globalIndex: "Global Index" }, header: { search: "Search", refresh: "Refresh", size: "Table Size", fullscreen: "Fullscreen", columns: "Column Settings", settings: "Settings" }, zebra: "Zebra", border: "Border", headerBackground: "Header BG" }, Po = {
+  common: Vo,
+  table: Lo
+}, Do = "13", vt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Ho = () => {
+  const e = Le(vt, () => {
   });
-  return { hasAuth: (l) => l ? e()?.includes(l) ?? !1 : !1 };
+  return { hasAuth: (a) => a ? e()?.includes(a) ?? !1 : !1 };
 }, gt = /* @__PURE__ */ Symbol("ao-admin-local-svg"), bt = /* @__PURE__ */ Symbol("ao-admin-logo-url");
-var me = /* @__PURE__ */ ((e) => (e.DEFAULT = "default", e.SMALL = "small", e.LARGE = "large", e))(me || {});
-const ze = Eo(
+var pe = /* @__PURE__ */ ((e) => (e.DEFAULT = "default", e.SMALL = "small", e.LARGE = "large", e))(pe || {});
+const ze = Bo(
   "tableStore",
   () => {
-    const e = V(me.DEFAULT), o = V(!1), l = V(!1), t = V(!1), n = V(!1);
+    const e = M(pe.DEFAULT), o = M(!1), a = M(!1), t = M(!1), n = M(!1);
     return {
       tableSize: e,
       isZebra: o,
-      isBorder: l,
+      isBorder: a,
       isHeaderBackground: t,
-      setTableSize: (f) => e.value = f,
-      setIsZebra: (f) => o.value = f,
-      setIsBorder: (f) => l.value = f,
-      setIsHeaderBackground: (f) => t.value = f,
+      setTableSize: (m) => e.value = m,
+      setIsZebra: (m) => o.value = m,
+      setIsBorder: (m) => a.value = m,
+      setIsHeaderBackground: (m) => t.value = m,
       isFullScreen: n,
-      setIsFullScreen: (f) => n.value = f
+      setIsFullScreen: (m) => n.value = m
     };
   },
   {
@@ -44,7 +44,7 @@ const ze = Eo(
       storage: localStorage
     }
   }
-), Do = () => {
+), Fo = () => {
   const e = document.getElementById("app-main");
   e ? e.scrollTop = 0 : window.scrollTo(0, 0);
 };
@@ -71,8 +71,8 @@ class ke {
   calculateOffset() {
     if (!this.options.showTableHeader.value)
       return this.calculateBottomBarOffset();
-    const o = this.getHeaderHeight(), l = this.calculateBottomBarOffset();
-    return o + l + ke.TABLE_HEADER_SPACING;
+    const o = this.getHeaderHeight(), a = this.calculateBottomBarOffset();
+    return o + a + ke.TABLE_HEADER_SPACING;
   }
   /**
    * 获取表格头部高度
@@ -84,17 +84,17 @@ class ke {
    * 计算底部栏偏移量
    */
   calculateBottomBarOffset() {
-    const { bottomBarHeight: o, bottomBarSpacing: l } = this.options;
-    return o.value === 0 ? 0 : o.value + l.value;
+    const { bottomBarHeight: o, bottomBarSpacing: a } = this.options;
+    return o.value === 0 ? 0 : o.value + a.value;
   }
 }
 function No(e) {
   return {
     /** 容器高度样式对象 */
-    containerHeight: b(() => new ke(e).calculate())
+    containerHeight: g(() => new ke(e).calculate())
   };
 }
-const Xe = {
+const Je = {
   input: so,
   // 输入框
   inputtag: ro,
@@ -111,13 +111,13 @@ const Xe = {
   // 复选框组
   radiogroup: to,
   // 单选框组
-  date: ye,
+  date: we,
   // 日期选择器
-  daterange: ye,
+  daterange: we,
   // 日期范围选择器
-  datetime: ye,
+  datetime: we,
   // 日期时间选择器
-  datetimerange: ye,
+  datetimerange: we,
   // 日期时间范围选择器
   rate: eo,
   // 评分
@@ -141,7 +141,7 @@ const Xe = {
   "slots",
   "render",
   "options"
-], jo = ["select", "checkboxgroup", "radiogroup"], Wo = "title", Je = (e) => e.type === Wo, Ko = (e, o) => Uo.includes(e) ? e === "options" ? jo.includes(o ?? "") : !0 : !1, Be = {
+], jo = ["select", "checkboxgroup", "radiogroup"], Wo = "title", Qe = (e) => e.type === Wo, Ko = (e, o) => Uo.includes(e) ? e === "options" ? jo.includes(o ?? "") : !0 : !1, Ee = {
   removeEmptyString: !0,
   removeEmptyArray: !0,
   removeEmptyObject: !0,
@@ -150,76 +150,76 @@ const Xe = {
   keepFalse: !0
 }, Go = /^\d+$/, Fe = (e) => e.split(".").filter(Boolean).map((o) => Go.test(o) ? Number(o) : o), oe = (e) => {
   if (!e) return {};
-  const o = (l) => {
-    if (Array.isArray(l))
-      return l.map((t) => o(t));
-    if (l && typeof l == "object") {
-      const t = Ie(l);
-      return Object.keys(t).reduce((n, c) => (n[c] = o(t[c]), n), {});
+  const o = (a) => {
+    if (Array.isArray(a))
+      return a.map((t) => o(t));
+    if (a && typeof a == "object") {
+      const t = Ie(a);
+      return Object.keys(t).reduce((n, d) => (n[d] = o(t[d]), n), {});
     }
-    return l;
+    return a;
   };
   return o(Ie(e));
-}, yt = (e, o) => Fe(o).reduce((l, t) => {
-  if (l != null)
-    return l[t];
+}, yt = (e, o) => Fe(o).reduce((a, t) => {
+  if (a != null)
+    return a[t];
 }, e), Zo = (e, o) => {
-  const l = Fe(o);
-  if (!l.length) return;
-  const t = l.pop(), n = l.reduce((c, p) => {
-    if (c != null)
-      return c[p];
+  const a = Fe(o);
+  if (!a.length) return;
+  const t = a.pop(), n = a.reduce((d, f) => {
+    if (d != null)
+      return d[f];
   }, e);
   n != null && t !== void 0 && delete n[t];
-}, wt = (e, o, l) => {
-  const t = l === "" ? void 0 : l;
+}, wt = (e, o, a) => {
+  const t = a === "" ? void 0 : a;
   if (t === void 0) {
     Zo(e, o);
     return;
   }
   const n = Fe(o);
   if (!n.length) return;
-  let c = e;
-  n.forEach((p, i) => {
-    if (i === n.length - 1) {
-      c[p] = t;
+  let d = e;
+  n.forEach((f, r) => {
+    if (r === n.length - 1) {
+      d[f] = t;
       return;
     }
-    const f = typeof n[i + 1] == "number" ? [] : {};
-    (c[p] === null || c[p] === void 0 || typeof c[p] != "object") && (c[p] = f), c = c[p];
+    const m = typeof n[r + 1] == "number" ? [] : {};
+    (d[f] === null || d[f] === void 0 || typeof d[f] != "object") && (d[f] = m), d = d[f];
   });
-}, Yo = (e) => /<(img|video|audio|iframe|embed|object)\b/i.test(e) ? !1 : e.replace(/&nbsp;/gi, "").replace(/<br\s*\/?>/gi, "").replace(/<[^>]*>/g, "").trim() === "", Ve = (e, o = Be) => {
+}, Yo = (e) => /<(img|video|audio|iframe|embed|object)\b/i.test(e) ? !1 : e.replace(/&nbsp;/gi, "").replace(/<br\s*\/?>/gi, "").replace(/<[^>]*>/g, "").trim() === "", $e = (e, o = Ee) => {
   if (Array.isArray(e)) {
-    const l = e.map((t) => Ve(t, o)).filter((t) => t !== void 0);
-    return l.length === 0 && o.removeEmptyArray ? void 0 : l;
+    const a = e.map((t) => $e(t, o)).filter((t) => t !== void 0);
+    return a.length === 0 && o.removeEmptyArray ? void 0 : a;
   }
   if (e && typeof e == "object") {
-    const l = Ie(e), t = Object.entries(l).reduce(
-      (n, [c, p]) => {
-        const i = Ve(p, o);
-        return i !== void 0 && (n[c] = i), n;
+    const a = Ie(e), t = Object.entries(a).reduce(
+      (n, [d, f]) => {
+        const r = $e(f, o);
+        return r !== void 0 && (n[d] = r), n;
       },
       {}
     );
     return Object.keys(t).length === 0 && o.removeEmptyObject ? void 0 : t;
   }
   return typeof e == "string" ? o.removeEmptyString && e.trim() === "" || o.removeEmptyRichText && Yo(e) ? void 0 : e : e === 0 ? o.keepZero ? e : void 0 : e === !1 ? o.keepFalse ? e : void 0 : e ?? void 0;
-}, Le = (e, o = Be) => Ve(oe(e), o) || {}, St = (e) => e.props ? e.props : Object.fromEntries(
+}, Ve = (e, o = Ee) => $e(oe(e), o) || {}, xt = (e) => e.props ? e.props : Object.fromEntries(
   Object.entries(e).filter(([o]) => !Ko(o, e.type))
-), q = (e) => {
+), X = (e) => {
   const o = e.props?.options ?? e.options;
   return Array.isArray(o) ? o : [];
 }, kt = (e) => {
   if (!e.slots) return {};
   const o = {};
-  return Object.entries(e.slots).forEach(([l, t]) => {
-    t && (o[l] = t);
+  return Object.entries(e.slots).forEach(([a, t]) => {
+    t && (o[a] = t);
   }), o;
-}, xt = (e) => {
+}, St = (e) => {
   if (e.render)
     return e.render;
-  const o = e.type ? Xe[e.type] : void 0;
-  return o || Xe.input;
+  const o = e.type ? Je[e.type] : void 0;
+  return o || Je.input;
 }, qo = {
   xs: { threshold: 12, fallback: 24 },
   // 手机：小于 12 时使用满宽
@@ -232,14 +232,14 @@ const Xe = {
   xl: null
   // 超大屏幕：直接使用设置的 span
 };
-function Et(e, o) {
-  const l = qo[o];
-  return l ? e >= l.threshold ? e : l.fallback : e;
+function Bt(e, o) {
+  const a = qo[o];
+  return a ? e >= a.threshold ? e : a.fallback : e;
 }
 const Xo = 500, Jo = 2, Qo = (e, o) => {
-  const l = o && o > 0 ? o : 24, t = (e ?? l / Jo) / l * 24;
+  const a = o && o > 0 ? o : 24, t = (e ?? a / Jo) / a * 24;
   return Math.min(24, Math.max(1, Math.round(t)));
-}, ea = (e, o, l) => e ? "flex-end" : o <= (l ?? 2) ? "flex-start" : "flex-end", ta = { key: 1 }, oa = { class: "form-buttons" }, aa = { class: "icon-wrapper" }, la = /* @__PURE__ */ Y({
+}, ea = (e, o, a) => e ? "flex-end" : o <= (a ?? 2) ? "flex-start" : "flex-end", ta = { key: 1 }, oa = { class: "form-buttons" }, aa = { class: "icon-wrapper" }, la = /* @__PURE__ */ Z({
   name: "AoSearchBar",
   __name: "AoSearchBar",
   props: {
@@ -259,105 +259,105 @@ const Xo = 500, Jo = 2, Qo = (e, o) => {
     sanitizeOutput: { default: () => ({}) }
   },
   emits: ["reset", "search", "update:modelValue"],
-  setup(e, { expose: o, emit: l }) {
-    const t = e, n = l, { width: c } = ht(), { t: p } = Ee(), i = b(() => c.value < Xo), u = Pe("formRef"), r = V(oe(t.modelValue)), f = V(oe(t.modelValue));
-    let m;
-    He(
+  setup(e, { expose: o, emit: a }) {
+    const t = e, n = a, { width: d } = ht(), { t: f } = Be(), r = g(() => d.value < Xo), c = Pe("formRef"), s = M(oe(t.modelValue)), m = M(oe(t.modelValue));
+    let h;
+    De(
       () => t.modelValue,
-      (M) => {
-        M !== m && (r.value = oe(M), f.value = oe(M));
+      (I) => {
+        I !== h && (s.value = oe(I), m.value = oe(I));
       }
     );
-    const g = V(t.defaultExpanded), k = b(() => ({
-      ...Be,
+    const b = M(t.defaultExpanded), S = g(() => ({
+      ...Ee,
       ...t.sanitizeOutput
-    })), d = (M) => yt(r.value, M), R = (M, ee) => {
-      wt(r.value, M, ee), m = r.value, n("update:modelValue", r.value);
-    }, E = (M, ee) => Et(M ?? A.value, ee), C = b(() => {
-      const M = t.items.filter((x) => !x.hidden);
-      if (!t.isExpand && !g.value) {
-        const x = Math.floor(24 / t.span) - 1;
-        return M.slice(0, x);
+    })), u = (I) => yt(s.value, I), E = (I, ee) => {
+      wt(s.value, I, ee), h = s.value, n("update:modelValue", s.value);
+    }, $ = (I, ee) => Bt(I ?? T.value, ee), A = g(() => {
+      const I = t.items.filter((k) => !k.hidden);
+      if (!t.isExpand && !b.value) {
+        const k = Math.floor(24 / t.span) - 1;
+        return I.slice(0, k);
       }
-      return M;
-    }), L = b(() => {
-      const M = t.items.filter((ee) => !ee.hidden);
-      return !t.isExpand && t.showExpand && M.length > Math.floor(24 / t.span) - 1;
-    }), O = b(() => g.value ? p("table.searchBar.collapse") : p("table.searchBar.expand")), S = b(() => ({
+      return I;
+    }), O = g(() => {
+      const I = t.items.filter((ee) => !ee.hidden);
+      return !t.isExpand && t.showExpand && I.length > Math.floor(24 / t.span) - 1;
+    }), R = g(() => b.value ? f("table.searchBar.collapse") : f("table.searchBar.expand")), x = g(() => ({
       "justify-content": ea(
-        i.value,
-        t.items.filter((M) => !M.hidden).length,
+        r.value,
+        t.items.filter((I) => !I.hidden).length,
         t.buttonLeftLimit
       )
-    })), I = () => {
-      g.value = !g.value;
+    })), V = () => {
+      b.value = !b.value;
     }, w = () => {
-      u.value?.resetFields(), Object.keys(r.value).forEach((M) => {
-        delete r.value[M];
-      }), Object.assign(r.value, oe(f.value)), m = r.value, n("update:modelValue", r.value), n("reset");
-    }, H = () => {
+      c.value?.resetFields(), Object.keys(s.value).forEach((I) => {
+        delete s.value[I];
+      }), Object.assign(s.value, oe(m.value)), h = s.value, n("update:modelValue", s.value), n("reset");
+    }, D = () => {
       n(
         "search",
-        Le(r.value, k.value)
+        Ve(s.value, S.value)
       );
     };
     o({
-      validate: (...M) => u.value.validate(...M),
+      validate: (...I) => c.value.validate(...I),
       reset: w,
       // 允许外部在手动组装请求前直接读取清洗后的参数。
-      getOutput: () => Le(r.value, k.value)
+      getOutput: () => Ve(s.value, S.value)
     });
-    const { span: A, gutter: D, labelPosition: T, labelWidth: ie } = ut(t);
-    return (M, ee) => (s(), B("section", {
-      class: J(["ao-search-bar ao-card-xs", { "is-expanded": g.value }])
+    const { span: T, gutter: N, labelPosition: _, labelWidth: ie } = ct(t);
+    return (I, ee) => (i(), B("section", {
+      class: Q(["ao-search-bar ao-card-xs", { "is-expanded": b.value }])
     }, [
-      z(a(et), F({
+      z(l(tt), H({
         ref: "formRef",
-        model: r.value,
-        "label-position": a(T)
-      }, { ...M.$attrs }), {
-        default: h(() => [
-          z(a(tt), { gutter: a(D) }, {
-            default: h(() => [
-              (s(!0), B(G, null, K(C.value, (x) => (s(), v(a(Oe), {
-                key: x.key,
-                xs: E(x.span, "xs"),
-                sm: E(x.span, "sm"),
-                md: E(x.span, "md"),
-                lg: E(x.span, "lg"),
-                xl: E(x.span, "xl")
+        model: s.value,
+        "label-position": l(_)
+      }, { ...I.$attrs }), {
+        default: p(() => [
+          z(l(ot), { gutter: l(N) }, {
+            default: p(() => [
+              (i(!0), B(G, null, K(A.value, (k) => (i(), v(l(Oe), {
+                key: k.key,
+                xs: $(k.span, "xs"),
+                sm: $(k.span, "sm"),
+                md: $(k.span, "md"),
+                lg: $(k.span, "lg"),
+                xl: $(k.span, "xl")
               }, {
-                default: h(() => [
-                  z(a(ot), {
-                    prop: x.key,
-                    "label-width": x.label ? x.labelWidth || a(ie) : void 0
-                  }, re({
-                    default: h(() => [
-                      N(M.$slots, x.key, {
-                        item: x,
-                        modelValue: r.value
+                default: p(() => [
+                  z(l(at), {
+                    prop: k.key,
+                    "label-width": k.label ? k.labelWidth || l(ie) : void 0
+                  }, ae({
+                    default: p(() => [
+                      F(I.$slots, k.key, {
+                        item: k,
+                        modelValue: s.value
                       }, () => [
-                        (s(), v(ne(a(xt)(x)), F({
-                          "model-value": d(x.key),
-                          "onUpdate:modelValue": (j) => R(x.key, j)
-                        }, { ref_for: !0 }, a(St)(x)), re({
-                          default: h(() => [
-                            x.type === "select" && a(q)(x).length ? (s(!0), B(G, { key: 0 }, K(a(q)(x), (j) => (s(), v(a(at), F({ ref_for: !0 }, j, {
+                        (i(), v(re(l(St)(k)), H({
+                          "model-value": u(k.key),
+                          "onUpdate:modelValue": (j) => E(k.key, j)
+                        }, { ref_for: !0 }, l(xt)(k)), ae({
+                          default: p(() => [
+                            k.type === "select" && l(X)(k).length ? (i(!0), B(G, { key: 0 }, K(l(X)(k), (j) => (i(), v(l(lt), H({ ref_for: !0 }, j, {
                               key: String(j.value)
-                            }), null, 16))), 128)) : _("", !0),
-                            x.type === "checkboxgroup" && a(q)(x).length ? (s(!0), B(G, { key: 1 }, K(a(q)(x), (j) => (s(), v(a(ue), F({ ref_for: !0 }, j, {
+                            }), null, 16))), 128)) : C("", !0),
+                            k.type === "checkboxgroup" && l(X)(k).length ? (i(!0), B(G, { key: 1 }, K(l(X)(k), (j) => (i(), v(l(ue), H({ ref_for: !0 }, j, {
                               key: String(j.value)
-                            }), null, 16))), 128)) : _("", !0),
-                            x.type === "radiogroup" && a(q)(x).length ? (s(!0), B(G, { key: 2 }, K(a(q)(x), (j) => (s(), v(a(lt), F({ ref_for: !0 }, j, {
+                            }), null, 16))), 128)) : C("", !0),
+                            k.type === "radiogroup" && l(X)(k).length ? (i(!0), B(G, { key: 2 }, K(l(X)(k), (j) => (i(), v(l(nt), H({ ref_for: !0 }, j, {
                               key: String(j.value)
-                            }), null, 16))), 128)) : _("", !0)
+                            }), null, 16))), 128)) : C("", !0)
                           ]),
                           _: 2
                         }, [
-                          K(a(kt)(x), (j, _e) => ({
-                            name: _e,
-                            fn: h(() => [
-                              (s(), v(ne(j)))
+                          K(l(kt)(k), (j, Ce) => ({
+                            name: Ce,
+                            fn: p(() => [
+                              (i(), v(re(j)))
                             ])
                           }))
                         ]), 1040, ["model-value", "onUpdate:modelValue"]))
@@ -365,10 +365,10 @@ const Xo = 500, Jo = 2, Qo = (e, o) => {
                     ]),
                     _: 2
                   }, [
-                    x.label ? {
+                    k.label ? {
                       name: "label",
-                      fn: h(() => [
-                        typeof x.label != "string" ? (s(), v(ne(x.label), { key: 0 })) : (s(), B("span", ta, U(x.label), 1))
+                      fn: p(() => [
+                        typeof k.label != "string" ? (i(), v(re(k.label), { key: 0 })) : (i(), B("span", ta, U(k.label), 1))
                       ]),
                       key: "0"
                     } : void 0
@@ -376,60 +376,60 @@ const Xo = 500, Jo = 2, Qo = (e, o) => {
                 ]),
                 _: 2
               }, 1032, ["xs", "sm", "md", "lg", "xl"]))), 128)),
-              z(a(Oe), {
+              z(l(Oe), {
                 xs: 24,
                 sm: 24,
-                md: a(A),
-                lg: a(A),
-                xl: a(A),
+                md: l(T),
+                lg: l(T),
+                xl: l(T),
                 class: "action-column"
               }, {
-                default: h(() => [
+                default: p(() => [
                   W("div", {
                     class: "action-buttons-wrapper",
-                    style: ve(S.value)
+                    style: ge(x.value)
                   }, [
                     W("div", oa, [
-                      e.showSearch ? (s(), v(a(pe), {
+                      e.showSearch ? (i(), v(l(me), {
                         key: 0,
                         type: "primary",
                         plain: "",
                         class: "search-button",
-                        onClick: H,
+                        onClick: D,
                         disabled: e.disabledSearch
                       }, {
-                        default: h(() => [
-                          X(U(a(p)("table.searchBar.search")), 1)
+                        default: p(() => [
+                          J(U(l(f)("table.searchBar.search")), 1)
                         ]),
                         _: 1
-                      }, 8, ["disabled"])) : _("", !0),
-                      e.showReset ? (s(), v(a(pe), {
+                      }, 8, ["disabled"])) : C("", !0),
+                      e.showReset ? (i(), v(l(me), {
                         key: 1,
                         plain: "",
                         class: "reset-button",
                         onClick: w
                       }, {
-                        default: h(() => [
-                          X(U(a(p)("table.searchBar.reset")), 1)
+                        default: p(() => [
+                          J(U(l(f)("table.searchBar.reset")), 1)
                         ]),
                         _: 1
-                      })) : _("", !0)
+                      })) : C("", !0)
                     ]),
-                    L.value ? (s(), B("div", {
+                    O.value ? (i(), B("div", {
                       key: 0,
                       class: "filter-toggle",
-                      onClick: I
+                      onClick: V
                     }, [
-                      W("span", null, U(O.value), 1),
+                      W("span", null, U(R.value), 1),
                       W("div", aa, [
-                        z(a(nt), null, {
-                          default: h(() => [
-                            g.value ? (s(), v(a(Co), { key: 0 })) : (s(), v(a(Ao), { key: 1 }))
+                        z(l(rt), null, {
+                          default: p(() => [
+                            b.value ? (i(), v(l(Ao), { key: 0 })) : (i(), v(l(To), { key: 1 }))
                           ]),
                           _: 1
                         })
                       ])
-                    ])) : _("", !0)
+                    ])) : C("", !0)
                   ], 4)
                 ]),
                 _: 1
@@ -442,12 +442,12 @@ const Xo = 500, Jo = 2, Qo = (e, o) => {
       }, 16, ["model", "label-position"])
     ], 2));
   }
-}), Q = (e, o) => {
-  const l = e.__vccOpts || e;
+}), q = (e, o) => {
+  const a = e.__vccOpts || e;
   for (const [t, n] of o)
-    l[t] = n;
-  return l;
-}, na = /* @__PURE__ */ Q(la, [["__scopeId", "data-v-6125fcb8"]]), ra = ["src"], sa = /* @__PURE__ */ Y({
+    a[t] = n;
+  return a;
+}, na = /* @__PURE__ */ q(la, [["__scopeId", "data-v-6125fcb8"]]), ra = ["src"], sa = /* @__PURE__ */ Z({
   name: "AoSvgIcon",
   inheritAttrs: !1,
   __name: "AoSvgIcon",
@@ -456,28 +456,28 @@ const Xo = 500, Jo = 2, Qo = (e, o) => {
     size: { default: "1em" }
   },
   setup(e) {
-    const o = e, l = $e(gt, () => {
+    const o = e, a = Le(gt, () => {
     });
-    function t(i) {
-      if (!(!i || i.includes(":")))
-        return l(i);
+    function t(r) {
+      if (!(!r || r.includes(":")))
+        return a(r);
     }
-    const n = ct(), c = b(() => t(o.icon)), p = b(() => ({
+    const n = dt(), d = g(() => t(o.icon)), f = g(() => ({
       class: n.class || "",
       style: [n.style, { width: o.size, height: o.size }]
     }));
-    return (i, u) => c.value ? (s(), B("img", F({
+    return (r, c) => d.value ? (i(), B("img", H({
       key: 0,
-      src: c.value
-    }, p.value, {
+      src: d.value
+    }, f.value, {
       class: "ao-svg-icon",
       alt: ""
-    }), null, 16, ra)) : o.icon ? (s(), v(a(Io), F({
+    }), null, 16, ra)) : o.icon ? (i(), v(l(Io), H({
       key: 1,
       icon: o.icon
-    }, p.value, { class: "ao-svg-icon" }), null, 16, ["icon"])) : _("", !0);
+    }, f.value, { class: "ao-svg-icon" }), null, 16, ["icon"])) : C("", !0);
   }
-}), ge = /* @__PURE__ */ Q(sa, [["__scopeId", "data-v-e3e5bfd5"]]), ia = /* @__PURE__ */ Y({
+}), be = /* @__PURE__ */ q(sa, [["__scopeId", "data-v-e3e5bfd5"]]), ia = /* @__PURE__ */ Z({
   name: "AoTableHeaderButton",
   __name: "AoTableHeaderButton",
   props: {
@@ -488,107 +488,107 @@ const Xo = 500, Jo = 2, Qo = (e, o) => {
   },
   emits: ["click"],
   setup(e, { emit: o }) {
-    const l = e, t = o, n = V(), c = b(() => l.loading ? "is-loading-icon" : l.active ? "is-active-icon" : "is-icon"), p = (i) => {
-      t("click", i);
+    const a = e, t = o, n = M(), d = g(() => a.loading ? "is-loading-icon" : a.active ? "is-active-icon" : "is-icon"), f = (r) => {
+      t("click", r);
     };
-    return (i, u) => (s(), B("div", {
+    return (r, c) => (i(), B("div", {
       ref_key: "triggerRef",
       ref: n,
-      class: J(["button", { "is-active": e.active }]),
-      onClick: p
+      class: Q(["button", { "is-active": e.active }]),
+      onClick: f
     }, [
-      z(ge, {
+      z(be, {
         icon: e.icon,
         size: "1rem",
-        class: J(c.value)
+        class: Q(d.value)
       }, null, 8, ["icon", "class"]),
-      e.content ? (s(), v(a(io), {
+      e.content ? (i(), v(l(io), {
         key: 0,
         "virtual-ref": n.value,
         "virtual-triggering": "",
         content: e.content,
         placement: "top",
         "show-after": 500
-      }, null, 8, ["virtual-ref", "content"])) : _("", !0)
+      }, null, 8, ["virtual-ref", "content"])) : C("", !0)
     ], 2));
   }
-}), de = /* @__PURE__ */ Q(ia, [["__scopeId", "data-v-8e84760f"]]), le = {
+}), de = /* @__PURE__ */ q(ia, [["__scopeId", "data-v-8e84760f"]]), ne = {
   selection: "__selection__",
   expand: "__expand__",
   index: "__index__",
   globalIndex: "__globalIndex__"
-}, Z = (e) => e.columnKey ?? le[e.type] ?? e.prop ?? e.slotName ?? "", xe = (e) => e.visible ?? !0, ua = (e, o) => {
-  const l = e.type && e.type in le, t = xe(e);
-  if (l) {
+}, Y = (e) => e.columnKey ?? ne[e.type] ?? e.prop ?? e.slotName ?? "", Se = (e) => e.visible ?? !0, ua = (e, o) => {
+  const a = e.type && e.type in ne, t = Se(e);
+  if (a) {
     const n = e.type;
     return {
       ...e,
-      prop: le[n],
+      prop: ne[n],
       // 列名以用户声明为准，仅在未声明时回落到内置文案
       label: e.label || o[n],
       visible: t
     };
   }
   return { ...e, visible: t };
-}, Te = (e, o) => e.map((l) => ua(l, o));
-function Wa(e) {
-  const { t: o } = Ee(), l = b(() => ({
+}, _e = (e, o) => e.map((a) => ua(a, o));
+function Za(e) {
+  const { t: o } = Be(), a = g(() => ({
     selection: o("table.column.selection"),
     expand: o("table.column.expand"),
     index: o("table.column.index"),
     globalIndex: o("table.column.globalIndex")
-  })), t = V(e()), n = V(
-    Te(t.value, l.value)
+  })), t = M(e()), n = M(
+    _e(t.value, a.value)
   );
-  He(l, (i) => {
-    const u = new Map(t.value.map((r) => [Z(r), r]));
-    n.value = n.value.map((r) => {
-      if (r.type && r.type in le) {
-        const f = r.type, m = u.get(Z(r));
+  De(a, (r) => {
+    const c = new Map(t.value.map((s) => [Y(s), s]));
+    n.value = n.value.map((s) => {
+      if (s.type && s.type in ne) {
+        const m = s.type, h = c.get(Y(s));
         return {
-          ...r,
-          label: m?.label || i[f]
+          ...s,
+          label: h?.label || r[m]
         };
       }
-      return r;
+      return s;
     });
   });
-  const c = b(() => {
-    const i = new Map(t.value.map((u) => [Z(u), u]));
-    return n.value.filter((u) => xe(u)).map((u) => {
-      const r = Z(u), f = i.get(r);
-      return f ? { ...f, visible: !0 } : u;
+  const d = g(() => {
+    const r = new Map(t.value.map((c) => [Y(c), c]));
+    return n.value.filter((c) => Se(c)).map((c) => {
+      const s = Y(c), m = r.get(s);
+      return m ? { ...m, visible: !0 } : c;
     });
-  }), p = (i) => {
-    const u = [...t.value], r = i(u);
-    t.value = Array.isArray(r) ? r : u;
+  }), f = (r) => {
+    const c = [...t.value], s = r(c);
+    t.value = Array.isArray(s) ? s : c;
   };
   return {
-    columns: c,
+    columns: d,
     columnChecks: n,
     /**
      * @description 新增列（支持单个或批量）
      * @param column 列配置或列配置数组
      * @param index 可选的插入位置，越界时追加到末尾
      */
-    addColumn: (i, u) => {
-      const r = Array.isArray(i) ? i : [i];
-      if (r.length === 0) return;
-      p((k) => {
-        const d = [...k], R = typeof u == "number" && u >= 0 && u <= d.length ? u : d.length;
-        return d.splice(R, 0, ...r), d;
+    addColumn: (r, c) => {
+      const s = Array.isArray(r) ? r : [r];
+      if (s.length === 0) return;
+      f((S) => {
+        const u = [...S], E = typeof c == "number" && c >= 0 && c <= u.length ? c : u.length;
+        return u.splice(E, 0, ...s), u;
       });
-      const f = Te(r, l.value), m = [...n.value], g = typeof u == "number" && u >= 0 && u <= m.length ? u : m.length;
-      m.splice(g, 0, ...f), n.value = m;
+      const m = _e(s, a.value), h = [...n.value], b = typeof c == "number" && c >= 0 && c <= h.length ? c : h.length;
+      h.splice(b, 0, ...m), n.value = h;
     },
     /**
      * @description 删除列（支持单个或批量）
      * @param prop 列的唯一标识或标识数组
      */
-    removeColumn: (i) => {
-      const u = Array.isArray(i) ? i : [i];
-      u.length !== 0 && (p((r) => r.filter((f) => !u.includes(Z(f)))), n.value = n.value.filter(
-        (r) => !u.includes(Z(r))
+    removeColumn: (r) => {
+      const c = Array.isArray(r) ? r : [r];
+      c.length !== 0 && (f((s) => s.filter((m) => !c.includes(Y(m)))), n.value = n.value.filter(
+        (s) => !c.includes(Y(s))
       ));
     },
     /**
@@ -596,20 +596,20 @@ function Wa(e) {
      * @param prop 列的唯一标识或更新配置数组
      * @param updates 列配置更新，prop 为字符串时使用
      */
-    updateColumn: (i, u) => {
-      const r = Array.isArray(i) ? i : u ? [{ prop: i, updates: u }] : [];
-      if (r.length === 0) return;
-      const f = new Map(r.map((m) => [m.prop, m.updates]));
-      p(
-        (m) => m.map((g) => {
-          const k = f.get(Z(g));
-          return k ? { ...g, ...k } : g;
+    updateColumn: (r, c) => {
+      const s = Array.isArray(r) ? r : c ? [{ prop: r, updates: c }] : [];
+      if (s.length === 0) return;
+      const m = new Map(s.map((h) => [h.prop, h.updates]));
+      f(
+        (h) => h.map((b) => {
+          const S = m.get(Y(b));
+          return S ? { ...b, ...S } : b;
         })
-      ), n.value = n.value.map((m) => {
-        const g = Z(m), k = f.get(g);
-        if (!k) return m;
-        const d = { ...m, ...k };
-        return d.type && d.type in le && (d.prop = le[d.type], d.label = d.label || l.value[d.type]), "visible" in k && (d.visible = k.visible), d;
+      ), n.value = n.value.map((h) => {
+        const b = Y(h), S = m.get(b);
+        if (!S) return h;
+        const u = { ...h, ...S };
+        return u.type && u.type in ne && (u.prop = ne[u.type], u.label = u.label || a.value[u.type]), "visible" in S && (u.visible = S.visible), u;
       });
     },
     /**
@@ -617,45 +617,45 @@ function Wa(e) {
      * @param prop 列的唯一标识或标识数组
      * @param visible 可选的显示状态，未传时取反
      */
-    toggleColumn: (i, u) => {
-      const r = Array.isArray(i) ? i : [i];
-      if (r.length === 0) return;
-      const f = [...n.value], m = /* @__PURE__ */ new Map();
-      r.forEach((g) => {
-        const k = f.findIndex((R) => Z(R) === g);
-        if (k < 0) return;
-        const d = u ?? !xe(f[k]);
-        f[k] = { ...f[k], visible: d }, m.set(g, d);
-      }), n.value = f, p(
-        (g) => g.map((k) => {
-          const d = Z(k);
-          return m.has(d) ? { ...k, visible: m.get(d) } : k;
+    toggleColumn: (r, c) => {
+      const s = Array.isArray(r) ? r : [r];
+      if (s.length === 0) return;
+      const m = [...n.value], h = /* @__PURE__ */ new Map();
+      s.forEach((b) => {
+        const S = m.findIndex((E) => Y(E) === b);
+        if (S < 0) return;
+        const u = c ?? !Se(m[S]);
+        m[S] = { ...m[S], visible: u }, h.set(b, u);
+      }), n.value = m, f(
+        (b) => b.map((S) => {
+          const u = Y(S);
+          return h.has(u) ? { ...S, visible: h.get(u) } : S;
         })
       );
     },
     /** @description 重置所有列到初始配置，恢复初始列显隐与初始列顺序 */
     resetColumns: () => {
-      const i = e();
-      t.value = [...i], n.value = Te(i, l.value);
+      const r = e();
+      t.value = [...r], n.value = _e(r, a.value);
     },
     /**
      * @description 批量更新列
      * @param updates 列更新配置
      * @deprecated 推荐使用 updateColumn 的数组模式
      */
-    batchUpdateColumns: (i) => {
-      if (!Array.isArray(i) || i.length === 0) return;
-      const u = new Map(i.map((r) => [r.prop, r.updates]));
-      p(
-        (r) => r.map((f) => {
-          const m = u.get(Z(f));
-          return m ? { ...f, ...m } : f;
+    batchUpdateColumns: (r) => {
+      if (!Array.isArray(r) || r.length === 0) return;
+      const c = new Map(r.map((s) => [s.prop, s.updates]));
+      f(
+        (s) => s.map((m) => {
+          const h = c.get(Y(m));
+          return h ? { ...m, ...h } : m;
         })
-      ), n.value = n.value.map((r) => {
-        const f = Z(r), m = u.get(f);
-        if (!m) return r;
-        const g = { ...r, ...m };
-        return g.type && g.type in le && (g.prop = le[g.type], g.label = g.label || l.value[g.type]), "visible" in m && (g.visible = m.visible), g;
+      ), n.value = n.value.map((s) => {
+        const m = Y(s), h = c.get(m);
+        if (!h) return s;
+        const b = { ...s, ...h };
+        return b.type && b.type in ne && (b.prop = ne[b.type], b.label = b.label || a.value[b.type]), "visible" in h && (b.visible = h.visible), b;
       });
     },
     /**
@@ -663,21 +663,21 @@ function Wa(e) {
      * @param fromIndex 源索引
      * @param toIndex 目标索引
      */
-    reorderColumns: (i, u) => {
-      const r = (f) => {
-        if (i < 0 || i >= f.length || u < 0 || u >= f.length || i === u)
-          return f;
-        const m = [...f], [g] = m.splice(i, 1);
-        return m.splice(u, 0, g), m;
+    reorderColumns: (r, c) => {
+      const s = (m) => {
+        if (r < 0 || r >= m.length || c < 0 || c >= m.length || r === c)
+          return m;
+        const h = [...m], [b] = h.splice(r, 1);
+        return h.splice(c, 0, b), h;
       };
-      p(r), n.value = r(n.value);
+      f(s), n.value = s(n.value);
     },
     /**
      * @description 获取指定列的配置
      * @param prop 列的唯一标识
      * @return 列配置，未找到时返回 undefined
      */
-    getColumnConfig: (i) => t.value.find((u) => Z(u) === i),
+    getColumnConfig: (r) => t.value.find((c) => Y(c) === r),
     /**
      * @description 获取所有列配置的副本
      * @return 所有列配置
@@ -685,7 +685,7 @@ function Wa(e) {
     getAllColumns: () => [...t.value]
   };
 }
-const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { class: "right-wrap" }, pa = /* @__PURE__ */ Y({
+const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { class: "right-wrap" }, ma = /* @__PURE__ */ Z({
   name: "AoTableHeader",
   __name: "AoTableHeader",
   props: /* @__PURE__ */ se({
@@ -705,72 +705,72 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
   }),
   emits: /* @__PURE__ */ se(["refresh", "search", "update:showSearchBar"], ["update:columns"]),
   setup(e, { emit: o }) {
-    const { t: l } = Ee(), t = e, n = he(e, "columns"), c = o, p = (A, D) => {
-      A.visible = !!D;
-    }, i = [
-      { value: me.SMALL, label: l("table.sizeOptions.small") },
-      { value: me.DEFAULT, label: l("table.sizeOptions.default") },
-      { value: me.LARGE, label: l("table.sizeOptions.large") }
-    ], u = ze(), { tableSize: r, isZebra: f, isBorder: m, isHeaderBackground: g } = mt(u), k = b(() => t.layout.split(",").map((A) => A.trim())), d = (A) => k.value.includes(A), R = (A) => {
-      const D = A.related;
-      return !(D && D.classList.contains("fixed-column"));
-    }, E = () => {
-      c("update:showSearchBar", !t.showSearchBar), c("search");
-    }, C = () => {
-      O.value = !0, c("refresh");
-    }, L = (A) => {
-      ze().setTableSize(A);
-    }, O = V(!1), S = V(!1), I = V(""), w = () => {
-      const A = document.querySelector(`.${t.fullClass}`);
-      A && (S.value = !S.value, S.value ? (I.value = document.body.style.overflow, document.body.style.overflow = "hidden", A.classList.add("el-full-screen"), u.setIsFullScreen(!0)) : (document.body.style.overflow = I.value, A.classList.remove("el-full-screen"), u.setIsFullScreen(!1)));
-    }, H = (A) => {
-      A.key === "Escape" && S.value && w();
+    const { t: a } = Be(), t = e, n = he(e, "columns"), d = o, f = (T, N) => {
+      T.visible = !!N;
+    }, r = [
+      { value: pe.SMALL, label: a("table.sizeOptions.small") },
+      { value: pe.DEFAULT, label: a("table.sizeOptions.default") },
+      { value: pe.LARGE, label: a("table.sizeOptions.large") }
+    ], c = ze(), { tableSize: s, isZebra: m, isBorder: h, isHeaderBackground: b } = pt(c), S = g(() => t.layout.split(",").map((T) => T.trim())), u = (T) => S.value.includes(T), E = (T) => {
+      const N = T.related;
+      return !(N && N.classList.contains("fixed-column"));
+    }, $ = () => {
+      d("update:showSearchBar", !t.showSearchBar), d("search");
+    }, A = () => {
+      R.value = !0, d("refresh");
+    }, O = (T) => {
+      ze().setTableSize(T);
+    }, R = M(!1), x = M(!1), V = M(""), w = () => {
+      const T = document.querySelector(`.${t.fullClass}`);
+      T && (x.value = !x.value, x.value ? (V.value = document.body.style.overflow, document.body.style.overflow = "hidden", T.classList.add("el-full-screen"), c.setIsFullScreen(!0)) : (document.body.style.overflow = V.value, T.classList.remove("el-full-screen"), c.setIsFullScreen(!1)));
+    }, D = (T) => {
+      T.key === "Escape" && x.value && w();
     };
     return bo(() => {
-      document.addEventListener("keydown", H);
+      document.addEventListener("keydown", D);
     }), yo(() => {
-      if (document.removeEventListener("keydown", H), S.value) {
-        document.body.style.overflow = I.value;
-        const A = document.querySelector(`.${t.fullClass}`);
-        A && A.classList.remove("el-full-screen");
+      if (document.removeEventListener("keydown", D), x.value) {
+        document.body.style.overflow = V.value;
+        const T = document.querySelector(`.${t.fullClass}`);
+        T && T.classList.remove("el-full-screen");
       }
-    }), (A, D) => (s(), B("div", ca, [
+    }), (T, N) => (i(), B("div", ca, [
       W("div", da, [
-        N(A.$slots, "left", {}, void 0, !0)
+        F(T.$slots, "left", {}, void 0, !0)
       ]),
       W("div", fa, [
-        N(A.$slots, "right", {}, void 0, !0),
-        e.showSearchBar != null ? (s(), v(de, {
+        F(T.$slots, "right", {}, void 0, !0),
+        e.showSearchBar != null ? (i(), v(de, {
           key: 0,
           icon: "ri:search-line",
-          content: a(l)("table.header.search"),
+          content: l(a)("table.header.search"),
           active: e.showSearchBar,
-          onClick: E
-        }, null, 8, ["content", "active"])) : _("", !0),
-        d("refresh") ? (s(), v(de, {
+          onClick: $
+        }, null, 8, ["content", "active"])) : C("", !0),
+        u("refresh") ? (i(), v(de, {
           key: 1,
           icon: "ri:refresh-line",
-          content: a(l)("table.header.refresh"),
-          loading: e.loading && O.value,
-          onClick: C
-        }, null, 8, ["content", "loading"])) : _("", !0),
-        d("size") ? (s(), v(a(rt), {
+          content: l(a)("table.header.refresh"),
+          loading: e.loading && R.value,
+          onClick: A
+        }, null, 8, ["content", "loading"])) : C("", !0),
+        u("size") ? (i(), v(l(st), {
           key: 2,
-          onCommand: L
+          onCommand: O
         }, {
-          dropdown: h(() => [
-            z(a(st), null, {
-              default: h(() => [
-                (s(), B(G, null, K(i, (T) => W("div", {
-                  key: T.value,
-                  class: J(["table-size-btn-item", { "is-current-size": a(r) === T.value }])
+          dropdown: p(() => [
+            z(l(it), null, {
+              default: p(() => [
+                (i(), B(G, null, K(r, (_) => W("div", {
+                  key: _.value,
+                  class: Q(["table-size-btn-item", { "is-current-size": l(s) === _.value }])
                 }, [
-                  (s(), v(a(it), {
-                    key: T.value,
-                    command: T.value
+                  (i(), v(l(ut), {
+                    key: _.value,
+                    command: _.value
                   }, {
-                    default: h(() => [
-                      X(U(T.label), 1)
+                    default: p(() => [
+                      J(U(_.label), 1)
                     ]),
                     _: 2
                   }, 1032, ["command"]))
@@ -779,64 +779,64 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
               _: 1
             })
           ]),
-          default: h(() => [
+          default: p(() => [
             z(de, {
               icon: "ri:arrow-up-down-fill",
-              content: a(l)("table.header.size")
+              content: l(a)("table.header.size")
             }, null, 8, ["content"])
           ]),
           _: 1
-        })) : _("", !0),
-        d("fullscreen") ? (s(), v(de, {
+        })) : C("", !0),
+        u("fullscreen") ? (i(), v(de, {
           key: 3,
-          icon: S.value ? "ri:fullscreen-exit-line" : "ri:fullscreen-line",
-          content: a(l)("table.header.fullscreen"),
+          icon: x.value ? "ri:fullscreen-exit-line" : "ri:fullscreen-line",
+          content: l(a)("table.header.fullscreen"),
           onClick: w
-        }, null, 8, ["icon", "content"])) : _("", !0),
-        d("columns") ? (s(), v(a(Ze), {
+        }, null, 8, ["icon", "content"])) : C("", !0),
+        u("columns") ? (i(), v(l(Ye), {
           key: 4,
           placement: "bottom",
           trigger: "click"
         }, {
-          reference: h(() => [
+          reference: p(() => [
             z(de, {
               icon: "ri:align-right",
-              content: a(l)("table.header.columns")
+              content: l(a)("table.header.columns")
             }, null, 8, ["content"])
           ]),
-          default: h(() => [
+          default: p(() => [
             W("div", null, [
-              z(a(uo), { "max-height": "380px" }, {
-                default: h(() => [
-                  z(a(Oo), {
+              z(l(uo), { "max-height": "380px" }, {
+                default: p(() => [
+                  z(l(Oo), {
                     modelValue: n.value,
-                    "onUpdate:modelValue": D[0] || (D[0] = (T) => n.value = T),
+                    "onUpdate:modelValue": N[0] || (N[0] = (_) => n.value = _),
                     disabled: !1,
                     filter: ".fixed-column",
                     "prevent-on-filter": !1,
-                    onMove: R
+                    onMove: E
                   }, {
-                    default: h(() => [
-                      (s(!0), B(G, null, K(n.value, (T) => (s(), B("div", {
-                        key: T.columnKey || T.prop || T.type,
-                        class: J(["column-option", { "fixed-column": T.fixed }])
+                    default: p(() => [
+                      (i(!0), B(G, null, K(n.value, (_) => (i(), B("div", {
+                        key: _.columnKey || _.prop || _.type,
+                        class: Q(["column-option", { "fixed-column": _.fixed }])
                       }, [
                         W("div", {
-                          class: J(["drag-icon", T.fixed ? "is-fixed" : "is-movable"])
+                          class: Q(["drag-icon", _.fixed ? "is-fixed" : "is-movable"])
                         }, [
-                          z(ge, {
-                            icon: T.fixed ? "ri:unpin-line" : "ri:drag-move-2-fill",
+                          z(be, {
+                            icon: _.fixed ? "ri:unpin-line" : "ri:drag-move-2-fill",
                             class: "drag-icon-svg"
                           }, null, 8, ["icon"])
                         ], 2),
-                        z(a(ue), {
-                          "model-value": a(xe)(T),
-                          "onUpdate:modelValue": (ie) => p(T, ie),
-                          disabled: T.disabled,
+                        z(l(ue), {
+                          "model-value": l(Se)(_),
+                          "onUpdate:modelValue": (ie) => f(_, ie),
+                          disabled: _.disabled,
                           class: "column-checkbox"
                         }, {
-                          default: h(() => [
-                            X(U(T.label || (T.type === "selection" ? a(l)("table.selection") : "")), 1)
+                          default: p(() => [
+                            J(U(_.label || (_.type === "selection" ? l(a)("table.selection") : "")), 1)
                           ]),
                           _: 2
                         }, 1032, ["model-value", "onUpdate:modelValue", "disabled"])
@@ -850,64 +850,64 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
             ])
           ]),
           _: 1
-        })) : _("", !0),
-        d("settings") ? (s(), v(a(Ze), {
+        })) : C("", !0),
+        u("settings") ? (i(), v(l(Ye), {
           key: 5,
           placement: "bottom",
           trigger: "click"
         }, {
-          reference: h(() => [
+          reference: p(() => [
             z(de, {
               icon: "ri:settings-line",
-              content: a(l)("table.header.settings")
+              content: l(a)("table.header.settings")
             }, null, 8, ["content"])
           ]),
-          default: h(() => [
+          default: p(() => [
             W("div", null, [
-              e.showZebra ? (s(), v(a(ue), {
+              e.showZebra ? (i(), v(l(ue), {
                 key: 0,
-                modelValue: a(f),
-                "onUpdate:modelValue": D[1] || (D[1] = (T) => Ae(f) ? f.value = T : null),
+                modelValue: l(m),
+                "onUpdate:modelValue": N[1] || (N[1] = (_) => Te(m) ? m.value = _ : null),
                 value: !0
               }, {
-                default: h(() => [
-                  X(U(a(l)("table.zebra")), 1)
+                default: p(() => [
+                  J(U(l(a)("table.zebra")), 1)
                 ]),
                 _: 1
-              }, 8, ["modelValue"])) : _("", !0),
-              e.showBorder ? (s(), v(a(ue), {
+              }, 8, ["modelValue"])) : C("", !0),
+              e.showBorder ? (i(), v(l(ue), {
                 key: 1,
-                modelValue: a(m),
-                "onUpdate:modelValue": D[2] || (D[2] = (T) => Ae(m) ? m.value = T : null),
+                modelValue: l(h),
+                "onUpdate:modelValue": N[2] || (N[2] = (_) => Te(h) ? h.value = _ : null),
                 value: !0
               }, {
-                default: h(() => [
-                  X(U(a(l)("table.border")), 1)
+                default: p(() => [
+                  J(U(l(a)("table.border")), 1)
                 ]),
                 _: 1
-              }, 8, ["modelValue"])) : _("", !0),
-              e.showHeaderBackground ? (s(), v(a(ue), {
+              }, 8, ["modelValue"])) : C("", !0),
+              e.showHeaderBackground ? (i(), v(l(ue), {
                 key: 2,
-                modelValue: a(g),
-                "onUpdate:modelValue": D[3] || (D[3] = (T) => Ae(g) ? g.value = T : null),
+                modelValue: l(b),
+                "onUpdate:modelValue": N[3] || (N[3] = (_) => Te(b) ? b.value = _ : null),
                 value: !0
               }, {
-                default: h(() => [
-                  X(U(a(l)("table.headerBackground")), 1)
+                default: p(() => [
+                  J(U(l(a)("table.headerBackground")), 1)
                 ]),
                 _: 1
-              }, 8, ["modelValue"])) : _("", !0)
+              }, 8, ["modelValue"])) : C("", !0)
             ])
           ]),
           _: 1
-        })) : _("", !0)
+        })) : C("", !0)
       ])
     ]));
   }
-}), ma = /* @__PURE__ */ Q(pa, [["__scopeId", "data-v-7c40a1b5"]]), ha = { key: 0 }, va = { class: "ao-table-bottom__left" }, ga = {
+}), pa = /* @__PURE__ */ q(ma, [["__scopeId", "data-v-7c40a1b5"]]), ha = { key: 0 }, va = { class: "ao-table-bottom__left" }, ga = {
   key: 0,
   class: "pagination custom-pagination"
-}, ba = "YYYY/MM/DD HH:mm:ss", ya = /* @__PURE__ */ Y({
+}, ba = "YYYY/MM/DD HH:mm:ss", ya = /* @__PURE__ */ Z({
   name: "AoTable",
   __name: "index",
   props: /* @__PURE__ */ se({
@@ -987,47 +987,47 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
     columnChecksModifiers: {}
   }),
   emits: /* @__PURE__ */ se(["size-change", "current-change", "refresh", "search", "reset", "update:showSearchBar"], ["update:searchForm", "update:columnChecks"]),
-  setup(e, { expose: o, emit: l }) {
-    const t = e, n = he(e, "searchForm"), c = he(e, "columnChecks"), p = wo(), i = ct(), u = dt(), { width: r } = ht(), f = V(null), m = V(), g = V(), k = ze(), { isBorder: d, isZebra: R, tableSize: E, isFullScreen: C, isHeaderBackground: L } = mt(k), O = V(null), S = V(null), I = {
+  setup(e, { expose: o, emit: a }) {
+    const t = e, n = he(e, "searchForm"), d = he(e, "columnChecks"), f = wo(), r = dt(), c = ft(), { width: s } = ht(), m = M(null), h = M(), b = M(), S = ze(), { isBorder: u, isZebra: E, tableSize: $, isFullScreen: A, isHeaderBackground: O } = pt(S), R = M(null), x = M(null), V = {
       MOBILE: "prev, pager, next, sizes, jumper, total",
       IPAD: "prev, pager, next, jumper, total",
       DESKTOP: "total, prev, pager, next, sizes, jumper"
-    }, w = b(() => r.value < 768 ? I.MOBILE : r.value < 1024 ? I.IPAD : I.DESKTOP), H = b(() => ({
+    }, w = g(() => s.value < 768 ? V.MOBILE : s.value < 1024 ? V.IPAD : V.DESKTOP), D = g(() => ({
       background: !0,
       hideOnSinglePage: !1,
       size: "default",
-      pagerCount: r.value > 1200 ? 7 : 5,
+      pagerCount: s.value > 1200 ? 7 : 5,
       layout: w.value,
       ...t.paginationOptions
-    })), A = b(() => t.border ?? d.value), D = b(() => t.stripe ?? R.value), T = b(() => t.size ?? E.value), ie = b(() => t.data?.length === 0), M = b(() => t.pagination?.currentPage ?? 1), ee = b(() => t.pagination?.pageSize ?? 10), x = b(() => t.pagination?.total ?? 0), j = b(() => (t.searchItems?.length ?? 0) > 0), _e = b(() => !!(u["header-left"] || u["header-right"])), be = b(
-      () => t.integrated ?? (j.value || _e.value)
-    ), De = V(!0), Ne = b(() => t.showSearchBar ?? De.value), Bt = b(
-      () => j.value ? Ne.value : void 0
-    ), _t = b(() => be.value && t.showTableHeader), Ct = b(() => be.value ? "is-integrated" : "is-bare"), At = b(() => be.value ? co : "div"), Tt = b(() => be.value ? "ao-table-card" : "ao-table-bare"), Ue = V(0), je = V(0);
-    qe(m, (y) => {
-      const $ = y[0];
-      $ && requestAnimationFrame(() => {
-        Ue.value = $.contentRect.height;
+    })), T = g(() => t.border ?? u.value), N = g(() => t.stripe ?? E.value), _ = g(() => t.size ?? $.value), ie = g(() => t.data?.length === 0), I = g(() => t.pagination?.currentPage ?? 1), ee = g(() => t.pagination?.pageSize ?? 10), k = g(() => t.pagination?.total ?? 0), j = g(() => (t.searchItems?.length ?? 0) > 0), Ce = g(() => !!(c["header-left"] || c["header-right"])), ye = g(
+      () => t.integrated ?? (j.value || Ce.value)
+    ), Ne = M(!0), Ue = g(() => t.showSearchBar ?? Ne.value), Et = g(
+      () => j.value ? Ue.value : void 0
+    ), Ct = g(() => ye.value && t.showTableHeader), At = g(() => ye.value ? "is-integrated" : "is-bare"), Tt = g(() => ye.value ? co : "div"), _t = g(() => ye.value ? "ao-table-card" : "ao-table-bare"), je = M(0), We = M(0);
+    Xe(h, (y) => {
+      const L = y[0];
+      L && requestAnimationFrame(() => {
+        je.value = L.contentRect.height;
       });
-    }), qe(g, (y) => {
-      const $ = y[0];
-      $ && requestAnimationFrame(() => {
-        je.value = $.contentRect.height;
+    }), Xe(b, (y) => {
+      const L = y[0];
+      L && requestAnimationFrame(() => {
+        We.value = L.contentRect.height;
       });
     });
-    const Ot = V(10), { containerHeight: It } = No({
-      showTableHeader: b(() => t.showTableHeader),
-      bottomBarHeight: Ue,
-      tableHeaderHeight: je,
+    const Ot = M(10), { containerHeight: It } = No({
+      showTableHeader: g(() => t.showTableHeader),
+      bottomBarHeight: je,
+      tableHeaderHeight: We,
       bottomBarSpacing: Ot
-    }), Rt = b(() => C.value ? "100%" : ie.value && !t.loading ? t.emptyHeight : t.height ? t.height : "100%"), Mt = b(() => ({
-      background: L.value ? "var(--ao-table-header-bg-color)" : "var(--default-box-color)",
+    }), Rt = g(() => A.value ? "100%" : ie.value && !t.loading ? t.emptyHeight : t.height ? t.height : "100%"), Mt = g(() => ({
+      background: O.value ? "var(--ao-table-header-bg-color)" : "var(--default-box-color)",
       ...t.headerCellStyle || {}
       // 合并用户传入的样式
     })), zt = (y) => {
-      const $ = p?.vnode.props || {}, te = y.replace(/[A-Z]/g, (P) => `-${P.toLowerCase()}`);
-      return y in $ || te in $;
-    }, Vt = [
+      const L = f?.vnode.props || {}, te = y.replace(/[A-Z]/g, (P) => `-${P.toLowerCase()}`);
+      return y in L || te in L;
+    }, $t = [
       "loading",
       "columns",
       "pagination",
@@ -1046,41 +1046,41 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
       "integrated",
       "searchForm",
       "columnChecks"
-    ], Lt = b(() => {
+    ], Vt = g(() => {
       const y = { ...t };
-      return Vt.forEach(($) => {
-        delete y[$];
+      return $t.forEach((L) => {
+        delete y[L];
       }), y;
-    }), $t = b(() => ({
-      ...i,
-      ...Lt.value,
+    }), Lt = g(() => ({
+      ...r,
+      ...Vt.value,
       height: Rt.value,
-      stripe: D.value,
-      border: A.value,
-      size: T.value,
+      stripe: N.value,
+      border: T.value,
+      size: _.value,
       headerCellStyle: Mt.value,
       // Element Plus 默认值为 true，未显式传入时不应被 AoTable 覆盖成 false。
       selectOnIndeterminate: zt("selectOnIndeterminate") ? t.selectOnIndeterminate : void 0
-    })), We = b(() => x.value > 0 && !ie.value), Ke = (y) => y.$index === void 0 || y.$index >= 0, Pt = ["slotName", "visible", "disabled", "timestamp"], Ht = (y, $) => {
+    })), Ke = g(() => k.value > 0 && !ie.value), Ge = (y) => y.$index === void 0 || y.$index >= 0, Pt = ["slotName", "visible", "disabled", "timestamp"], Dt = (y, L) => {
       if (y == null || y === "") return "-";
-      const te = Bo(Number(y) * 1e3);
-      return te.isValid() ? te.format($) : "-";
-    }, Ft = (y) => {
-      const $ = y.format ?? ba;
-      return (te, P, ae) => Ht(y.field ? te?.[y.field] : ae, $);
-    }, Ce = (y) => {
-      const $ = { ...y };
+      const te = Eo(Number(y) * 1e3);
+      return te.isValid() ? te.format(L) : "-";
+    }, Ht = (y) => {
+      const L = y.format ?? ba;
+      return (te, P, le) => Dt(y.field ? te?.[y.field] : le, L);
+    }, Ae = (y) => {
+      const L = { ...y };
       return Pt.forEach((te) => {
-        delete $[te];
-      }), y.timestamp && ($.formatter = Ft(y.timestamp)), $;
-    }, Dt = (y) => {
+        delete L[te];
+      }), y.timestamp && (L.formatter = Ht(y.timestamp)), L;
+    }, Ft = (y) => {
       ce("size-change", y);
     }, Nt = (y) => {
-      ce("current-change", y), Ge();
+      ce("current-change", y), Ze();
     }, Ut = async (y) => {
       if (t.searchRules)
         try {
-          await O.value?.validate();
+          await R.value?.validate();
         } catch {
           return;
         }
@@ -1090,31 +1090,31 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
     }, Wt = () => {
       ce("refresh");
     }, Kt = (y) => {
-      t.showSearchBar === void 0 && (De.value = y), ce("update:showSearchBar", y);
-    }, Gt = Do, Ge = () => {
-      pt(() => {
-        f.value?.setScrollTop(0), Gt();
+      t.showSearchBar === void 0 && (Ne.value = y), ce("update:showSearchBar", y);
+    }, Gt = Fo, Ze = () => {
+      mt(() => {
+        m.value?.setScrollTop(0), Gt();
       });
-    }, Zt = (y) => (M.value - 1) * ee.value + y + 1, ce = l;
-    return So(
+    }, Zt = (y) => (I.value - 1) * ee.value + y + 1, ce = a;
+    return xo(
       () => {
-        g.value = S.value?.$el ?? void 0;
+        b.value = x.value?.$el ?? void 0;
       },
       { flush: "post" }
     ), o({
-      scrollToTop: Ge,
-      elTableRef: f
-    }), (y, $) => {
-      const te = ft("loading");
-      return s(), B("div", {
-        class: J(["ao-table-root", Ct.value])
+      scrollToTop: Ze,
+      elTableRef: m
+    }), (y, L) => {
+      const te = He("loading");
+      return i(), B("div", {
+        class: Q(["ao-table-root", At.value])
       }, [
-        j.value ? Se((s(), v(na, {
+        j.value ? ve((i(), v(na, {
           key: 0,
           ref_key: "searchBarRef",
-          ref: O,
+          ref: R,
           modelValue: n.value,
-          "onUpdate:modelValue": $[0] || ($[0] = (P) => n.value = P),
+          "onUpdate:modelValue": L[0] || (L[0] = (P) => n.value = P),
           items: e.searchItems,
           rules: e.searchRules,
           span: e.searchSpan,
@@ -1122,19 +1122,19 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
           onSearch: Ut,
           onReset: jt
         }, null, 8, ["modelValue", "items", "rules", "span", "show-expand"])), [
-          [ko, Ne.value]
-        ]) : _("", !0),
-        (s(), v(ne(At.value), {
-          class: J(Tt.value)
+          [ko, Ue.value]
+        ]) : C("", !0),
+        (i(), v(re(Tt.value), {
+          class: Q(_t.value)
         }, {
-          default: h(() => [
-            _t.value ? (s(), v(ma, {
+          default: p(() => [
+            Ct.value ? (i(), v(pa, {
               key: 0,
               ref_key: "tableHeaderCompRef",
-              ref: S,
-              columns: c.value,
-              "onUpdate:columns": $[1] || ($[1] = (P) => c.value = P),
-              "show-search-bar": Bt.value,
+              ref: x,
+              columns: d.value,
+              "onUpdate:columns": L[1] || (L[1] = (P) => d.value = P),
+              "show-search-bar": Et.value,
               "show-zebra": e.headerShowZebra,
               "show-border": e.headerShowBorder,
               "show-header-background": e.headerShowHeaderBackground,
@@ -1142,74 +1142,74 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
               "onUpdate:showSearchBar": Kt,
               onRefresh: Wt
             }, {
-              left: h(() => [
-                N(y.$slots, "header-left", {}, void 0, !0)
+              left: p(() => [
+                F(y.$slots, "header-left", {}, void 0, !0)
               ]),
-              right: h(() => [
-                N(y.$slots, "header-right", {}, void 0, !0)
+              right: p(() => [
+                F(y.$slots, "header-right", {}, void 0, !0)
               ]),
               _: 3
-            }, 8, ["columns", "show-search-bar", "show-zebra", "show-border", "show-header-background", "loading"])) : _("", !0),
+            }, 8, ["columns", "show-search-bar", "show-zebra", "show-border", "show-header-background", "loading"])) : C("", !0),
             W("div", {
-              class: J(["ao-table", { "is-empty": ie.value }]),
-              style: ve(a(It))
+              class: Q(["ao-table", { "is-empty": ie.value }]),
+              style: ge(l(It))
             }, [
-              Se((s(), v(a(fo), F({
+              ve((i(), v(l(fo), H({
                 ref_key: "elTableRef",
-                ref: f
-              }, $t.value), {
-                default: h(() => [
-                  (s(!0), B(G, null, K(e.columns, (P) => (s(), B(G, {
+                ref: m
+              }, Lt.value), {
+                default: p(() => [
+                  (i(!0), B(G, null, K(e.columns, (P) => (i(), B(G, {
                     key: P.columnKey || P.prop || P.type
                   }, [
-                    P.type === "globalIndex" ? (s(), v(a(we), F({
+                    P.type === "globalIndex" ? (i(), v(l(xe), H({
                       key: 0,
                       ref_for: !0
-                    }, Ce(P)), {
-                      default: h(({ $index: ae }) => [
-                        W("span", null, U(Zt(ae)), 1)
+                    }, Ae(P)), {
+                      default: p(({ $index: le }) => [
+                        W("span", null, U(Zt(le)), 1)
                       ]),
                       _: 1
-                    }, 16)) : P.type === "expand" ? (s(), v(a(we), F({
+                    }, 16)) : P.type === "expand" ? (i(), v(l(xe), H({
                       key: 1,
                       ref_for: !0
-                    }, Ce(P)), re({ _: 2 }, [
+                    }, Ae(P)), ae({ _: 2 }, [
                       P.slotName ? {
                         name: "default",
-                        fn: h((ae) => [
-                          N(y.$slots, P.slotName, F({ ref_for: !0 }, ae), void 0, !0)
+                        fn: p((le) => [
+                          F(y.$slots, P.slotName, H({ ref_for: !0 }, le), void 0, !0)
                         ]),
                         key: "0"
                       } : void 0
-                    ]), 1040)) : (s(), v(a(we), F({
+                    ]), 1040)) : (i(), v(l(xe), H({
                       key: 2,
                       ref_for: !0
-                    }, Ce(P)), re({ _: 2 }, [
+                    }, Ae(P)), ae({ _: 2 }, [
                       P.slotName ? {
                         name: "default",
-                        fn: h((ae) => [
-                          Ke(ae) ? N(y.$slots, P.slotName, F({ ref_for: !0 }, ae), void 0, !0, 0) : _("", !0)
+                        fn: p((le) => [
+                          Ge(le) ? F(y.$slots, P.slotName, H({ ref_for: !0 }, le), void 0, !0, 0) : C("", !0)
                         ]),
                         key: "0"
                       } : void 0
                     ]), 1040))
                   ], 64))), 128)),
-                  a(u).default ? N(y.$slots, "default", {}, void 0, !0, 0) : _("", !0),
-                  a(u).operation ? (s(), v(a(we), {
+                  l(c).default ? F(y.$slots, "default", {}, void 0, !0, 0) : C("", !0),
+                  l(c).operation ? (i(), v(l(xe), {
                     key: 1,
                     label: "操作",
                     width: e.operationWidth,
                     fixed: "right",
                     align: "left"
                   }, {
-                    default: h((P) => [
-                      Ke(P) ? N(y.$slots, "operation", Re(Me(P)), void 0, !0, 0) : _("", !0)
+                    default: p((P) => [
+                      Ge(P) ? F(y.$slots, "operation", Re(Me(P)), void 0, !0, 0) : C("", !0)
                     ]),
                     _: 3
-                  }, 8, ["width"])) : _("", !0)
+                  }, 8, ["width"])) : C("", !0)
                 ]),
-                empty: h(() => [
-                  e.loading ? (s(), B("div", ha)) : (s(), v(a(po), {
+                empty: p(() => [
+                  e.loading ? (i(), B("div", ha)) : (i(), v(l(mo), {
                     key: 1,
                     description: e.emptyText,
                     "image-size": 120
@@ -1221,23 +1221,23 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
               ])
             ], 6),
             W("div", {
-              class: J(["ao-table-bottom", { "is-bar-empty": !We.value && !y.$slots.footer }]),
+              class: Q(["ao-table-bottom", { "is-bar-empty": !Ke.value && !y.$slots.footer }]),
               ref_key: "bottomBarRef",
-              ref: m
+              ref: h
             }, [
               W("div", va, [
-                N(y.$slots, "footer", {}, void 0, !0)
+                F(y.$slots, "footer", {}, void 0, !0)
               ]),
-              We.value ? (s(), B("div", ga, [
-                z(a(mo), F(H.value, {
-                  total: x.value,
+              Ke.value ? (i(), B("div", ga, [
+                z(l(po), H(D.value, {
+                  total: k.value,
                   disabled: e.loading,
-                  "current-page": M.value,
+                  "current-page": I.value,
                   "page-size": ee.value,
-                  onSizeChange: Dt,
+                  onSizeChange: Ft,
                   onCurrentChange: Nt
                 }), null, 16, ["total", "disabled", "current-page", "page-size"])
-              ])) : _("", !0)
+              ])) : C("", !0)
             ], 2)
           ]),
           _: 3
@@ -1245,10 +1245,80 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
       ], 2);
     };
   }
-}), Ka = /* @__PURE__ */ Q(ya, [["__scopeId", "data-v-0d8a310a"]]), wa = { class: "form-section" }, Sa = {
+}), Ya = /* @__PURE__ */ q(ya, [["__scopeId", "data-v-0d8a310a"]]), wa = { class: "ao-dialog__body" }, xa = /* @__PURE__ */ Z({
+  name: "AoDialog",
+  __name: "AoDialog",
+  props: {
+    visible: { type: Boolean, default: !1 },
+    title: { default: "" },
+    width: { default: "600px" },
+    alignCenter: { type: Boolean, default: !0 },
+    loading: { type: Boolean, default: !1 },
+    showCancel: { type: Boolean, default: !0 },
+    showConfirm: { type: Boolean, default: !0 },
+    cancelText: { default: "" },
+    confirmText: { default: "" },
+    confirmDisabled: { type: Boolean, default: !1 }
+  },
+  emits: ["update:visible", "cancel", "confirm", "closed"],
+  setup(e, { emit: o }) {
+    const a = o, { t } = Be(), n = (f) => {
+      a("update:visible", f);
+    }, d = () => {
+      a("cancel"), n(!1);
+    };
+    return (f, r) => {
+      const c = He("loading");
+      return i(), v(l(ho), {
+        class: "ao-form-dialog ao-dialog",
+        "model-value": e.visible,
+        title: e.title,
+        width: e.width,
+        "align-center": e.alignCenter,
+        draggable: "",
+        overflow: !1,
+        "onUpdate:modelValue": n,
+        onClosed: r[1] || (r[1] = (s) => a("closed"))
+      }, {
+        footer: p(() => [
+          F(f.$slots, "footer", {}, () => [
+            e.showCancel ? (i(), v(l(me), {
+              key: 0,
+              onClick: d
+            }, {
+              default: p(() => [
+                J(U(e.cancelText || l(t)("common.cancel")), 1)
+              ]),
+              _: 1
+            })) : C("", !0),
+            e.showConfirm ? (i(), v(l(me), {
+              key: 1,
+              type: "primary",
+              disabled: e.confirmDisabled || e.loading,
+              onClick: r[0] || (r[0] = (s) => a("confirm"))
+            }, {
+              default: p(() => [
+                J(U(e.confirmText || l(t)("common.confirm")), 1)
+              ]),
+              _: 1
+            }, 8, ["disabled"])) : C("", !0)
+          ], !0)
+        ]),
+        default: p(() => [
+          ve((i(), B("div", wa, [
+            F(f.$slots, "default", {}, void 0, !0)
+          ])), [
+            [c, e.loading]
+          ])
+        ]),
+        _: 3
+      }, 8, ["model-value", "title", "width", "align-center"]);
+    };
+  }
+}), ka = /* @__PURE__ */ q(xa, [["__scopeId", "data-v-5020585c"]]), Sa = { class: "form-section" }, Ba = {
   key: 0,
   class: "form-title"
-}, ka = { key: 1 }, xa = { key: 1 }, Ea = /* @__PURE__ */ Y({
+}, Ea = { key: 1 }, Ca = { key: 1 }, Aa = /* @__PURE__ */ Z({
   __name: "FormBody",
   props: /* @__PURE__ */ se({
     items: {},
@@ -1264,93 +1334,93 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
     modelModifiers: {}
   }),
   emits: /* @__PURE__ */ se(["reset", "submit"], ["update:modelValue"]),
-  setup(e, { expose: o, emit: l }) {
-    const t = e, n = l, c = he(e, "modelValue"), p = Pe("formRef"), i = V({});
-    i.value = oe(c.value), He(c, (S) => {
-      i.value = oe(S);
+  setup(e, { expose: o, emit: a }) {
+    const t = e, n = a, d = he(e, "modelValue"), f = Pe("formRef"), r = M({});
+    r.value = oe(d.value), De(d, (x) => {
+      r.value = oe(x);
     });
-    const u = b(() => ({
-      ...Be,
+    const c = g(() => ({
+      ...Ee,
       ...t.sanitizeOutput
-    })), r = (S) => yt(c.value, S), f = (S, I) => {
-      wt(c.value, S, I);
-    }, m = (S, I) => Je(S) ? 24 : Et(Qo(S.span, E.value), I), g = b(() => t.items.filter((S) => !S.hidden)), k = () => Le(c.value, u.value);
+    })), s = (x) => yt(d.value, x), m = (x, V) => {
+      wt(d.value, x, V);
+    }, h = (x, V) => Qe(x) ? 24 : Bt(Qo(x.span, $.value), V), b = g(() => t.items.filter((x) => !x.hidden)), S = () => Ve(d.value, c.value);
     o({
-      validate: (...S) => p.value.validate(...S),
+      validate: (...x) => f.value.validate(...x),
       /**
        * @description 清除指定字段或全部字段的校验状态，不修改表单值
        * @param args Element Plus clearValidate 的字段参数，省略时清除全部字段
        */
-      clearValidate: (...S) => p.value?.clearValidate(...S),
+      clearValidate: (...x) => f.value?.clearValidate(...x),
       reset: () => {
-        p.value?.resetFields(), Object.keys(c.value).forEach((S) => {
-          delete c.value[S];
-        }), Object.assign(c.value, oe(i.value)), n("reset");
+        f.value?.resetFields(), Object.keys(d.value).forEach((x) => {
+          delete d.value[x];
+        }), Object.assign(d.value, oe(r.value)), n("reset");
       },
       submit: async () => {
         try {
-          await p.value?.validate();
+          await f.value?.validate();
         } catch {
           console.error("[AoForm] 表单校验失败");
           return;
         }
-        n("submit", k());
+        n("submit", S());
       },
       // 允许外部在不触发提交事件时主动获取清洗后的输出。
-      getOutput: k
+      getOutput: S
     });
-    const { span: E, gutter: C, labelPosition: L, labelWidth: O } = ut(t);
-    return (S, I) => (s(), B("section", wa, [
-      z(a(et), F({
+    const { span: $, gutter: A, labelPosition: O, labelWidth: R } = ct(t);
+    return (x, V) => (i(), B("section", Sa, [
+      z(l(tt), H({
         ref: "formRef",
-        model: c.value,
-        "label-position": a(L)
-      }, { ...S.$attrs }), {
-        default: h(() => [
-          z(a(tt), { gutter: a(C) }, {
-            default: h(() => [
-              (s(!0), B(G, null, K(g.value, (w) => (s(), v(a(Oe), {
+        model: d.value,
+        "label-position": l(O)
+      }, { ...x.$attrs }), {
+        default: p(() => [
+          z(l(ot), { gutter: l(A) }, {
+            default: p(() => [
+              (i(!0), B(G, null, K(b.value, (w) => (i(), v(l(Oe), {
                 key: w.key,
-                xs: m(w, "xs"),
-                sm: m(w, "sm"),
-                md: m(w, "md"),
-                lg: m(w, "lg"),
-                xl: m(w, "xl")
+                xs: h(w, "xs"),
+                sm: h(w, "sm"),
+                md: h(w, "md"),
+                lg: h(w, "lg"),
+                xl: h(w, "xl")
               }, {
-                default: h(() => [
-                  a(Je)(w) ? (s(), B("div", Sa, [
-                    typeof w.label != "string" ? (s(), v(ne(w.label), { key: 0 })) : (s(), B("span", ka, U(w.label), 1))
-                  ])) : (s(), v(a(ot), {
+                default: p(() => [
+                  l(Qe)(w) ? (i(), B("div", Ba, [
+                    typeof w.label != "string" ? (i(), v(re(w.label), { key: 0 })) : (i(), B("span", Ea, U(w.label), 1))
+                  ])) : (i(), v(l(at), {
                     key: 1,
                     prop: w.key,
-                    "label-width": w.label ? w.labelWidth || a(O) : void 0
-                  }, re({
-                    default: h(() => [
-                      N(S.$slots, w.key, {
+                    "label-width": w.label ? w.labelWidth || l(R) : void 0
+                  }, ae({
+                    default: p(() => [
+                      F(x.$slots, w.key, {
                         item: w,
-                        modelValue: c.value
+                        modelValue: d.value
                       }, () => [
-                        (s(), v(ne(a(xt)(w)), F({
-                          "model-value": r(w.key),
-                          "onUpdate:modelValue": (H) => f(w.key, H)
-                        }, { ref_for: !0 }, a(St)(w)), re({
-                          default: h(() => [
-                            w.type === "select" && a(q)(w).length ? (s(!0), B(G, { key: 0 }, K(a(q)(w), (H) => (s(), v(a(at), F({ ref_for: !0 }, H, {
-                              key: String(H.value)
-                            }), null, 16))), 128)) : _("", !0),
-                            w.type === "checkboxgroup" && a(q)(w).length ? (s(!0), B(G, { key: 1 }, K(a(q)(w), (H) => (s(), v(a(ue), F({ ref_for: !0 }, H, {
-                              key: String(H.value)
-                            }), null, 16))), 128)) : _("", !0),
-                            w.type === "radiogroup" && a(q)(w).length ? (s(!0), B(G, { key: 2 }, K(a(q)(w), (H) => (s(), v(a(lt), F({ ref_for: !0 }, H, {
-                              key: String(H.value)
-                            }), null, 16))), 128)) : _("", !0)
+                        (i(), v(re(l(St)(w)), H({
+                          "model-value": s(w.key),
+                          "onUpdate:modelValue": (D) => m(w.key, D)
+                        }, { ref_for: !0 }, l(xt)(w)), ae({
+                          default: p(() => [
+                            w.type === "select" && l(X)(w).length ? (i(!0), B(G, { key: 0 }, K(l(X)(w), (D) => (i(), v(l(lt), H({ ref_for: !0 }, D, {
+                              key: String(D.value)
+                            }), null, 16))), 128)) : C("", !0),
+                            w.type === "checkboxgroup" && l(X)(w).length ? (i(!0), B(G, { key: 1 }, K(l(X)(w), (D) => (i(), v(l(ue), H({ ref_for: !0 }, D, {
+                              key: String(D.value)
+                            }), null, 16))), 128)) : C("", !0),
+                            w.type === "radiogroup" && l(X)(w).length ? (i(!0), B(G, { key: 2 }, K(l(X)(w), (D) => (i(), v(l(nt), H({ ref_for: !0 }, D, {
+                              key: String(D.value)
+                            }), null, 16))), 128)) : C("", !0)
                           ]),
                           _: 2
                         }, [
-                          K(a(kt)(w), (H, A) => ({
-                            name: A,
-                            fn: h(() => [
-                              (s(), v(ne(H)))
+                          K(l(kt)(w), (D, T) => ({
+                            name: T,
+                            fn: p(() => [
+                              (i(), v(re(D)))
                             ])
                           }))
                         ]), 1040, ["model-value", "onUpdate:modelValue"]))
@@ -1360,8 +1430,8 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
                   }, [
                     w.label ? {
                       name: "label",
-                      fn: h(() => [
-                        typeof w.label != "string" ? (s(), v(ne(w.label), { key: 0 })) : (s(), B("span", xa, U(w.label), 1))
+                      fn: p(() => [
+                        typeof w.label != "string" ? (i(), v(re(w.label), { key: 0 })) : (i(), B("span", Ca, U(w.label), 1))
                       ]),
                       key: "0"
                     } : void 0
@@ -1377,7 +1447,7 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
       }, 16, ["model", "label-position"])
     ]));
   }
-}), Qe = /* @__PURE__ */ Q(Ea, [["__scopeId", "data-v-e7e83958"]]), Ga = /* @__PURE__ */ Y({
+}), et = /* @__PURE__ */ q(Aa, [["__scopeId", "data-v-e7e83958"]]), qa = /* @__PURE__ */ Z({
   name: "AoForm",
   inheritAttrs: !1,
   __name: "index",
@@ -1405,8 +1475,8 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
     modelModifiers: {}
   }),
   emits: /* @__PURE__ */ se(["update:visible", "cancel", "closed", "reset", "submit"], ["update:modelValue"]),
-  setup(e, { expose: o, emit: l }) {
-    const t = e, n = l, c = he(e, "modelValue"), { t: p } = Ee(), i = dt(), u = Pe("formBodyRef"), r = b(() => t.dialog), f = b(() => ({
+  setup(e, { expose: o, emit: a }) {
+    const t = e, n = a, d = he(e, "modelValue"), f = ft(), r = Pe("formBodyRef"), c = g(() => t.dialog), s = g(() => ({
       items: t.items,
       span: t.span,
       gutter: t.gutter,
@@ -1415,107 +1485,95 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
       sanitizeOutput: t.sanitizeOutput
     })), m = () => {
       n("reset");
-    }, g = (E) => {
-      n("submit", E);
-    }, k = (E) => {
-      n("update:visible", E);
-    }, d = () => {
-      n("cancel"), k(!1);
-    }, R = () => {
-      u.value?.submit();
+    }, h = (u) => {
+      n("submit", u);
+    }, b = (u) => {
+      n("update:visible", u);
+    }, S = () => {
+      r.value?.submit();
     };
     return o({
       /** 校验表单，透传表单主体的 validate */
-      validate: (...E) => u.value.validate(...E),
+      validate: (...u) => r.value.validate(...u),
       /**
        * @description 清除指定字段或全部字段的校验状态，透传表单主体的 clearValidate
        * @param args 待清除校验的字段参数，省略时清除全部字段
        */
-      clearValidate: (...E) => u.value?.clearValidate(...E),
+      clearValidate: (...u) => r.value?.clearValidate(...u),
       /** 重置表单，透传表单主体的 reset */
-      reset: () => u.value?.reset(),
+      reset: () => r.value?.reset(),
       /** 触发提交（含校验），透传表单主体的 submit */
-      submit: () => u.value?.submit(),
+      submit: () => r.value?.submit(),
       /** 读取清洗后的表单输出，透传表单主体的 getOutput */
-      getOutput: () => u.value?.getOutput() ?? {}
-    }), (E, C) => {
-      const L = ft("loading");
-      return r.value ? (s(), v(a(ho), {
+      getOutput: () => r.value?.getOutput() ?? {}
+    }), (u, E) => {
+      const $ = He("loading");
+      return c.value ? (i(), v(ka, {
         key: 0,
-        class: "ao-form-dialog",
-        "model-value": e.visible,
+        visible: e.visible,
         title: e.title,
         width: e.width,
         "align-center": e.alignCenter,
-        draggable: "",
-        overflow: !1,
-        "onUpdate:modelValue": k,
-        onClosed: C[1] || (C[1] = (O) => n("closed"))
-      }, {
-        footer: h(() => [
-          N(E.$slots, "footer", {}, () => [
-            z(a(pe), { onClick: d }, {
-              default: h(() => [
-                X(U(e.cancelText || a(p)("common.cancel")), 1)
-              ]),
-              _: 1
-            }),
-            e.showSubmit ? (s(), v(a(pe), {
-              key: 0,
-              type: "primary",
-              disabled: e.disabledSubmit || e.loading,
-              onClick: R
-            }, {
-              default: h(() => [
-                X(U(e.confirmText || a(p)("common.confirm")), 1)
-              ]),
-              _: 1
-            }, 8, ["disabled"])) : _("", !0)
-          ])
-        ]),
-        default: h(() => [
-          Se((s(), v(Qe, F({
+        "cancel-text": e.cancelText,
+        "confirm-text": e.confirmText,
+        "show-confirm": e.showSubmit,
+        "confirm-disabled": e.disabledSubmit || e.loading,
+        "onUpdate:visible": b,
+        onCancel: E[1] || (E[1] = (A) => n("cancel")),
+        onConfirm: S,
+        onClosed: E[2] || (E[2] = (A) => n("closed"))
+      }, ae({
+        default: p(() => [
+          ve((i(), v(et, H({
             ref_key: "formBodyRef",
-            ref: u
-          }, { ...f.value, ...E.$attrs }, {
-            modelValue: c.value,
-            "onUpdate:modelValue": C[0] || (C[0] = (O) => c.value = O),
+            ref: r
+          }, { ...s.value, ...u.$attrs }, {
+            modelValue: d.value,
+            "onUpdate:modelValue": E[0] || (E[0] = (A) => d.value = A),
             onReset: m,
-            onSubmit: g
-          }), re({ _: 2 }, [
-            K(a(i), (O, S) => ({
-              name: S,
-              fn: h((I) => [
-                N(E.$slots, S, Re(Me(I ?? {})))
+            onSubmit: h
+          }), ae({ _: 2 }, [
+            K(l(f), (A, O) => ({
+              name: O,
+              fn: p((R) => [
+                F(u.$slots, O, Re(Me(R ?? {})))
               ])
             }))
           ]), 1040, ["modelValue"])), [
-            [L, e.loading]
+            [$, e.loading]
           ])
         ]),
-        _: 3
-      }, 8, ["model-value", "title", "width", "align-center"])) : Se((s(), v(Qe, F({
+        _: 2
+      }, [
+        l(f).footer ? {
+          name: "footer",
+          fn: p(() => [
+            F(u.$slots, "footer")
+          ]),
+          key: "0"
+        } : void 0
+      ]), 1032, ["visible", "title", "width", "align-center", "cancel-text", "confirm-text", "show-confirm", "confirm-disabled"])) : ve((i(), v(et, H({
         key: 1,
         ref_key: "formBodyRef",
-        ref: u
-      }, { ...f.value, ...E.$attrs }, {
-        modelValue: c.value,
-        "onUpdate:modelValue": C[2] || (C[2] = (O) => c.value = O),
+        ref: r
+      }, { ...s.value, ...u.$attrs }, {
+        modelValue: d.value,
+        "onUpdate:modelValue": E[3] || (E[3] = (A) => d.value = A),
         onReset: m,
-        onSubmit: g
-      }), re({ _: 2 }, [
-        K(a(i), (O, S) => ({
-          name: S,
-          fn: h((I) => [
-            N(E.$slots, S, Re(Me(I ?? {})))
+        onSubmit: h
+      }), ae({ _: 2 }, [
+        K(l(f), (A, O) => ({
+          name: O,
+          fn: p((R) => [
+            F(u.$slots, O, Re(Me(R ?? {})))
           ])
         }))
       ]), 1040, ["modelValue"])), [
-        [L, e.loading]
+        [$, e.loading]
       ]);
     };
   }
-}), Ba = /* @__PURE__ */ Y({
+}), Ta = /* @__PURE__ */ Z({
   name: "AoButtonTable",
   __name: "AoButtonTable",
   props: {
@@ -1527,24 +1585,24 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
   },
   emits: ["click"],
   setup(e, { emit: o }) {
-    const l = e, t = o, n = {
+    const a = e, t = o, n = {
       add: { icon: "ri:add-fill", class: "ao-btn-theme" },
       edit: { icon: "ri:pencil-line", class: "ao-btn-secondary" },
       delete: { icon: "ri:delete-bin-5-line", class: "ao-btn-error" },
       view: { icon: "ri:eye-line", class: "ao-btn-info" },
       more: { icon: "ri:more-2-fill", class: "" }
-    }, c = b(() => l.icon || (l.type ? n[l.type]?.icon : "") || ""), p = b(() => l.iconClass || (l.type ? n[l.type]?.class : "") || ""), i = () => {
+    }, d = g(() => a.icon || (a.type ? n[a.type]?.icon : "") || ""), f = g(() => a.iconClass || (a.type ? n[a.type]?.class : "") || ""), r = () => {
       t("click");
     };
-    return (u, r) => (s(), B("div", {
-      class: J(["ao-button-table", p.value]),
-      style: ve({ backgroundColor: e.buttonBgColor, color: e.iconColor }),
-      onClick: i
+    return (c, s) => (i(), B("div", {
+      class: Q(["ao-button-table", f.value]),
+      style: ge({ backgroundColor: e.buttonBgColor, color: e.iconColor }),
+      onClick: r
     }, [
-      z(ge, { icon: c.value }, null, 8, ["icon"])
+      z(be, { icon: d.value }, null, 8, ["icon"])
     ], 6));
   }
-}), Za = /* @__PURE__ */ Q(Ba, [["__scopeId", "data-v-005b60b0"]]), _a = /* @__PURE__ */ Y({
+}), Xa = /* @__PURE__ */ q(Ta, [["__scopeId", "data-v-005b60b0"]]), _a = /* @__PURE__ */ Z({
   name: "AoIconButton",
   __name: "AoIconButton",
   props: {
@@ -1552,14 +1610,14 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
     circle: { type: Boolean }
   },
   setup(e) {
-    return (o, l) => (s(), B("div", {
-      class: J(["icon-button", { "is-circle": e.circle }])
+    return (o, a) => (i(), B("div", {
+      class: Q(["icon-button", { "is-circle": e.circle }])
     }, [
-      z(ge, { icon: e.icon }, null, 8, ["icon"]),
-      N(o.$slots, "default", {}, void 0, !0)
+      z(be, { icon: e.icon }, null, 8, ["icon"]),
+      F(o.$slots, "default", {}, void 0, !0)
     ], 2));
   }
-}), Ca = /* @__PURE__ */ Q(_a, [["__scopeId", "data-v-a298f446"]]), Aa = /* @__PURE__ */ Y({
+}), Oa = /* @__PURE__ */ q(_a, [["__scopeId", "data-v-a298f446"]]), Ia = /* @__PURE__ */ Z({
   name: "AoButtonMore",
   __name: "AoButtonMore",
   props: {
@@ -1568,52 +1626,52 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
   },
   emits: ["click"],
   setup(e, { emit: o }) {
-    const { hasAuth: l } = Fo(), t = e, n = b(() => t.list.some((i) => !i.auth || l(i.auth))), c = o, p = (i) => {
-      c("click", i);
+    const { hasAuth: a } = Ho(), t = e, n = g(() => t.list.some((r) => !r.auth || a(r.auth))), d = o, f = (r) => {
+      d("click", r);
     };
-    return (i, u) => (s(), B("div", null, [
-      n.value ? (s(), v(a(rt), { key: 0 }, {
-        dropdown: h(() => [
-          z(a(st), null, {
-            default: h(() => [
-              (s(!0), B(G, null, K(e.list, (r) => (s(), B(G, {
-                key: r.key
+    return (r, c) => (i(), B("div", null, [
+      n.value ? (i(), v(l(st), { key: 0 }, {
+        dropdown: p(() => [
+          z(l(it), null, {
+            default: p(() => [
+              (i(!0), B(G, null, K(e.list, (s) => (i(), B(G, {
+                key: s.key
               }, [
-                !r.auth || a(l)(r.auth) ? (s(), v(a(it), {
+                !s.auth || l(a)(s.auth) ? (i(), v(l(ut), {
                   key: 0,
-                  disabled: r.disabled,
-                  onClick: (f) => p(r)
+                  disabled: s.disabled,
+                  onClick: (m) => f(s)
                 }, {
-                  default: h(() => [
+                  default: p(() => [
                     W("div", {
                       class: "dropdown-item-content",
-                      style: ve({ color: r.color })
+                      style: ge({ color: s.color })
                     }, [
-                      r.icon ? (s(), v(ge, {
+                      s.icon ? (i(), v(be, {
                         key: 0,
-                        icon: r.icon
-                      }, null, 8, ["icon"])) : _("", !0),
-                      W("span", null, U(r.label), 1)
+                        icon: s.icon
+                      }, null, 8, ["icon"])) : C("", !0),
+                      W("span", null, U(s.label), 1)
                     ], 4)
                   ]),
                   _: 2
-                }, 1032, ["disabled", "onClick"])) : _("", !0)
+                }, 1032, ["disabled", "onClick"])) : C("", !0)
               ], 64))), 128))
             ]),
             _: 1
           })
         ]),
-        default: h(() => [
-          z(Ca, {
+        default: p(() => [
+          z(Oa, {
             icon: "ri:more-2-fill",
             class: "more-button"
           })
         ]),
         _: 1
-      })) : _("", !0)
+      })) : C("", !0)
     ]));
   }
-}), Ya = /* @__PURE__ */ Q(Aa, [["__scopeId", "data-v-e5e8e40b"]]), Ta = /* @__PURE__ */ Y({
+}), Ja = /* @__PURE__ */ q(Ia, [["__scopeId", "data-v-e5e8e40b"]]), Ra = /* @__PURE__ */ Z({
   name: "AoExcelExport",
   __name: "AoExcelExport",
   props: {
@@ -1635,55 +1693,55 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
     workbookOptions: { default: () => ({}) }
   },
   emits: ["before-export", "export-success", "export-error", "export-progress"],
-  setup(e, { expose: o, emit: l }) {
-    const t = e, n = l;
-    class c extends Error {
-      constructor(R, E, C) {
-        super(R), this.code = E, this.details = C, this.name = "ExportError";
+  setup(e, { expose: o, emit: a }) {
+    const t = e, n = a;
+    class d extends Error {
+      constructor(E, $, A) {
+        super(E), this.code = $, this.details = A, this.name = "ExportError";
       }
       code;
       details;
     }
-    const p = V(!1), i = b(() => Array.isArray(t.data) && t.data.length > 0), u = (d) => {
-      if (!Array.isArray(d))
-        throw new c("数据必须是数组格式", "INVALID_DATA_TYPE");
-      if (d.length === 0)
-        throw new c("没有可导出的数据", "NO_DATA");
-      if (d.length > t.maxRows)
-        throw new c(`数据行数超过限制（${t.maxRows}行）`, "EXCEED_MAX_ROWS", {
-          currentRows: d.length,
+    const f = M(!1), r = g(() => Array.isArray(t.data) && t.data.length > 0), c = (u) => {
+      if (!Array.isArray(u))
+        throw new d("数据必须是数组格式", "INVALID_DATA_TYPE");
+      if (u.length === 0)
+        throw new d("没有可导出的数据", "NO_DATA");
+      if (u.length > t.maxRows)
+        throw new d(`数据行数超过限制（${t.maxRows}行）`, "EXCEED_MAX_ROWS", {
+          currentRows: u.length,
           maxRows: t.maxRows
         });
-    }, r = (d, R, E, C) => {
-      const L = t.columns[R];
-      return L?.formatter ? L.formatter(d, E, C) : d == null ? "" : d instanceof Date ? d.toLocaleDateString("zh-CN") : typeof d == "boolean" ? d ? "是" : "否" : String(d);
-    }, f = (d) => d.map((E, C) => {
-      const L = {};
-      return t.autoIndex && (L[t.indexColumnTitle] = String(C + 1)), Object.entries(E).forEach(([O, S]) => {
-        let I = O;
-        t.columns[O]?.title ? I = t.columns[O].title : t.headers[O] && (I = t.headers[O]), L[I] = r(S, O, E, C);
-      }), L;
-    }), m = (d) => {
-      if (d.length === 0) return [];
-      const R = Math.min(d.length, 100);
-      return Object.keys(d[0]).map((C) => {
-        const L = Object.values(t.columns).find((I) => I.title === C)?.width;
-        if (L)
-          return { wch: L };
-        const O = Math.max(
-          C.length,
-          ...d.slice(0, R).map((I) => String(I[C] || "").length)
+    }, s = (u, E, $, A) => {
+      const O = t.columns[E];
+      return O?.formatter ? O.formatter(u, $, A) : u == null ? "" : u instanceof Date ? u.toLocaleDateString("zh-CN") : typeof u == "boolean" ? u ? "是" : "否" : String(u);
+    }, m = (u) => u.map(($, A) => {
+      const O = {};
+      return t.autoIndex && (O[t.indexColumnTitle] = String(A + 1)), Object.entries($).forEach(([R, x]) => {
+        let V = R;
+        t.columns[R]?.title ? V = t.columns[R].title : t.headers[R] && (V = t.headers[R]), O[V] = s(x, R, $, A);
+      }), O;
+    }), h = (u) => {
+      if (u.length === 0) return [];
+      const E = Math.min(u.length, 100);
+      return Object.keys(u[0]).map((A) => {
+        const O = Object.values(t.columns).find((V) => V.title === A)?.width;
+        if (O)
+          return { wch: O };
+        const R = Math.max(
+          A.length,
+          ...u.slice(0, E).map((V) => String(V[A] || "").length)
         );
-        return { wch: Math.min(Math.max(O + 2, 8), 50) };
+        return { wch: Math.min(Math.max(R + 2, 8), 50) };
       });
-    }, g = async (d, R, E) => {
+    }, b = async (u, E, $) => {
       try {
         n("export-progress", 10);
-        const C = f(d);
+        const A = m(u);
         n("export-progress", 30);
-        const L = fe.utils.book_new();
-        t.workbookOptions && (L.Props = {
-          Title: R,
+        const O = fe.utils.book_new();
+        t.workbookOptions && (O.Props = {
+          Title: E,
           Subject: "数据导出",
           Author: t.workbookOptions.creator || "Ao Design Pro",
           Manager: t.workbookOptions.lastModifiedBy || "",
@@ -1694,107 +1752,107 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
           CreatedDate: t.workbookOptions.created || /* @__PURE__ */ new Date(),
           ModifiedDate: t.workbookOptions.modified || /* @__PURE__ */ new Date()
         }), n("export-progress", 50);
-        const O = fe.utils.json_to_sheet(C);
-        O["!cols"] = m(C), n("export-progress", 70), fe.utils.book_append_sheet(L, O, E), n("export-progress", 85);
-        const S = fe.write(L, {
+        const R = fe.utils.json_to_sheet(A);
+        R["!cols"] = h(A), n("export-progress", 70), fe.utils.book_append_sheet(O, R, $), n("export-progress", 85);
+        const x = fe.write(O, {
           bookType: "xlsx",
           type: "array",
           compression: !0
-        }), I = new Blob([S], {
+        }), V = new Blob([x], {
           type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         });
         n("export-progress", 95);
-        const w = (/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/g, "-"), H = `${R}_${w}.xlsx`;
-        return Ro.saveAs(I, H), n("export-progress", 100), await pt(), Promise.resolve();
-      } catch (C) {
-        throw new c(`Excel 导出失败: ${C.message}`, "EXPORT_FAILED", C);
+        const w = (/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/g, "-"), D = `${E}_${w}.xlsx`;
+        return Ro.saveAs(V, D), n("export-progress", 100), await mt(), Promise.resolve();
+      } catch (A) {
+        throw new d(`Excel 导出失败: ${A.message}`, "EXPORT_FAILED", A);
       }
-    }, k = _o(async () => {
-      if (!p.value) {
-        p.value = !0;
+    }, S = Co(async () => {
+      if (!f.value) {
+        f.value = !0;
         try {
-          u(t.data), n("before-export", t.data), await g(t.data, t.filename, t.sheetName), n("export-success", t.filename, t.data.length), t.showSuccessMessage && Ye.success({
+          c(t.data), n("before-export", t.data), await b(t.data, t.filename, t.sheetName), n("export-success", t.filename, t.data.length), t.showSuccessMessage && qe.success({
             message: `成功导出 ${t.data.length} 条数据`,
             duration: 3e3
           });
-        } catch (d) {
-          const R = d instanceof c ? d : new c(`导出失败: ${d.message}`, "UNKNOWN_ERROR", d);
-          n("export-error", R), t.showErrorMessage && Ye.error({
-            message: R.message,
+        } catch (u) {
+          const E = u instanceof d ? u : new d(`导出失败: ${u.message}`, "UNKNOWN_ERROR", u);
+          n("export-error", E), t.showErrorMessage && qe.error({
+            message: E.message,
             duration: 5e3
-          }), console.error("Excel 导出错误:", R);
+          }), console.error("Excel 导出错误:", E);
         } finally {
-          p.value = !1, n("export-progress", 0);
+          f.value = !1, n("export-progress", 0);
         }
       }
     }, 1e3);
     return o({
-      exportData: k,
-      isExporting: xo(p),
-      hasData: i
-    }), (d, R) => (s(), v(a(pe), {
+      exportData: S,
+      isExporting: So(f),
+      hasData: r
+    }), (u, E) => (i(), v(l(me), {
       type: e.type,
       size: e.size,
-      loading: p.value,
-      disabled: e.disabled || !i.value,
-      onClick: a(k)
+      loading: f.value,
+      disabled: e.disabled || !r.value,
+      onClick: l(S)
     }, {
-      loading: h(() => [
-        z(a(nt), { class: "is-loading" }, {
-          default: h(() => [
-            z(a(To))
+      loading: p(() => [
+        z(l(rt), { class: "is-loading" }, {
+          default: p(() => [
+            z(l(_o))
           ]),
           _: 1
         }),
-        X(" " + U(e.loadingText), 1)
+        J(" " + U(e.loadingText), 1)
       ]),
-      default: h(() => [
-        N(d.$slots, "default", {}, () => [
-          X(U(e.buttonText), 1)
+      default: p(() => [
+        F(u.$slots, "default", {}, () => [
+          J(U(e.buttonText), 1)
         ], !0)
       ]),
       _: 3
     }, 8, ["type", "size", "loading", "disabled", "onClick"]));
   }
-}), qa = /* @__PURE__ */ Q(Ta, [["__scopeId", "data-v-eae0b991"]]), Oa = { class: "excel-import" }, Ia = /* @__PURE__ */ Y({
+}), Qa = /* @__PURE__ */ q(Ra, [["__scopeId", "data-v-eae0b991"]]), Ma = { class: "excel-import" }, za = /* @__PURE__ */ Z({
   name: "AoExcelImport",
   __name: "AoExcelImport",
   emits: ["import-success", "import-error"],
   setup(e, { emit: o }) {
-    async function l(c) {
-      return new Promise((p, i) => {
-        const u = new FileReader();
-        u.onload = (r) => {
+    async function a(d) {
+      return new Promise((f, r) => {
+        const c = new FileReader();
+        c.onload = (s) => {
           try {
-            const f = r.target?.result, m = fe.read(f, { type: "array" }), g = m.SheetNames[0], k = m.Sheets[g], d = fe.utils.sheet_to_json(k);
-            p(d);
-          } catch (f) {
-            i(f);
+            const m = s.target?.result, h = fe.read(m, { type: "array" }), b = h.SheetNames[0], S = h.Sheets[b], u = fe.utils.sheet_to_json(S);
+            f(u);
+          } catch (m) {
+            r(m);
           }
-        }, u.onerror = (r) => i(r), u.readAsArrayBuffer(c);
+        }, c.onerror = (s) => r(s), c.readAsArrayBuffer(d);
       });
     }
-    const t = o, n = async (c) => {
+    const t = o, n = async (d) => {
       try {
-        if (!c.raw) return;
-        const p = await l(c.raw);
-        t("import-success", p);
-      } catch (p) {
-        t("import-error", p);
+        if (!d.raw) return;
+        const f = await a(d.raw);
+        t("import-success", f);
+      } catch (f) {
+        t("import-error", f);
       }
     };
-    return (c, p) => (s(), B("div", Oa, [
-      z(a(vo), {
+    return (d, f) => (i(), B("div", Ma, [
+      z(l(vo), {
         "auto-upload": !1,
         accept: ".xlsx, .xls",
         "show-file-list": !1,
         onChange: n
       }, {
-        default: h(() => [
-          z(a(pe), { type: "primary" }, {
-            default: h(() => [
-              N(c.$slots, "default", {}, () => [
-                p[0] || (p[0] = X("导入 Excel", -1))
+        default: p(() => [
+          z(l(me), { type: "primary" }, {
+            default: p(() => [
+              F(d.$slots, "default", {}, () => [
+                f[0] || (f[0] = J("导入 Excel", -1))
               ], !0)
             ]),
             _: 3
@@ -1804,7 +1862,7 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
       })
     ]));
   }
-}), Xa = /* @__PURE__ */ Q(Ia, [["__scopeId", "data-v-81d063bb"]]), Ra = { class: "logo-container" }, Ma = ["src"], za = /* @__PURE__ */ Y({
+}), el = /* @__PURE__ */ q(za, [["__scopeId", "data-v-81d063bb"]]), $a = { class: "logo-container" }, Va = ["src"], La = /* @__PURE__ */ Z({
   name: "AoLogo",
   __name: "AoLogo",
   props: {
@@ -1812,47 +1870,48 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
     src: {}
   },
   setup(e) {
-    const o = e, l = $e(bt, void 0), t = b(() => o.src ?? l), n = b(() => ({ width: `${o.size}px` }));
-    return (c, p) => (s(), B("div", Ra, [
-      t.value ? (s(), B("img", {
+    const o = e, a = Le(bt, void 0), t = g(() => o.src ?? a), n = g(() => ({ width: `${o.size}px` }));
+    return (d, f) => (i(), B("div", $a, [
+      t.value ? (i(), B("img", {
         key: 0,
-        style: ve(n.value),
+        style: ge(n.value),
         src: t.value,
         alt: "logo",
         class: "logo-img"
-      }, null, 12, Ma)) : _("", !0)
+      }, null, 12, Va)) : C("", !0)
     ]));
   }
-}), Ja = /* @__PURE__ */ Q(za, [["__scopeId", "data-v-79a50d9f"]]), Qa = {
+}), tl = /* @__PURE__ */ q(La, [["__scopeId", "data-v-79a50d9f"]]), ol = {
   install(e, o = {}) {
-    console.info(`[ao-admin-components] v${Ho}`), o.i18n && (o.i18n.global.mergeLocaleMessage("zh", Vo), o.i18n.global.mergeLocaleMessage("en", Po)), e.provide(vt, o.getAuthList ?? (() => {
+    console.info(`[ao-admin-components] v${Do}`), o.i18n && (o.i18n.global.mergeLocaleMessage("zh", $o), o.i18n.global.mergeLocaleMessage("en", Po)), e.provide(vt, o.getAuthList ?? (() => {
     })), e.provide(gt, o.resolveLocalSvg ?? (() => {
     })), e.provide(bt, o.assets?.logo), e.directive("loading", go);
   }
 };
 export {
   vt as AUTH_LIST_KEY,
-  Qa as AdminComponents,
-  Ya as AoButtonMore,
-  Za as AoButtonTable,
-  qa as AoExcelExport,
-  Xa as AoExcelImport,
-  Ga as AoForm,
-  Ca as AoIconButton,
-  Ja as AoLogo,
+  ol as AdminComponents,
+  Ja as AoButtonMore,
+  Xa as AoButtonTable,
+  ka as AoDialog,
+  Qa as AoExcelExport,
+  el as AoExcelImport,
+  qa as AoForm,
+  Oa as AoIconButton,
+  tl as AoLogo,
   na as AoSearchBar,
-  ge as AoSvgIcon,
-  Ka as AoTable,
-  ma as AoTableHeader,
+  be as AoSvgIcon,
+  Ya as AoTable,
+  pa as AoTableHeader,
   de as AoTableHeaderButton,
   gt as LOCAL_SVG_KEY,
   bt as LOGO_URL_KEY,
-  me as TableSizeEnum,
-  Z as getColumnKey,
-  xe as getColumnVisibility,
-  Fo as useAuth,
-  Wa as useTableColumns,
+  pe as TableSizeEnum,
+  Y as getColumnKey,
+  Se as getColumnVisibility,
+  Ho as useAuth,
+  Za as useTableColumns,
   No as useTableHeight,
   ze as useTableStore,
-  Ho as version
+  Do as version
 };

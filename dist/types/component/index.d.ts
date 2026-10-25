@@ -46,6 +46,7 @@ export interface TablePaginationState {
  */
 export type TablePaginationOptions = Pick<PaginationProps, 'pageSizes' | 'layout' | 'background' | 'hideOnSinglePage' | 'size' | 'pagerCount'>;
 export * from './form';
+export * from './dialog';
 /**
  * AoTable 组件 Props 接口
  * @description 继承 ElTable 除 data 外的全部属性，并扩展列配置、搜索栏与分页集成能力。

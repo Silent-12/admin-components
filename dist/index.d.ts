@@ -6,6 +6,7 @@ import { default as AoTable } from './tables/AoTable/index.vue';
 import { default as AoTableHeader } from './tables/AoTableHeader.vue';
 import { default as AoTableHeaderButton } from './tables/AoTableHeaderButton.vue';
 import { default as AoForm } from './forms/AoForm/index.vue';
+import { default as AoDialog } from './base/AoDialog.vue';
 import { default as AoSearchBar } from './forms/AoSearchBar.vue';
 import { default as AoButtonTable } from './forms/AoButtonTable.vue';
 import { default as AoButtonMore } from './forms/AoButtonMore.vue';
@@ -41,7 +42,7 @@ export interface AdminComponentsOptions {
  */
 export declare const AdminComponents: Plugin;
 export { version };
-export { AoTable, AoTableHeader, AoTableHeaderButton, AoForm, AoSearchBar, AoButtonTable, AoButtonMore, AoExcelExport, AoExcelImport, AoSvgIcon, AoIconButton, AoLogo };
+export { AoTable, AoTableHeader, AoTableHeaderButton, AoForm, AoDialog, AoSearchBar, AoButtonTable, AoButtonMore, AoExcelExport, AoExcelImport, AoSvgIcon, AoIconButton, AoLogo };
 export * from './types/component';
 export { TableSizeEnum } from './enums/formEnum';
 export type { ButtonMoreItem } from './forms/AoButtonMore.vue';
