@@ -15,7 +15,7 @@ const Mo = { cancel: "取消", confirm: "确定" }, zo = { form: { reset: "重�
 }, Vo = { cancel: "Cancel", confirm: "Confirm" }, Lo = { form: { reset: "Reset", submit: "Submit" }, searchBar: { reset: "Reset", search: "Search", expand: "Expand", collapse: "Collapse" }, selection: "Select", sizeOptions: { small: "Compact", default: "Default", large: "Loose" }, column: { selection: "Select", expand: "Expand", index: "Index", globalIndex: "Global Index" }, header: { search: "Search", refresh: "Refresh", size: "Table Size", fullscreen: "Fullscreen", columns: "Column Settings", settings: "Settings" }, zebra: "Zebra", border: "Border", headerBackground: "Header BG" }, Po = {
   common: Vo,
   table: Lo
-}, Do = "13", vt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Ho = () => {
+}, Do = "14", vt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Ho = () => {
   const e = Le(vt, () => {
   });
   return { hasAuth: (a) => a ? e()?.includes(a) ?? !1 : !1 };
@@ -447,7 +447,7 @@ const Xo = 500, Jo = 2, Qo = (e, o) => {
   for (const [t, n] of o)
     a[t] = n;
   return a;
-}, na = /* @__PURE__ */ q(la, [["__scopeId", "data-v-6125fcb8"]]), ra = ["src"], sa = /* @__PURE__ */ Z({
+}, na = /* @__PURE__ */ q(la, [["__scopeId", "data-v-b6e043b6"]]), ra = ["src"], sa = /* @__PURE__ */ Z({
   name: "AoSvgIcon",
   inheritAttrs: !1,
   __name: "AoSvgIcon",
