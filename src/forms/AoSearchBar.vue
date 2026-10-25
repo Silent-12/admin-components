@@ -361,6 +361,8 @@
 <style lang="scss" scoped>
   .ao-search-bar {
     padding: 10px;
+    // 搜索区固定浅灰底（产品指定色值），与容器内白色区域形成明度差；暗色由下方 html.dark 规则回退
+    background-color: #f7fafb;
     // 收紧表单项垂直间距，提升搜索区域信息密度
     :deep(.el-form-item) {
       margin-bottom: 12px;
@@ -368,6 +370,10 @@
     // 抵消表单末行自带的 12px 下边距（表单项 / 按钮区各一处），使卡片四周留白统一为 10px
     :deep(.el-form) {
       margin-bottom: -12px;
+    }
+    // 标题改用辅助文字色，与正文（--ao-gray-800）拉开层次，避免搜索区标签与内容区主体文字混为一色
+    :deep(.el-form-item__label) {
+      color: var(--ao-gray-600);
     }
     .action-column {
       flex: 1;
@@ -417,6 +423,11 @@
         }
       }
     }
+  }
+
+  // 暗色主题：固定浅灰底会破坏深色界面层次，回退到 Element Plus 浅填充色，保持与表格区的明度差
+  html.dark .ao-search-bar {
+    background-color: var(--el-fill-color-light);
   }
 
   // 响应式优化

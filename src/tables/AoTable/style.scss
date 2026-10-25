@@ -13,11 +13,10 @@
     background: var(--default-box-color);
     border: 1px solid var(--ao-card-border);
 
-    // 搜索栏并入外框：去掉自身卡片外观，改用浅色底与外框内区域拉开明度差，
-    // 仅保留下边框作为与表格区的分隔线；色值随 .dark 切换，无需额外适配
+    // 搜索栏并入外框：去掉自身卡片外观，仅保留下边框作为与表格区的分隔线；
+    // 底色由 AoSearchBar 自身提供（浅灰底与外框内区域拉开明度差），随 .dark 自动切换
     :deep(.ao-search-bar) {
       flex-shrink: 0;
-      background: var(--el-fill-color-light);
       border: none;
       border-bottom: 1px solid var(--ao-card-border);
     }
