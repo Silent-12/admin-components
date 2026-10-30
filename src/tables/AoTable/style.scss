@@ -55,9 +55,12 @@
 .ao-table {
   position: relative;
   height: 100%;
+  // 仅实际渲染工具栏时保留间距，与 useTableHeight 的 TABLE_HEADER_SPACING 一致
+  &.has-header {
+    margin-top: 10px;
+  }
   .el-table {
     height: 100%;
-    margin-top: 8px;
   }
   :deep(.el-loading-mask) {
     z-index: 100;

@@ -48,7 +48,11 @@
       </AoTableHeader>
 
       <!-- 表格主体 -->
-      <div class="ao-table" :class="{ 'is-empty': isEmpty }" :style="containerHeight">
+      <div
+        class="ao-table"
+        :class="{ 'is-empty': isEmpty, 'has-header': renderHeader }"
+        :style="containerHeight"
+      >
         <ElTable ref="elTableRef" v-loading="!!loading" v-bind="mergedTableProps">
           <template #default>
             <template v-for="col in columns" :key="col.columnKey || col.prop || col.type">
@@ -317,7 +321,7 @@
 
   // 使用表格高度计算 Hook
   const { containerHeight } = useTableHeight({
-    showTableHeader: computed(() => props.showTableHeader),
+    showTableHeader: renderHeader,
     bottomBarHeight,
     tableHeaderHeight,
     bottomBarSpacing: BOTTOM_BAR_SPACING
