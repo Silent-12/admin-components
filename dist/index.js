@@ -15,7 +15,7 @@ const Mo = { cancel: "取消", confirm: "确定" }, zo = { form: { reset: "重�
 }, Vo = { cancel: "Cancel", confirm: "Confirm" }, Lo = { form: { reset: "Reset", submit: "Submit" }, searchBar: { reset: "Reset", search: "Search", expand: "Expand", collapse: "Collapse" }, selection: "Select", sizeOptions: { small: "Compact", default: "Default", large: "Loose" }, column: { selection: "Select", expand: "Expand", index: "Index", globalIndex: "Global Index" }, header: { search: "Search", refresh: "Refresh", size: "Table Size", fullscreen: "Fullscreen", columns: "Column Settings", settings: "Settings" }, zebra: "Zebra", border: "Border", headerBackground: "Header BG" }, Po = {
   common: Vo,
   table: Lo
-}, Do = "16", gt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Ho = () => {
+}, Do = "17", gt = /* @__PURE__ */ Symbol("ao-admin-auth-list"), Ho = () => {
   const e = Pe(gt, () => {
   });
   return { hasAuth: (a) => a ? e()?.includes(a) ?? !1 : !1 };
@@ -1062,7 +1062,7 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
       tooltipOptions: {
         ...t.tooltipOptions,
         popperStyle: [
-          { maxWidth: "50vw", overflowWrap: "anywhere", whiteSpace: "normal" },
+          { maxWidth: "50vw", wordBreak: "break-all", whiteSpace: "normal" },
           t.tooltipOptions?.popperStyle
         ]
       },
@@ -1252,7 +1252,7 @@ const ca = { class: "table-header-root" }, da = { class: "left-wrap" }, fa = { c
       ], 2);
     };
   }
-}), Ya = /* @__PURE__ */ q(ya, [["__scopeId", "data-v-2df13b5a"]]), wa = { class: "ao-dialog__body" }, xa = /* @__PURE__ */ Z({
+}), Ya = /* @__PURE__ */ q(ya, [["__scopeId", "data-v-45acafa7"]]), wa = { class: "ao-dialog__body" }, xa = /* @__PURE__ */ Z({
   name: "AoDialog",
   __name: "AoDialog",
   props: {
