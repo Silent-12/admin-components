@@ -396,6 +396,13 @@
     border: border.value,
     size: size.value,
     headerCellStyle: headerCellStyle.value,
+    tooltipOptions: {
+      ...props.tooltipOptions,
+      popperStyle: [
+        { maxWidth: '50vw', overflowWrap: 'anywhere', whiteSpace: 'normal' } as const,
+        props.tooltipOptions?.popperStyle
+      ]
+    },
     // Element Plus 默认值为 true，未显式传入时不应被 AoTable 覆盖成 false。
     selectOnIndeterminate: hasExplicitTableProp('selectOnIndeterminate')
       ? props.selectOnIndeterminate
