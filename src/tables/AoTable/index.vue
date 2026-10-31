@@ -399,7 +399,7 @@
     tooltipOptions: {
       ...props.tooltipOptions,
       popperStyle: [
-        { maxWidth: '50vw', overflowWrap: 'anywhere', whiteSpace: 'normal' } as const,
+        { maxWidth: '50vw', wordBreak: 'break-all', whiteSpace: 'normal' } as const,
         props.tooltipOptions?.popperStyle
       ]
     },
